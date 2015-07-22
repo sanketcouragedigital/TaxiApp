@@ -1,0 +1,59 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Fare Ride</title> 
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+  <link rel="stylesheet" type="text/css" href="../css/jquery.mobile.flatui.css" />
+  <link rel="stylesheet" href="../js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+  <script src="../js/jquery-1.11.2.min.js"></script>
+  <script src="../js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="../js/tabcabreview.js"></script>
+
+  <style>
+
+    .center-wrapper{
+      text-align: center;
+    }
+    .center-wrapper * {
+      margin: 0 auto;
+    }
+
+  </style>
+
+</head> 
+<body> 
+
+<div data-role="page">
+
+  <div data-role="header"  data-theme="f">
+		<h1>Zift</h1>
+		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+		<a href="../index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
+	</div><!-- /header -->
+
+  <div data-role="content">
+    <div class="center-wrapper">
+      <img src="../images/tabcab_logo.jpg" style="height:100px;width:150px;"></img> <br/> <!--  margin: auto 100px-->
+    
+     <ul data-role="listview" id="reviewList" style="margin:10px auto"></ul>
+    </div>
+    <!-- Something goes wrong in showing reviews, this pop up appears. -->
+    <div data-role="popup" id="dlg-review-error" data-dismissible="false" style="max-width:400px;">
+        <div role="main" class="ui-content">
+          <h3>Error</h3>
+          <p>Oops, Reviews are not available at this moment. Please try again after some time. May be our system is down temporarily.</p>
+          <div class="mc-text-center"><a href="../index.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+          </div>
+    </div>  
+    
+  </div><!-- /content -->
+
+  <div data-role="footer" data-position="fixed" data-theme="f">
+    <h4></h4>
+  </div><!-- /footer -->
+</div><!-- /page -->
+
+</body>
+</html>

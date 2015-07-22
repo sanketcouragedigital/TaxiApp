@@ -1,0 +1,54 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Zift</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1//> 
+
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+  	<script src="js/jquery-1.11.2.min.js"></script>
+  	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+	<script type="text/javascript" src="js/geo.js" ></script>
+	<script type="text/javascript" src="js/mumbaicabs.js" ></script>
+	<script type="text/javascript" src="js/underscore1.7.0-min.js"></script>
+ 
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+  <link rel="stylesheet" href="css/structure.min.css" />
+</head> 
+<body> 
+<div data-role="page" id="demo-page">
+  <div data-role="header"  data-theme="f">
+		<h1>Zift</h1>
+		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+		<a href="index.html" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-ajax="false" data-direction="reverse">Home</a> 
+	</div><!-- /header -->
+  
+  <div data-role="content"> 
+		<p>
+			Distance    : <span id="distance">Please enter data </span>,
+            Travel Time : <span id="travelTime">Please enter data </span>
+		</p>
+        <ul data-role="listview"  id="rideWiseList" data-filter="true" data-filter-placeholder = "Search cabs.." data-inset="true">
+	    </ul>
+		
+		<div data-role="collapsible" id="ridingOptions">
+					<h3>Riding Options</h3>
+	               	<div style="font-size:xx-small"><i>Disclaimer: These are approximate fares and may vary based on traffic and other on road conditions. These fares do not include waiting charges, additional service charges and tolls paid during transit. Accuracy of the fares depends on accuracy of the address.</i>
+					</div>
+				</div> 
+				<div data-role="popup" id="dlg-unknownlocation-error" data-dismissible="false" style="max-width:400px;">
+        			<div role="main" class="ui-content">
+          			<h3>Hey !</h3>
+			          <p>We could not find the address you entered. Please try entering may be the parts of the address eg just the pin code and city.</p>
+			          <div class="mc-text-center">OK</div>
+          			</div>
+    			</div>  
+  </div><!-- /content -->
+  
+  <div id="5" data-role="footer" data-position="fixed" data-theme="f">
+    <h4></h4>
+  </div><!-- /footer -->
+</div><!-- /page -->
+</body>
+</html>
