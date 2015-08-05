@@ -1,35 +1,61 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <title>Zift</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1//> 
+  <title>Feedback</title> 
+  <meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1/> 
 
   <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
   <script src="js/jquery-1.11.2.min.js"></script>
   <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
  
- <<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+ <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
   <link rel="stylesheet" href="css/structure.min.css" />
+  <link rel="stylesheet" href="css/fonteffect.css" />
  <script type="text/javascript" src="js/panel.js" ></script>
  </head>
  <body>
 	<div data-role="header"  data-theme="f">
-		<h1>Zift</h1>
+		<h1>Feedback</h1>
 		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 		<a href="index.html" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-ajax="false" data-direction="reverse">Home</a> 
 	</div><!-- /header -->
 		
 		<div data-role="content">
-			<form>
+			<form id="feedbackForm">
 				<p/>Your Feedback is ipmportant for us... </p>
-				<label for="source">Comment:</label>
-				<input type="text" name="cmnt" id="cmnt" placeholder = "Write Your Feedbac..">
-				<input type="button" value="Submit" id="btnsubmit"/>
+				
+				<input type="text" name="mobileno" id="mobileno" placeholder = "Your Mobile No.."data-corners="false">
+										
+				<input type="text" name="email" id="email" placeholder = "Your Email Id.."data-corners="false">
+								
+				<input type="text" name="feedback" id="feedback" placeholder = "Feedback.."data-corners="false">
+
+				<input type="button" value="Submit" id="btnsubmit" data-theme="f" data-corners="false"/>
 			</form>
+			
+		<div data-role="popup" id="dlg-feedback-server-error" data-dismissible="false" style="max-width:400px;">
+			<div role="main" class="ui-content">
+			  <h3>Error</h3>
+			  <p>Oops,..Something seems to have gone wrong. Please try again after some time. May be our system is down temporarily.</p>
+			  <div class="mc-text-center"><a href="../feedback.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+          </div>
+		</div> 
+		<div data-role="popup" id="dlg-feedback-error" data-dismissible="false" style="max-width:400px;">
+			<div role="main" class="ui-content">
+			  <h3>Error</h3>
+			  <p>Oops,.Feedback has not sent. Please try again after some time..</p>
+			  <div class="mc-text-center"><a href="../feedback.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+          </div>
+		</div> 
+		<div data-role="popup" id="dlg-feedback-success" data-dismissible="false" style="max-width:400px;">
+			<div role="main" class="ui-content">
+			  <h3>Message</h3>
+			  <p>Your Feedback Has been sent...</p>
+			  <div class="mc-text-center"><a href="../feedback.html" data-theme="f" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+			</div>
+		</div>
+			
 		</div><!--content-->
-		<div id="5" data-role="footer" data-position="fixed" data-theme="f">
-			<h4></h4>
-		</div><!--Footer -->
 	</div><!--Page-->
 </body>
 </html>

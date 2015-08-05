@@ -1,0 +1,13 @@
+        #calbtn {
+			position: fixed;
+			bottom: 0;
+			right:2%;
+			left:2%;	
+		}
+		input#source, input#dest
+		{
+			border: 0px solid #000000;
+			border-bottom-width: 1px;
+			background-color: transparent;
+			width:100%;
+		}

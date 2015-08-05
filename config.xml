@@ -1,4 +1,4 @@
- <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <!-- config.xml reference: https://build.phonegap.com/docs/config-xml -->
 <widget xmlns     = "http://www.w3.org/ns/widgets"
@@ -6,10 +6,10 @@
         id        = "com.couragedigital.zift"
         version   = "1.0.0">
 
-    <name>Zift</name>
+    <name>ZIFT</name>
 
     <description>
-        Fare ride is a taxi application for finding the cheapest fare.
+        Description
     </description>
 
     <author href="http://couragedigital.com" email="tanveersure@couragedigital.com">

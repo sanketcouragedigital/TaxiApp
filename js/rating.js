@@ -10,11 +10,13 @@
          if(comment === "") {
          	comment = "N/A";
          }
-         var serviceName = $("#serviceName").val();
+         var serviceName = $("#serviceName").val();		
          var data = {
-          "ratingNumber" : ratingValue,
-          "comment" : comment,
-          "serviceName" : serviceName
+			"serviceName" : serviceName,
+			"ratingNumber" : ratingValue,
+			"comment" : comment,			
+			"method" : "userReview",
+			"format" : "json"
 
          };
           //alert("Rating value = "+ratingValue+" Comments = "+comment);
@@ -24,14 +26,7 @@
                   theme: "b",
                   html: ""
           }); 
-         $.ajax({
-                  type: "POST",
-                  contentType:"application/json",
-                  dataType : "json",
-                  crossDomain: true,
-                  url: "http://taxiapp.azurewebsites.net/ratings/addrating",
-                  data: JSON.stringify(data)
-            })
+         $.post("http://www.ziftapp.com/dev/api/ziftUserReview.php", data)
             .done(function( msg ) {
                 $.mobile.loading( "hide" );
                 //alert(msg); 

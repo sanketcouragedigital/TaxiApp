@@ -1,22 +1,19 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <title>Zift</title> 
-  <meta name="viewport" content="width=device-width, initial-scale=1" maximum-scale=1//> 
+  <title>Home</title> 
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1 minimum-scale=1; user-scalable=no"/>  
 
-  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script src="js/jquery-1.11.2.min.js"></script>
-  <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-  <link rel="stylesheet" href="css/structure.min.css" />
-  <link rel="stylesheet" href="css/Indexeffect.css" />
-  <link rel="stylesheet" href="css/pnl.css" />
-   
-   <style>
-		
-   </style>
-   
+	  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	  <script src="js/jquery-1.11.2.min.js"></script>
+	  <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	  <script src="js/socialShare.js"></script>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	  <link rel="stylesheet" href="css/font-awesome.css" />
+	  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+	  <link rel="stylesheet" href="css/structure.min.css" />
+	  <link rel="stylesheet" href="css/indexstyle.css" />
+	
 </head> 
 <body> 
 	
@@ -28,59 +25,72 @@
     <h1>ZIFT</h1>
   </div><!-- /header -->
  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <div id="Bgcolor" data-role="content" data-theme="f" > 
-        
-		<div id="a1" class="ui-grid-a"> <!--1st Row--> 	
-			 <div id="1" class="ui-block-a"><!--1st Column--> 
-				<a href="fareride.html" data-ajax="false" id="splash"><img src="img\rup.png"/></a>				
-				<div class="imgCaption">Eco Ride </div>
-			 </div>
-			 <div id="2" class="ui-block-b"><!--2nd Column--> 
-					<a href="taxicontacts.html" data-ajax="false"> <img src="img\taxi.png"/></a>
-					<div class="imgCaption">Available Rides </div>
-			 </div>
-		</div>
-	<!----------------------------------------------------------------------------------------------------------------->
-		 <div id="a2" class="ui-grid-a"><!--3rd Row--> 
-			<div id="3" class="ui-block-a"><!--1st Column--> 
-				<a href="phd.html" data-ajax="false"><img src="img\phd.png"/></a>
-				<div class="imgCaption">PHD</div>
-			</div>
-			<div id="4" class="ui-block-b"><!--2nd Column--> 
-				<a href="Deals.html" data-ajax="false"><img src="img\deals.png" /></a>			
-				<div class="imgCaption">Deals</div>
-			</div>
-		</div>
-	<!---------------------------------------------------------------------------------------------------------------->
-        <div id="a3" class="ui-grid-a"><!--2nd Row--> 
-			<div id="5" class="ui-block-a"><!--1st Column--> 
-				<a href="taxiserviceratinglist.html" data-ajax="false"><img src="img\RateIt.png"/></a>
-				<div class="imgCaption">Rate a Ride</div>
-			</div>
-			<div id="6" class="ui-block-b"><!--2nd Column--> 
-				<a href="reviews.html" data-ajax="false"><img src="img\Reviews.png" /></a>			
-				<div class="imgCaption">Review Available Rides</div>
-			</div>
-		</div>
-	 
-  </div><!-- /content -->
-<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-	<div id="5" data-role="footer" data-position="fixed" data-theme="f">
-		<h4></h4>
-	</div><!-- /footer -->
+  <div data-role="content" class="ui-content" id="contentpage" data-theme="f" > 
   
-<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-   <div data-role="panel" id="left-panel" >
+			<div id="a1" class="ui-grid-a"> <!--1st Row--> 	
+				 <div id="1" class="ui-block-a"><!--1st Column--> 
+					<a href="cheaprideoption.html" data-ajax="false" id="splash"><img src="images\rup1.png"/></a>				
+					<div class="imgCaption">Compare Rides </div>
+				 </div>
+				 <div id="2" class="ui-block-b"><!--2nd Column--> 
+						<a href="taxicontacts.html" data-ajax="false"> <img src="images\taxi1.png"/></a>
+						<div class="imgCaption">Available Rides </div>											
+				 </div>
+			</div>
+		<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+			 <div id="a2" class="ui-grid-a"><!--3rd Row--> 
+				<div id="3" class="ui-block-a"><!--1st Column--> 
+					<a href="partyharddrivers.html" data-ajax="false"><img src="images\phd1.png"/></a>
+					<div class="imgCaption">party hard drivers</div>
+				</div>
+				<div id="4" class="ui-block-b"><!--2nd Column--> 
+					<a href="deals.html" data-ajax="false"><img src="images\deals1.png" /></a>			
+					<div class="imgCaption">Deals</div>
+				</div>
+			</div>
+		<!------------------------------------------------------------------------------------------------------------------------------------------------------------>
+			<div id="a3" class="ui-grid-a"><!--2nd Row--> 
+				<div id="5" class="ui-block-a"><!--1st Column--> 
+					<a href="rateandreviews.html" data-ajax="false"><img src="images\rateIt1.png"/></a>
+					<div class="imgCaption">Rate And Reviews</div>					
+				</div>
+				<div id="6" class="ui-block-b"><!--2nd Column--> 
+					<a href="selfdrive.html"  data-ajax="false"><img src="images\selfdrive.png" /></a>			
+						<div class="imgCaption">Self Drive</div>
+				</div>
+			</div>
+  </div><!-- /content -->
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+   <div data-role="panel" id="left-panel">
 
-			<ul data-role="listview"  data-theme="c">
-					
-				<li class="abt"><a href="Aboutus.html" style="line-height:50px;text-align:center;" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" data-iconpos="right"data-corners="false">About us</a></li>
+			<ul data-role="listview" data-theme="c">
+				<li class="abt" >
+					<div class="bgcolor">
+						<a href="aboutus.html" style="line-height:80px;" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" data-iconpos="right"data-corners="false">About us</a>
+					</div>
+				</li>
 				
-				<li class="fdb"><a href="feedback.html" style="line-height:50px;text-align:center;" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment"data-corners="false" >Feedback </a></li>
+				<li class="abt" >
+					<div class="bgcolor" >
+						<a href="feedback.html" style="line-height:80px;" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment"data-corners="false" >Feedback </a>
+					</div>					
+				</li>
 				
-				<li class="cmt"><a href="share.html" style="line-height:50px;text-align:center;" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment" data-corners="false">Share</a></li>
+				<li class="abt">	
+					<div class="bgcolor">
+						<select name="select-choice-share" id="select-choice-share"  data-icon="forward"data-ajax="false"  data-icon="list"
+							data-corners="false"	onchange="handleSocialShare()">						 
+							<option value="no">Share it</option>				
+							<option value="facebook">Post this on Facebook</option>
+							<option value="twitter">Tweet this</option>
+							<option value="email">Email this</option>
+						</select>	
+									
+					</div>
+				
 			</ul>
     </div><!-- /panel -->
+	
 <!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 </div><!-- /page -->
 </body>
