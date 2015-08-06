@@ -8,7 +8,7 @@
                   theme: "z",
                   html: ""
         });
-       $.get("http://www.ziftapp.com/dev/api/ziftUserReview.php?serviceName=taxiforsure&method=showReview&format=json")
+       $.get("http://www.ziftapp.com/dev/api/ziftapi.php?serviceName=taxiforsure&method=showReview&format=json")
             .done(function(response) {
                 $.mobile.loading( "hide" );
                 //alert(response);

@@ -12,8 +12,9 @@
 	 
 	 	 <link rel="stylesheet" href="css/structure.min.css" /> 
 		 <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-	 	 <!--<link rel="stylesheet" href="css/fonteffect.css" />-->
+	 	 <link rel="stylesheet" href="css/fonteffect.css" />
 		 <script src="js/selfdrive.js"></script>
+		  <script src="js/selfdrivecarload.js"></script>
 		 
 		 <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
 		 <script src="jQuery.ui.datepicker.js"></script>
@@ -34,25 +35,25 @@
 				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
 			</div><!-- /header -->
-		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+		
 			<div data-role="content" >		
 				<div id="cartypeddl" data-role="fieldcontain">
 					<form id="selfdriveform" method="get">
-						<label for="select-choice-1">Select Type Of Car:</label>
-						<select name="select-choice-1" id="select-choice-1" onchange="changelist(this.value)" data-ajax="false" data-corners="false" data-theme="f">
+						<label for="typeOfCar">Select Type Of Car:</label>
+						<select name="typeOfCar" id="typeOfCar" data-ajax="false" data-corners="false" data-theme="f">   <!-- onchange="changelist(this.value)" -->
 							<option selected="selected"> Type of Car </option>
 							<option> Compact </option>
 							<option> Sedans </option>
 							<option> High End Sedans </option>
 							<option> SUV </option>
 						</select>		
-		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->								<label for="selectCar">Select Car:</label>
+		
 						<select name="selectCar" id="selectCar" data-ajax="false" data-corners="false" data-theme="f">
 							<option selected="selected"> Select Car </option>
 						</select>
 					</form>	
 				</div>
-		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->			
+		
 				<div id="packagetype" >	
 					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-corners="false">
 						<a href="#" data-role="button" id="hour" data-theme="c">Hour</a>
@@ -73,7 +74,7 @@
 						<input type="date" name="date" id="date" value=""  data-corners="false"/>			
 					</div><!--dropoffDate-->
 				</div><!--pickupDropoffDatePicker-->
-		<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->	
+		
 				<div id="pickupDropoffTimePicker">	
 					<div id="pickupTime">
 						<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-theme="f">
@@ -98,7 +99,7 @@
 							</select>							
 						</fieldset>	
 					</div><!--pickupTime-->	
-		<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------->					
+		
 					<div id="dropoffTime">
 						<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-theme="f">
 							<legend for="dropoffTime">Dropoff Time :</legend>					
@@ -123,18 +124,26 @@
 						</fieldset>		
 					</div><!--dropoffTime-->
 				</div><!--pickupDropoffTimePicker-->
-		<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->						
+		
 					<div>
 						<label for="km">Expected Kms :</label>
 						<input type="text" name="kms" id="kms" data-corneres="false"/>	
 					</div>
-		<!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->									
+		
 					<div>
 						<button id="calculatebtn" data-corners="false" data-theme="f">Calculate</button>
 					</div>		
 			</div><!--content-->
+			
+			  <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
+        <div role="main" class="ui-content">
+          <h3>Error</h3>
+          <p>Oops,Please try again after some time. May be our system is down temporarily.</p>
+          <div class="mc-text-center"><a href="seldrive.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+          </div>
+    </div>
 	</div><!--page-->		
-<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
 
 </body>
 </html>

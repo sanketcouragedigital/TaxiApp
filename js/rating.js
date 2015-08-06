@@ -26,7 +26,7 @@
                   theme: "b",
                   html: ""
           }); 
-         $.post("http://www.ziftapp.com/dev/api/ziftUserReview.php", data)
+         $.post("http://www.ziftapp.com/dev/api/ziftapi.php", data)
             .done(function( msg ) {
                 $.mobile.loading( "hide" );
                 //alert(msg); 
