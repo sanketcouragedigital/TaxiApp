@@ -2,7 +2,7 @@
 <html> 
 <head> 
 	<title>Self Drive</title> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta name="viewport" content="width=device-width,initial-scale=1"> 
 
 	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
   	<script src="js/jquery-1.11.2.min.js"></script>
@@ -20,7 +20,7 @@
 		 <script src="jQuery.ui.datepicker.js"></script>
 		 <script src="jquery.ui.datepicker.mobile.js"></script>		 
 	<style>
-		#calculatebtn {
+		#calculateAmount {
 			position: fixed;
 			bottom: 0;
 			right:2%;
@@ -40,7 +40,7 @@
 				<div id="cartypeddl" data-role="fieldcontain">
 					<form id="selfdriveform" method="get">
 						<label for="typeOfCar">Select Type Of Car:</label>
-						<select name="typeOfCar" id="typeOfCar" data-ajax="false" data-corners="false" data-theme="f">   <!-- onchange="changelist(this.value)" -->
+						<select name="typeOfCar" id="typeOfCar" data-ajax="false" data-corners="false" data-theme="f">  
 							<option selected="selected"> Type of Car </option>
 							<option> Compact </option>
 							<option> Sedans </option>
@@ -64,14 +64,11 @@
 				</div>
 		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->					
 				<div id="pickupDropoffDatePicker">
-					<div id="pickupDate">
+					<div id="date">
 						<label for="pickupDate">Pickup Date :</label>
-						<input type="date" name="date" id="date" value="" data-corners="false" />
-					</div><!--pickupDate-->	
-					
-					<div id="dropoffDate">
+						<input type="date" name="date" id="pickupDate" value="" data-corners="false" />
 						<label for="dropoffDate">Dropoff Date :</label>
-						<input type="date" name="date" id="date" value=""  data-corners="false"/>			
+						<input type="date" name="date" id="dropoffDate" value=""  data-corners="false"/>			
 					</div><!--dropoffDate-->
 				</div><!--pickupDropoffDatePicker-->
 		
@@ -90,12 +87,8 @@
 							</select>						
 							<select id="pickupTimeMinute">	
 								<option>Mins</option>
-								<script language="javascript" type="text/javascript"> 
-									for(var d=00;d<=59;d++)
-									{
-										document.write("<option>"+d+"</option>");
-									}
-								</script>
+								<option>00</option>
+								<option>30</option>
 							</select>							
 						</fieldset>	
 					</div><!--pickupTime-->	
@@ -114,12 +107,8 @@
 							</select>
 							<select id="dropoffTimeMinute">
 								<option>Mins</option>
-								<script language="javascript" type="text/javascript"> 							
-									for(var d=00;d<=59;d++)
-									{									
-										document.write("<option>"+d+"</option>");
-									}
-								</script>
+								<option>00</option>
+								<option>30</option>
 							</select>							
 						</fieldset>		
 					</div><!--dropoffTime-->
@@ -131,11 +120,11 @@
 					</div>
 		
 					<div>
-						<button id="calculatebtn" data-corners="false" data-theme="f">Calculate</button>
+						<button id="calculateAmount" data-corners="false" data-theme="f">Calculate</button>
 					</div>		
 			</div><!--content-->
 			
-			  <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
+	 <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
         <div role="main" class="ui-content">
           <h3>Error</h3>
           <p>Oops,Please try again after some time. May be our system is down temporarily.</p>

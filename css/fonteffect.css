@@ -1,3 +1,16 @@
+
+@font-face {
+    font-family: 'QuickSand';
+    src: url('fonts/font_quicksand/Quicksand-Regular.ttf');
+    /*font-weight: 400;
+    font-style: normal;*/
+}
 * {
-		font: 18px monscrrat !important;
+	font-family: QuickSand !important;
+}
+p .phdFontSizeText{
+	font-size:5px !important;
+}
+p .dealsFontSizeText{
+	font-size:6px !important;
 }

@@ -27,9 +27,9 @@
                   html: ""
           }); 
          $.post("http://www.ziftapp.com/dev/api/ziftapi.php", data)
-            .done(function( msg ) {
+            .done(function( msg ) {	
                 $.mobile.loading( "hide" );
-                //alert(msg); 
+                //alert(msg); 	
                 $("#dlg-save-success").popup("open");
                 //window.location = "home.html";
             })
