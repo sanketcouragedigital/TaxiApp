@@ -12,7 +12,7 @@ $(function() {
 				{
 					var img="";
 					$.each(response.showPHDList, function(index, phdList){
-						if(dealsList.image_path!=="") {
+						if(phdList.image_path!=="") {
 							var image_path = phdList.image_path; 
 							var value = image_path.split("/");
 							var imageName = value[2];
