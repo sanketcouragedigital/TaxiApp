@@ -8,24 +8,20 @@
   	<script src="js/jquery-1.11.2.min.js"></script>
   	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 
-	
-	 
-	 	 <link rel="stylesheet" href="css/structure.min.css" /> 
-		 <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-	 	 <link rel="stylesheet" href="css/fonteffect.css" />
-		 <script src="js/selfdrive.js"></script>
-		  <script src="js/selfdrivecarload.js"></script>
+	 <link rel="stylesheet" href="css/structure.min.css" /> 
+	 <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+	 <link rel="stylesheet" href="css/fonteffect.css" />
+     <script src="js/selfdrivecarload.js"></script>
 		 
-		 <link rel="stylesheet" href="jquery.ui.datepicker.mobile.css" /> 
-		 <script src="jQuery.ui.datepicker.js"></script>
-		 <script src="jquery.ui.datepicker.mobile.js"></script>		 
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+	
+	<link rel="stylesheet" href="css/jquery.timepicker.css" />
+     <script src="js/jquery.timepicker.js"></script>	 
+		 
 	<style>
-		#calculateAmount {
-			position: fixed;
-			bottom: 0;
-			right:2%;
-			left:2%;	
-		}
+
 	</style>
 </head>
 <body>
@@ -47,82 +43,51 @@
 							<option> High End Sedans </option>
 							<option> SUV </option>
 						</select>		
-		
 						<select name="selectCar" id="selectCar" data-ajax="false" data-corners="false" data-theme="f">
 							<option selected="selected"> Select Car </option>
 						</select>
 					</form>	
 				</div>
 		
-				<div id="packagetype" >	
-					<fieldset data-role="controlgroup" data-type="horizontal" data-mini="true" data-corners="false">
-						<a href="#" data-role="button" id="hour" data-theme="c">Hour</a>
-						<a href="#" data-role="button" id="day" data-theme="c">Day</a>
-						<a href="#" data-role="button" id="week" data-theme="c">Week</a>
-						<a href="#" data-role="button" id="month" data-theme="c">Month</a>	
+				<div id="packagetype" >
+					<p>Car rental by:-</p>
+					<fieldset data-role="controlgroup" data-type="horizontal" id="btngroup" data-corners="false">	
+						<input type="radio" name="radio-choice" id="hour" data-theme="a" onclick="userChoice('hour')">
+						<label for="hour"> Hour</label>							  
+						<input type="radio" name="radio-choice" id="day"  data-theme="a" onclick="userChoice('day')">
+						<label for="day">Day</label>						
+						<input type="radio" name="radio-choice" id="week" data-theme="a" onclick="userChoice('week')">
+						<label for="week"> Week</label>							  
+						<input type="radio" name="radio-choice" id="month"data-theme="a" onclick="userChoice('month')">
+						<label for="month">Month</label>
+
 					</fieldset>
 				</div>
-		<!----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->					
-				<div id="pickupDropoffDatePicker">
-					<div id="date">
-						<label for="pickupDate">Pickup Date :</label>
-						<input type="date" name="date" id="pickupDate" value="" data-corners="false" />
-						<label for="dropoffDate">Dropoff Date :</label>
-						<input type="date" name="date" id="dropoffDate" value=""  data-corners="false"/>			
-					</div><!--dropoffDate-->
+				<div id="pickupDropoffDatePicker">											
+					<p>Pickup Date :</p> <input type="text" id="pickupDate">
+					<p>Dropoff Date :</p> <input type="text" id="dropoffDate">
 				</div><!--pickupDropoffDatePicker-->
 		
-				<div id="pickupDropoffTimePicker">	
-					<div id="pickupTime">
-						<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-theme="f">
-							<legend for="pickupTime">Pickup Time :</legend>														
-							<select id="pickupTimeHr">		
-								<option>Hrs</option>
-								<script language="javascript" type="text/javascript"> 							
-									for(var d=01;d<=24;d++)
-									{
-										document.write("<option>"+d+"</option>");
-									}
-								</script>
-							</select>						
-							<select id="pickupTimeMinute">	
-								<option>Mins</option>
-								<option>00</option>
-								<option>30</option>
-							</select>							
-						</fieldset>	
-					</div><!--pickupTime-->	
-		
+				<div id="pickupDropoffTimePicker">											
+					<div id="pickupTime">	
+						<p>Pickup Time:-</P><input type="timepicker"id="timepickerfrom" class="timepicker" >	
+					</div><!--pickupTime-->			
 					<div id="dropoffTime">
-						<fieldset data-role="controlgroup" data-type="horizontal" data-corners="false" data-theme="f">
-							<legend for="dropoffTime">Dropoff Time :</legend>					
-							<select id="dropoffTimeHr">	
-								<option>Hrs</option>
-								<script language="javascript" type="text/javascript"> 							
-									for(var d=01;d<=24;d++)
-									{								
-										document.write("<option>"+d+"</option>");
-									}
-								</script>
-							</select>
-							<select id="dropoffTimeMinute">
-								<option>Mins</option>
-								<option>00</option>
-								<option>30</option>
-							</select>							
-						</fieldset>		
+						<p>Dropoff Time:-</P><input type="timepicker"id="timepickerto" class="timepicker" >	
 					</div><!--dropoffTime-->
 				</div><!--pickupDropoffTimePicker-->
 		
-					<div>
-						<label for="km">Expected Kms :</label>
-						<input type="text" name="kms" id="kms" data-corneres="false"/>	
-					</div>
-		
-					<div>
-						<button id="calculateAmount" data-corners="false" data-theme="f">Calculate</button>
-					</div>		
+				<div>
+					<label for="km">Expected Kms :</label>
+					<input type="text" name="kms" id="kms" data-corneres="false"/>	
+				</div>
+			
+				<div  id="calculateAmt">
+					<input type="button" value="Calculate" id="calculateAmount" data-theme="f" data-corners="false"/>					
+				</div>	
+					
 			</div><!--content-->
+			
 			
 	 <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
         <div role="main" class="ui-content">
