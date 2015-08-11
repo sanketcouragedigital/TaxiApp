@@ -11,17 +11,16 @@
 	 <link rel="stylesheet" href="css/structure.min.css" /> 
 	 <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
 	 <link rel="stylesheet" href="css/fonteffect.css" />
+	 <link rel="stylesheet" href="css/selfdriveeffect.css" />
      <script src="js/selfdrivecarload.js"></script>
 		 
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
 	
-	<link rel="stylesheet" href="css/jquery.timepicker.css" />
-     <script src="js/jquery.timepicker.js"></script>	 
-		 
+	 <link rel="stylesheet" href="css/jquery.timepicker.css" />
+     <script src="js/jquery.timepicker.js"></script>	 	 
 	<style>
-
 	</style>
 </head>
 <body>
@@ -31,7 +30,6 @@
 				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
 			</div><!-- /header -->
-		
 			<div data-role="content" >		
 				<div id="cartypeddl" data-role="fieldcontain">
 					<form id="selfdriveform" method="get">
@@ -48,7 +46,6 @@
 						</select>
 					</form>	
 				</div>
-		
 				<div id="packagetype" >
 					<p>Car rental by:-</p>
 					<fieldset data-role="controlgroup" data-type="horizontal" id="btngroup" data-corners="false">	
@@ -60,35 +57,38 @@
 						<label for="week"> Week</label>							  
 						<input type="radio" name="radio-choice" id="month"data-theme="a" onclick="userChoice('month')">
 						<label for="month">Month</label>
-
 					</fieldset>
 				</div>
 				<div id="pickupDropoffDatePicker">											
 					<p>Pickup Date :</p> <input type="text" id="pickupDate">
 					<p>Dropoff Date :</p> <input type="text" id="dropoffDate">
 				</div><!--pickupDropoffDatePicker-->
-		
-				<div id="pickupDropoffTimePicker">											
-					<div id="pickupTime">	
-						<p>Pickup Time:-</P><input type="timepicker"id="timepickerfrom" class="timepicker" >	
-					</div><!--pickupTime-->			
-					<div id="dropoffTime">
-						<p>Dropoff Time:-</P><input type="timepicker"id="timepickerto" class="timepicker" >	
-					</div><!--dropoffTime-->
+				
+				<div id="pickupDropoffTimePicker">	
+						<label for="expected Hours:-">Expected Hours:-:</label>						
+						<select name="expectedHours" id="expectedHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
+							<option selected="selected">Hours</option>
+							<script>
+								function selectOne() {
+									  var select = document.getElementById('expectedHours');
+									  for (var i=0; i<23; i++) {
+										 select.options[select.options.length] = new Option(i+1, i);
+									  } 
+									}
+								selectOne();
+							</script>
+						</select>
+						<p>Pickup Date:-</P><input type="text" id="hourlyPickupDate">					
 				</div><!--pickupDropoffTimePicker-->
-		
+				
 				<div>
 					<label for="km">Expected Kms :</label>
 					<input type="text" name="kms" id="kms" data-corneres="false"/>	
-				</div>
-			
+				</div>			
 				<div  id="calculateAmt">
 					<input type="button" value="Calculate" id="calculateAmount" data-theme="f" data-corners="false"/>					
-				</div>	
-					
+				</div>		
 			</div><!--content-->
-			
-			
 	 <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
         <div role="main" class="ui-content">
           <h3>Error</h3>
@@ -97,7 +97,5 @@
           </div>
     </div>
 	</div><!--page-->		
-
-
 </body>
 </html>

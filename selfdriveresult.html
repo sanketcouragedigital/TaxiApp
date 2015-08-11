@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Car Results</title> 
+  <meta name="viewport" content="width=device-width" /> 
+
+  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+  	<script src="js/jquery-1.11.2.min.js"></script>
+  	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+    <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+    <link rel="stylesheet" href="css/structure.min.css" />
+	<link rel="stylesheet" href="css/fonteffect.css" />
+	<script src="js/calculateamountforselfdrive.js"></script>
+</head> 
+<body> 
+<div data-role="page" id="demo-page">
+  <div data-role="header"  data-theme="f">
+		<h1>Car Options </h1>
+		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+		<a href="index.html" class="ui-btn-right" data-icon="home" data-iconpos="notext" data-ajax="false" data-direction="reverse">Home</a> 
+	</div><!-- header -->
+  
+  <div data-role="content"> 
+		 <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
+        <div role="main" class="ui-content">
+          <h3>Error</h3>
+          <p>Oops,Please try again after some time. May be our system is down temporarily.</p>
+          <div class="mc-text-center"><a href="seldrive.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+          </div>
+    </div>
+  </div><!-- content -->
+</div><!-- page -->
+</body>
+</html>
