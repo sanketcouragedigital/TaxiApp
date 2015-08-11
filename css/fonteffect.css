@@ -8,21 +8,3 @@
 * {
 	font-family: QuickSand !important;
 }
-p .phdFontSizeText{
-	font-size:5px !important;
-}
-p .dealsFontSizeText{
-	font-size:6px !important;
-}
-/* self drive car*/
-#calculateAmt {
-	position: fixed !important;
-	bottom: 0 !important;
-	right:2% !important;
-	left:2% !important;	
-}
-.ui-btn {
-	padding-right:5px !important;
-	padding-left:5px !important;
-			
-}
