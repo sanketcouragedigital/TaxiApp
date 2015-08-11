@@ -18,7 +18,14 @@ $(function() {
 							var imageName = value[2];
 						}
 						else {
-							var imageName = "default_image.jpg";
+							var imageName = "default_image.png";
+						}
+						
+						if(dealsList.isVerify==true ){
+							img='<img height="20px" width="20px" src="http://www.ziftapp.com/dev/misc_images/verify.png" style="position:relative"></img>';
+						}
+						else{
+							img='<img height="20px" width="20px" src="http://www.ziftapp.com/dev/misc_images/notverify.png" style="position:relative"></img>';
 						}
 						
 						var date = dealsList.validUptoDate;
@@ -29,7 +36,7 @@ $(function() {
 						var validUptoDate = dd+"/"+mm+"/"+yyyy;
 						
 						var listItemHtml = [];
-						listItemHtml[index] ='<li class="dealsList"><a href="#" class="customlistbgcolor" data-ajax="false"><img height="80px" width="100px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px monscrrat !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p><strong id="offerShortDescription" style="font: 16px monscrrat !important">'+dealsList.offer+'</strong></p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
+						listItemHtml[index] ='<li data-role="list-divider"></li><li class="dealsList"><a href="#" class="customlistbgcolor" data-ajax="false"><img height="80px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p><strong id="offerShortDescription" style="font: 16px QuickSand !important">'+dealsList.offer+'&nbsp;'+img+'</strong></p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
 						$("#dealsList").append(listItemHtml);
 							
 					});
@@ -61,13 +68,13 @@ $(function() {
 					});
 				}
 				else{
-					$("#dlg-save-error").popup("open");
+					$("#dlg-deals-error").popup("open");
 				}
                
             })
             .fail(function (){
                 $.mobile.loading( "hide" );
-                $("#dlg-review-error").popup("open"); 
+                $("#dlg-deals-server-error").popup("open"); 
              })
              .always(function(){
                 $.mobile.loading( "hide" );
