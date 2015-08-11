@@ -1,39 +1,51 @@
 $ (function(){
 
-	var selectedCar = sessionStorage.getItem("selectCar");
-	var hour = sessionStorage.getItem("hour");
-	var pickupTimeHours = sessionStorage.getItem("pickupTimeHr");
-	var pickupTimeMins = sessionStorage.getItem("pickupTimeMinute");
-	var dropoffTimeHours = sessionStorage.getItem("dropoffTimeHr");
-	var dropoffTimeMins = sessionStorage.getItem("dropoffTimeMinute");
-	var day = sessionStorage.getItem("day");
-	var pickupDay = sessionStorage.getItem("pickupDate");
-	var dropoffDay = sessionStorage.getItem("dropoffDate");
-	var week = sessionStorage.getItem("week");
-	var month = sessionStorage.getItem("month");
-	var expectedKm = sessionStorage.getItem("kms");
+	var carDetailsArray = sessionStorage.getItem("carDetails");
+		
+    //seprate the sessionStorage like carMake  Hrlyweekde hrlyweeknd dailyweekde dailyweekend
 	
-	// calculate todays day
-		
-		var todaysDate = new Date();
-		var days = new Array(4);		
-		days[1] = "Monday";
-		days[2] = "Tuesday";
-		days[3] = "Wednesday";
-		days[4] = "Thursday";
-		days[5] = "Friday";
-		days[6] = "Saturday";
-		days[0]=  "Sunday";
+	//now calculation as per car selected 
+	var totalAmount;
+	var extrachages= totaltime*10 - expectedkm
+					if(totaltime*10 < expectedkm)
+					{
+						extrachages= (totaltime*10 - expectedkm)*extraRs(column);
+					}
+					else
+					{
+						extrachages=0;
+					}
 
-		var todaysDay = days[todaysDate.getDay()];
-		
-		if( todaysDay=="Monday"||  todaysDay=="Tuesday" || todaysDay=="Wednesday"  ||todaysDay=="Thursday"){
-			var weekday=todaysDay;
-		}
-		else( todaysDay=="Monday"||  todaysDay=="Tuesday" || todaysDay=="Wednesday")
+	
+	if(usercoice=hour)
+	{
+		if(today==weekday)
 		{
-			var weekend=todaysDay;
+			totalAmount= Hrlyweekde(column)*expectedHour+extrachages;
 		}
-		
-    
+		else if(today==weekend)
+		{
+			totalAmount= Hrlyweekend(column)*expectedHour+extrachages;
+		}
+	}
+	else if(usercoice=daily)
+	{
+		if(today==weekday)
+		{
+			totalAmount= Dailylyweekde(column)*totalDays+extrachages;
+		}
+		else if(today==weekend)
+		{
+			totalAmount= daillyweekend(column)*totalDays+extrachages;
+		}
+	}
+	else if(usercoice=weekly)
+	{
+		totalAmount= Dailylyweekde(column)*totalDays+extrachages;
+	}
+	else if(usercoice=monthly)
+	{
+		totalAmount= Dailylyweekde(column)*totalDays+extrachages;
+	}
+	
 });
