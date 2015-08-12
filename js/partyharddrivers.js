@@ -29,7 +29,7 @@ $(function() {
 						}
 						
 						var listItemHtml;
-						listItemHtml='<li data-icon="phone"><a href="'+phdList.mobileno+'" class="customlistbgcolor"><img height="80px" width="80px" src="http://www.ziftapp.com/dev/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'&nbsp;'+img+'</strong></p></a></li>';
+						listItemHtml='<li data-icon="phone"><a href="tel:'+phdList.mobileno+'" class="customlistbgcolor"><img height="80px" width="80px" src="http://www.ziftapp.com/dev/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'&nbsp;'+img+'</strong></p></a></li>';
 						$("#partyHardDriversList").append(listItemHtml);				
 					});
 					$("#partyHardDriversList").listview('refresh');
