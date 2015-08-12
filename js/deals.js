@@ -36,7 +36,7 @@ $(function() {
 						var validUptoDate = dd+"/"+mm+"/"+yyyy;
 						
 						var listItemHtml = [];
-						listItemHtml[index] ='<li data-role="list-divider"></li><li class="dealsList"><a href="#" class="customlistbgcolor" data-ajax="false"><img height="80px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p><strong id="offerShortDescription" style="font: 16px QuickSand !important">'+dealsList.offer+'&nbsp;'+img+'</strong></p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
+						listItemHtml[index] ='<li class="dealsList"><a href="#" class="customlistbgcolor" data-ajax="false"><img height="80px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p><strong id="offerShortDescription" style="font: 16px QuickSand !important">'+dealsList.offer+'&nbsp;'+img+'</strong></p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
 						$("#dealsList").append(listItemHtml);
 							
 					});
