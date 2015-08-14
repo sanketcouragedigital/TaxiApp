@@ -252,17 +252,19 @@
                 var listItemHtml;
                 var sortedCosts = _.sortBy(cabCosts,'cost');
                 $.each(sortedCosts, function(i,currCab){
-                listItemHtml = '<li data-icon="phone"> <a href="'+currCab.contact+'" class="customlistbgcolor">'+currCab.logo+" "+currCab.type+' <span class="ui-li-count"> Rs '+currCab.cost+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(2)+'</span></a></li>';
+                listItemHtml = '<li data-icon="phone" class="taxiFareList"> <a href="'+currCab.contact+'" class="customlist">'+currCab.logo+" "+currCab.type+' <span class="ui-li-count"> Rs '+currCab.cost+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(2)+'</span></a></li>';
                 $("#rideWiseList").append(listItemHtml);
 
                 });
                 $('#rideWiseList').listview('refresh');
-				$("a.customlistbgcolor").css({
+				$("a.customlist").css({
 					background: "#f6f6f6"			
-				})
+				});
 				$("a").css({
 					color: "black"			
-				})
+				});
+				$("li.taxiFareList").css("border", "#DCDCDC solid 1px");
+				$("a.customlist").css("border", "#DCDCDC 1px");
                 calcRoute();
             }
             

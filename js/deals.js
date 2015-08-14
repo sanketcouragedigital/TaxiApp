@@ -36,7 +36,7 @@ $(function() {
 						var validUptoDate = dd+"/"+mm+"/"+yyyy;
 						
 						var listItemHtml = [];
-						listItemHtml[index] ='<li class="dealsList"><a href="#" class="customlistbgcolor" data-ajax="false"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p><strong id="offerShortDescription" style="font: 16px QuickSand !important; max-width: 100px; word-wrap:break-word;">'+dealsList.offer+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(dealsList.isVerify))+'&nbsp;'+img+'</p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
+						listItemHtml[index] ='<li class="dealsList" data-icon="false"><a href="#" class="customlist" data-ajax="false"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p style="padding-right: 10px"><strong id="offerShortDescription" style="font: 16px QuickSand !important; ">'+dealsList.offer+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(dealsList.isVerify))+'&nbsp;'+img+'</p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
 						$("#dealsList").append(listItemHtml);
 							
 					});
@@ -47,14 +47,14 @@ $(function() {
 						}
 						return "Verified";
 					}
-					$("a.customlistbgcolor").css({
+					$("a.customlist").css({
 						background : "#f6f6f6"
 					});
 					$("a").css({
 						color : "black"
 					});
 					$("li.dealsList").css("border", "#DCDCDC solid 1px");
-					$("a.customlistbgcolor").css("border", "#DCDCDC 1px");
+					$("a.customlist").css("border", "#DCDCDC 1px");
 					$("p#offerCode,p#offerValidUptoDate,div#offerTerms").css({
 						display : "none"
 					});

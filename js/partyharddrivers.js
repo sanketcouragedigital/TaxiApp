@@ -29,7 +29,7 @@ $(function() {
 						}
 						
 						var listItemHtml;
-						listItemHtml='<li data-icon="phone" class="phdList"><a href="tel:'+phdList.mobileno+'" class="customlistbgcolor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(phdList.isVerify))+'&nbsp;'+img+'</p></a></li>';
+						listItemHtml='<li data-icon="phone" class="phdList"><a href="tel:'+phdList.mobileno+'" class="customlist"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(phdList.isVerify))+'&nbsp;'+img+'</p></a></li>';
 						$("#partyHardDriversList").append(listItemHtml);				
 					});
 					$("#partyHardDriversList").listview('refresh');
@@ -39,14 +39,14 @@ $(function() {
 						}
 						return "Verified";
 					}
-					$("a.customlistbgcolor").css({
+					$("a.customlist").css({
 						background : "#f6f6f6"
 					});
 					$("a").css({
 						color : "black"
 					});
 					$("li.phdList").css("border", "#DCDCDC solid 1px");
-					$("a.customlistbgcolor").css("border", "#DCDCDC 1px");
+					$("a.customlist").css("border", "#DCDCDC 1px");
 				}
 				else{
 					$("#dlg-phd-error").popup("open");
