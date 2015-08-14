@@ -4,13 +4,12 @@ function userChoice(choice)
 		if(choice == 'hour')
 		{
 			$("#pickupDropoffTimePicker").show();
-			$("#pickupDropoffDatePicker").hide();
-			//alert("Will go Hourly");
+			$("#pickupDropoffDatePicker").hide();			
 			var $hourlyPickupDate =  $("#hourlyPickupDate");
 			//to find weeekday. or weekend
 			$hourlyPickupDate.datepicker({
 				onClose: function() {
-					var todaysDate = $hourlyPickupDate.datepicker('getDate');
+					var selecteddate = $hourlyPickupDate.datepicker('getDate');
 					var days = new Array(6);		
 					days[1] = "Monday";
 					days[2] = "Tuesday";
@@ -19,14 +18,17 @@ function userChoice(choice)
 					days[5] = "Friday";
 					days[6] = "Saturday";
 					days[0]=  "Sunday";
-					var todaysDay = days[todaysDate.getDay()];
-					alert(todaysDay);
+					
+					var selecteddate = days[selecteddate.getDay()];					
+					sessionStorage.setItem("weekdayOrWeekend",selecteddate);
+					var expectedtime = $("#expectedHours option:selected").text();
+					sessionStorage.setItem("totalHour",expectedtime);			
 				}
-			});
-			
+			});	
+				
 		}
 		else if(choice =='day') 
-		{
+		{	
 			$("#pickupDropoffDatePicker").show();
 			$("#pickupDropoffTimePicker").hide();
 			//alert("Will go Daily");
@@ -41,34 +43,26 @@ function userChoice(choice)
 					// date difference in millisec
 					var diff = new Date(toDate - fromDate);
 					// date difference in days
-					var days = diff/1000/60/60/24;				 
-					alert(days);
-					var totalDays=days;
+					var countDays = (diff/1000/60/60/24)+1;				 
+					sessionStorage.setItem("noOfDays",noOfDays);
+					var weekendDayCount = 0;
+					while(fromDate < toDate){
+						
+						if(fromDate.getDay() === 0 || fromDate.getDay() == 6 || fromDate.getDay() == 5){
+							++weekendDayCount ;
+						}
+						fromDate.setDate(fromDate.getDate() + 1);
+					}					
+					var weekends=weekendDayCount;
+					sessionStorage.setItem("noOfWeekends",weekends);
+					
+					var weekdays=countDays-weekendDayCount;
+					sessionStorage.setItem("noOfWeekdays",weekdays);
 				}
-			});
+			});					
 		}
-		else if(choice ==  'week' || choice ==  'month')
-		{
-			$("#pickupDropoffDatePicker").show();
-			$("#pickupDropoffTimePicker").hide();	
-			var $pickupDate =  $( "#pickupDate" );
-			var $dropoffDate =  $( "#dropoffDate" );
-			$pickupDate.datepicker();
-			$dropoffDate.datepicker({
-				onClose: function() {
-					var fromDate = $pickupDate.datepicker('getDate');
-					var toDate = $dropoffDate.datepicker('getDate');
-					// date difference in millisec
-					var diff = new Date(toDate - fromDate);
-					// date difference in days
-					var days = diff/1000/60/60/24;				 
-					alert(days);
-					var totalDays=days;
-				}
-			});
-		}
+			sessionStorage.setItem("userChoice",choice);
 	}	
-
 $(function (){
 	$("#pickupDropoffDatePicker").hide();
 	$("#pickupDropoffTimePicker").hide();
@@ -94,14 +88,22 @@ $(function (){
 			});
  		})
 		.fail(function (){   
-             $("#dlg-loadcar-error").popup("open"); 
+             $("#dlg-laod-error").popup("open"); 
          });
 	});
 // when user click on Calculate button	
 	$("#calculateAmount").click(function (){
+		var expectedKm = $("#kms").val();
+		if(expectedKm !== "")
+		{
+			sessionStorage.setItem("expectedKm",expectedKm);
+		}
+		else 
+		{
+			sessionStorage.setItem("expectedKm",expectedKm);
+		}
 		
-		var carMake = document.getElementById("selectCar").value;
-			
+		var carMake = document.getElementById("selectCar").value;			
 		var data={
 			"carMake" : carMake,
 			"method"  : "selfdrivecar",
@@ -110,11 +112,11 @@ $(function (){
 		$.post("http://localhost/ZiftAPI/api/ziftapi.php",data)
 			.done(function (response){
 				carDetailsArray=response.responseSelfdrivecar
-				sessionStorage.setItem("carDetails",carDetailsArray);
-				window.location.href="selfdriveresult.html"
+				sessionStorage.setItem("carDetails",JSON.stringify(carDetailsArray));
+				window.location.href="selfdriveresult.html";
 			})
 			.fail(function(){
-				$("#dlg-laod-error").popup("open");
+				$("#dlg-laod-error").popup("open"); 
 			})
 	});
 	

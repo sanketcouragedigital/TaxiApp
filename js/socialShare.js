@@ -3,7 +3,7 @@ function handleSocialShare()
     $('#select-choice-share option:selected').each(function()
     {
         text = "Courage Digital..";
-        url ="http://www.sebastianviereck.de/flash-html5-trendanalyse/#.ULTEkYb9n2A";
+        url ="http://www.ziftapp.com";
 
         shareService = $(this).val()
         switch (shareService) {
