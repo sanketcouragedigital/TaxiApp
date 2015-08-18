@@ -56,7 +56,7 @@
 				</div>
 				<div id="6" class="ui-block-b"><!--2nd Column--> 
 					<a href="selfdrive.html"  data-ajax="false"><img src="images\selfdrive.png" /></a>			
-						<div class="imgCaption">Self Drive</div>
+						<div class="imgCaption">Compare Self Drive Option</div>
 				</div>
 			</div>
   </div><!-- /content -->
@@ -65,29 +65,20 @@
 
 			<ul data-role="listview" data-theme="c">
 				<li class="abt" >
-					<div class="bgcolor">
-						<a href="aboutus.html" data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" data-corners="false">About us</a>
-					</div>
-				</li>
-				
-				<li class="abt" >
-					<div class="bgcolor" >
-						<a href="feedback.html"  data-ajax="false" data-transition="flip" data-role="button" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment"data-corners="false" >Feedback </a>
-					</div>					
-				</li>
-				
-				<li class="abt">	
-					<div class="bgcolor">
-						<select name="select-choice-share" id="select-choice-share"  data-icon="forward"data-ajax="false"  data-icon="list"
-							data-corners="false"	onchange="handleSocialShare()">						 
+					<a href="aboutus.html" style="line-height:45px; padding-left:15px; padding-right:5px !important;" data-ajax="false" data-transition="flip" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" data-corners="false">About us</a>					
+				</li>				
+				<li class="abt" >					
+					<a href="feedback.html" style="line-height:45px;padding-left:15px; padding-right:15px;" data-ajax="false" data-transition="flip" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment"data-corners="false" >Feedback </a>								
+				</li>				
+				<li class="abt" class="abt ui-li-static ui-body-inherit ui-last-child" style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px">	
+					<select name="select-choice-share" id="select-choice-share"  data-icon="forward" data-ajax="false"  
+							data-corners="false" onchange="handleSocialShare()">						 
 							<option value="no">Share it</option>				
 							<option value="facebook">Post this on Facebook</option>
 							<option value="twitter">Tweet this</option>
 							<option value="email">Email this</option>
-						</select>	
-									
-					</div>
-				
+					</select>	
+				</li>
 			</ul>
     </div><!-- /panel -->
 	
