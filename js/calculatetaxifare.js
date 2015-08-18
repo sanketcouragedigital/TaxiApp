@@ -252,19 +252,28 @@
                 var listItemHtml;
                 var sortedCosts = _.sortBy(cabCosts,'cost');
                 $.each(sortedCosts, function(i,currCab){
-                listItemHtml = '<li data-icon="phone" class="taxiFareList"> <a href="'+currCab.contact+'" class="customlist">'+currCab.logo+" "+currCab.type+' <span class="ui-li-count"> Rs '+currCab.cost+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(2)+'</span></a></li>';
+                listItemHtml = '<li data-icon="phone" class="taxiFareList"><a href="'+currCab.contact+'" class="customlist">'+currCab.logo+'<h2>'+currCab.type+'</h2> <span class="ui-li-count"> Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(0)+'</span></a></li>';
                 $("#rideWiseList").append(listItemHtml);
 
                 });
                 $('#rideWiseList').listview('refresh');
 				$("a.customlist").css({
-					background: "#f6f6f6"			
+					background : "#f6f6f6",
+					height : "85px"	
 				});
 				$("a").css({
 					color: "black"			
 				});
 				$("li.taxiFareList").css("border", "#DCDCDC solid 1px");
 				$("a.customlist").css("border", "#DCDCDC 1px");
+				$("img").css({
+					"padding" : "5px",
+					"padding-top" : "12px",
+					"height" : "62px",
+					"width" : "80px"
+				});
+				//$("img").css("padding-top", "12px");
+				
                 calcRoute();
             }
             
