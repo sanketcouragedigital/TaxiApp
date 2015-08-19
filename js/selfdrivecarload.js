@@ -43,21 +43,35 @@ function userChoice(choice)
 					// date difference in millisec
 					var diff = new Date(toDate - fromDate);
 					// date difference in days
-					var countDays = (diff/1000/60/60/24)+1;				 
-					sessionStorage.setItem("noOfDays",noOfDays);
+					var countDays = (diff/1000/60/60/24);				 
+					sessionStorage.setItem("noOfDays",countDays);
+				//calculate how many weekends from selected date..
 					var weekendDayCount = 0;
-					while(fromDate < toDate){
-						
-						if(fromDate.getDay() === 0 || fromDate.getDay() == 6 || fromDate.getDay() == 5){
+					var weekendDayCountForUDrive = 0;
+					while(fromDate <= toDate){	
+						if(fromDate.getDay() === 0 || fromDate.getDay() == 6)
+						{
+							++weekendDayCountForUDrive ;
+						}
+						if(fromDate.getDay() === 0 || fromDate.getDay() == 6 || fromDate.getDay() == 5)
+						{
 							++weekendDayCount ;
 						}
+						
 						fromDate.setDate(fromDate.getDate() + 1);
-					}					
+					}
+
 					var weekends=weekendDayCount;
 					sessionStorage.setItem("noOfWeekends",weekends);
-					
+				
 					var weekdays=countDays-weekendDayCount;
 					sessionStorage.setItem("noOfWeekdays",weekdays);
+									
+					var UDriveweekends=weekendDayCountForUDrive;
+					sessionStorage.setItem("noOfWeekendsForUDrive",UDriveweekends);
+				
+					var UDriveweekdays=countDays-weekendDayCountForUDrive;
+					sessionStorage.setItem("noOfWeekdaysUDrive",UDriveweekdays);
 				}
 			});					
 		}
@@ -88,7 +102,7 @@ $(function (){
 			});
  		})
 		.fail(function (){   
-             $("#dlg-laod-error").popup("open"); 
+            // $("#dlg-laod-error").popup("open"); 
          });
 	});
 // when user click on Calculate button	
@@ -116,8 +130,8 @@ $(function (){
 				window.location.href="selfdriveresult.html";
 			})
 			.fail(function(){
-				$("#dlg-laod-error").popup("open"); 
-			})
+				//$("#dlg-laod-error").popup("open"); 
+			});
 	});
 	
 	
