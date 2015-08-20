@@ -57,20 +57,16 @@ function userChoice(choice)
 						{
 							++weekendDayCount ;
 						}
-						
 						fromDate.setDate(fromDate.getDate() + 1);
 					}
-
-					var weekends=weekendDayCount;
-					sessionStorage.setItem("noOfWeekends",weekends);
-				
 					var weekdays=countDays-weekendDayCount;
-					sessionStorage.setItem("noOfWeekdays",weekdays);
-									
-					var UDriveweekends=weekendDayCountForUDrive;
-					sessionStorage.setItem("noOfWeekendsForUDrive",UDriveweekends);
-				
+					var weekends=weekendDayCount;
 					var UDriveweekdays=countDays-weekendDayCountForUDrive;
+					var UDriveweekends=weekendDayCountForUDrive;
+					
+					sessionStorage.setItem("noOfWeekdays",weekdays);
+					sessionStorage.setItem("noOfWeekends",weekends);
+					sessionStorage.setItem("noOfWeekendsForUDrive",UDriveweekends);
 					sessionStorage.setItem("noOfWeekdaysUDrive",UDriveweekdays);
 				}
 			});					

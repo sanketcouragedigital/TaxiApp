@@ -8,8 +8,8 @@ $ (function()
 	var selecteddate = sessionStorage.getItem("weekdayOrWeekend");
 	var totaltime = sessionStorage.getItem("totalHour");
 	var noOfDays = sessionStorage.getItem("noOfDays");
-	var noOfWeekEnds = sessionStorage.getItem("noOfWeekends");
-	var noOfWeekdays = sessionStorage.getItem("noOfWeekdays");
+	var noOfWeekEndsforall = sessionStorage.getItem("noOfWeekends");
+	var noOfWeekdaysforall = sessionStorage.getItem("noOfWeekdays");
 	
 	var noOfWeekendsForUDrive = sessionStorage.getItem("noOfWeekendsForUDrive");
 	var noOfWeekdaysUDrive = sessionStorage.getItem("noOfWeekdaysUDrive");
@@ -27,12 +27,13 @@ $ (function()
 		var monthlyRate = carDetails.monthlyRate;
 		var extraChargePerKm = carDetails.extraChargePerKm;
 		var deposit = carDetails.deposit;
+		sessionStorage.setItem("deposit",deposit);
 		var city = carDetails.city;
 		
 //now calculation as per car selected 
 		var amount;
 		var totalAmount;
-		var extracharges;
+		var extracharges = "";
 //to calculate Total Amount As per user choice
 	// calculation for daily service
 		if(userChoice == "hour")
@@ -66,11 +67,9 @@ $ (function()
 					totalAmount = amount + extracharges;
 				}
 				//making list of hourly searched cars.
-				var carsList='<li><h2 style="font:18px QuickSand !important; font-weight:bold !important">'+serviceProviderName+'<span class="ui-li-aside" style="right: 0.50em !important; top: 1.7em !important; font:14px QuickSand !important">Rs : '+amount+'</span></h2> <p><strong style="font:16px QuickSand !important">'+carMake+'<span class="ui-li-aside" style="right: 0.50em !important;  top: 3.6em !important; font:14px QuickSand !important">Extra Charges : '+extracharges+'</span></strong></p><p style="font:14px QuickSand !important">Deposit : '+deposit+'<span class="ui-li-aside" style="right: 0.50em !important;  top: 4.7em !important; font:16px QuickSand !important; font-weight: bold !important"> Total Rs : '+totalAmount+'</span></p> </li>';
+				var carsList='<li class="carList"><a href="selfdrivelistdetails.html" class="customlist" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="totaltime">'+totaltime+'</p></a></li>';
 				$("#listOfCars").append(carsList);
-				$("#listOfCars").listview('refresh');
 			}
-		
 		}
 	// calculation for daily service
 		else if(userChoice == "day")
@@ -156,7 +155,7 @@ $ (function()
 				}
 				else
 				{
-					amount = (dailyWeekdayRate * noOfWeekDays) + (dailyWeekendRate * noOfWeekEnds);
+					amount = (dailyWeekdayRate * noOfWeekdaysforall) + (dailyWeekendRate * noOfWeekEndsforall);
 					totalAmount = amount+  extracharges;
 				}
 			}
@@ -174,19 +173,56 @@ $ (function()
 					totalAmount = amount +  extracharges;
 				}
 				//calculate how many months & week from nofodays
-				/*else 
+				else 
 				{
-					amount = (dailyWeekdayRate * noOfWeekDays) + (dailyWeekendRate * noOfWeekEnds);
+					amount = (dailyWeekdayRate * noOfWeekdaysforall) + (dailyWeekendRate * noOfWeekEndsforall);
 					totalAmount = amount+  extracharges;
-				}*/
+				}
 			}
-				var carsList='<li><h2 style="font:18px QuickSand !important; font-weight:bold !important">'+serviceProviderName+'<span class="ui-li-aside" style="right: 0.50em !important; top: 1.7em !important; font:14px QuickSand !important">Rs : '+amount+'</span></h2> <p><strong style="font:16px QuickSand !important">'+carMake+'<span class="ui-li-aside" style="right: 0.50em !important;  top: 3.6em !important; font:14px QuickSand !important">Extra Charges : '+extracharges+'</span></strong></p><p style="font:14px QuickSand !important">Deposit : '+deposit+'<span class="ui-li-aside" style="right: 0.50em !important;  top: 4.7em !important; font:16px QuickSand !important; font-weight: bold !important"> Total Rs : '+totalAmount+'</span></p> </li>';
-			$("#listOfCars").append(carsList);
+				
+
+
+				var carsList='<li class="carList"><a href="selfdrivelistdetails.html" class="customlist" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="noOfDays">'+noOfDays+'</p></a></li>';
+				$("#listOfCars").append(carsList);
 		}
-			
-			$("#listOfCars").listview('refresh');
-	
+				
 	})
-	
+				$("#listOfCars").listview('refresh');	
+				$("a.customlist").css({
+					background : "#f6f6f6"
+				});
+				$("a").css({
+					color : "black"
+				});
+				$("li.carList").css("border", "#DCDCDC solid 1px");
+				$("a.customlist").css("border", "#DCDCDC 1px");
+				$("p#deposit, p#extracharges, p#totaltime, p#noOfDays").css("display","none");
+				$("li.carList").on('click',function(){
+					var carListItem = $(this);
+					var serviceProviderName=carListItem.find("h2#serviceProviderName").html();
+					var value = serviceProviderName.split("<");
+					var selectedListServiceProviderName=value[0];
+					var selectedListCarMake=carListItem.find("strong#carMake").html();
+					var totalAmount=carListItem.find("span#totalAmount").html();
+					var value = totalAmount.split(":");
+					var selectedListTotalAmount=value[1];
+					var selectedListDeposit=carListItem.find("p#deposit").html();
+					var selectedListExtracharges=carListItem.find("p#extracharges").html();
+					
+					sessionStorage.setItem("selectedListServiceProviderName",selectedListServiceProviderName);
+					sessionStorage.setItem("selectedListCarMake",selectedListCarMake);
+					sessionStorage.setItem("selectedListTotalAmount",selectedListTotalAmount);
+					sessionStorage.setItem("selectedListDeposit",selectedListDeposit);
+					sessionStorage.setItem("selectedListExtracharges",selectedListExtracharges);
+					if(userChoice == "day") {
+						var selectedListNoOfDays=carListItem.find("p#noOfDays").html();
+						sessionStorage.setItem("selectedListNoOfDays",selectedListNoOfDays);
+					}
+					else {
+						var selectedListTotalTime=carListItem.find("p#totaltime").html();
+						sessionStorage.setItem("selectedListTotalTime",selectedListTotalTime);
+					}
+				});
+				
 });
 
