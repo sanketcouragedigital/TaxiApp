@@ -26,51 +26,41 @@
   </div><!-- /header -->
  
   <div data-role="content" class="ui-content" id="contentpage" data-theme="f" > 
-  
-			<div id="a1" class="ui-grid-a"> <!--1st Row--> 	
-				 <div id="1" class="ui-block-a"><!--1st Column--> 
-					<a href="cheaprideoption.html" data-ajax="false" id="splash"><img src="images\rup1.png"/></a>				
-					<div class="imgCaption">Compare Rides Option</div>
-				 </div>
-				 <div id="2" class="ui-block-b"><!--2nd Column--> 
-						<a href="taxicontacts.html" data-ajax="false"> <img src="images\taxi1.png"/></a>
-						<div class="imgCaption">Available Rides </div>											
-				 </div>
-			</div>
-		
-			 <div id="a2" class="ui-grid-a"><!--3rd Row--> 
-				<div id="3" class="ui-block-a"><!--1st Column--> 
-					<a href="partyharddrivers.html" data-ajax="false"><img src="images\phd1.png"/></a>
-					<div class="imgCaption">Party Hard Drivers</div>
-				</div>
-				<div id="4" class="ui-block-b"><!--2nd Column--> 
-					<a href="deals.html" data-ajax="false"><img src="images\deals1.png" /></a>			
-					<div class="imgCaption">Deals</div>
-				</div>
-			</div>
-		
-			<div id="a3" class="ui-grid-a"><!--2nd Row--> 
-				<div id="5" class="ui-block-a"><!--1st Column--> 
-					<a href="rateandreviews.html" data-ajax="false"><img src="images\rateIt1.png"/></a>
-					<div class="imgCaption">Rate And Reviews</div>					
-				</div>
-				<div id="6" class="ui-block-b"><!--2nd Column--> 
-					<a href="selfdrive.html"  data-ajax="false"><img src="images\selfdrive.png" /></a>			
-						<div class="imgCaption">Compare Self Drive Option</div>
-				</div>
-			</div>
+	<div>
+		<ul data-role="listview" data-theme="c" id="ulList">
+			<li class="indexList" data-icon="false">
+				<a href="cheaprideoption.html" id="compareRideAnchor" style=" text-decoration:none !important ;" data-ajax="false"><img src="images\rup1.png"/><h2>Compare Rides</h2></a>								
+			</li>
+			<li class="indexList"  data-icon="false">
+				<a href="taxicontacts.html" style="text-decoration:none;" data-ajax="false"><img src="images\taxi1.png"/><h2>Available Rides</h2></a>						
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="partyharddrivers.html"  style=" text-decoration:none;" data-ajax="false"><img src="images\phd1.png"/><h2>Party Hard Drivers</h2></a>					
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="deals.html"  style=" text-decoration:none;"data-ajax="false"><img src="images\deals1.png" /><h2>Deals</h2></a>								
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="rateandreviews.html"  style=" text-decoration:none;"data-ajax="false"><img src="images\rateIt1.png"/><h2>Rate And Reviews</h2></a>						
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="selfdrive.html"  style=" text-decoration:none;"data-ajax="false"><img src="images\selfdrive.png" /><h2>Compare Self Drive</h2></a>								
+			</li>
+		</ul>
+	</div>
+				
   </div><!-- /content -->
 
    <div data-role="panel" id="left-panel">
 
 			<ul data-role="listview" data-theme="c">
 				<li class="abt" >
-					<a href="aboutus.html" style="line-height:45px; padding-left:15px; padding-right:5px !important;" data-ajax="false" data-transition="flip" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" data-corners="false">About us</a>					
+					<a href="aboutus.html" id="panelListAboutUs" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" style="line-height:45px; padding-left:15px; padding-right:5px !important;" data-ajax="false" data-transition="flip" data-corners="false">About us</a>					
 				</li>				
 				<li class="abt" >					
-					<a href="feedback.html" style="line-height:45px;padding-left:15px; padding-right:15px;" data-ajax="false" data-transition="flip" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment"data-corners="false" >Feedback </a>								
+					<a href="feedback.html" id="panelListFeedback"class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment" style="line-height:45px;padding-left:15px; padding-right:15px;" data-ajax="false" data-transition="flip" data-corners="false" >Feedback </a>								
 				</li>				
-				<li class="abt" class="abt ui-li-static ui-body-inherit ui-last-child" style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px">	
+				<li class="abt ui-li-static ui-body-inherit ui-last-child" style="padding-top: 0px; padding-bottom: 0px; padding-right: 0px">	
 					<select name="select-choice-share" id="select-choice-share"  data-icon="forward" data-ajax="false"  
 							data-corners="false" onchange="handleSocialShare()">						 
 							<option value="no">Share it</option>				
@@ -81,8 +71,6 @@
 				</li>
 			</ul>
     </div><!-- /panel -->
-	
-
 </div><!-- /page -->
 </body>
 </html>
