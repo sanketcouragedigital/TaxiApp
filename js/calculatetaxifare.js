@@ -52,202 +52,25 @@
                 }
                 displayTaxiFares(distance,duration);
             }
-
-
-            function calculateFaresForBookMyCab(distance, duration, timeOfPickup) {
-                    //For bookmycab
-                    //Between 5 am and 12 am
-
-                    if(timeOfPickup === "day") {
-
-                        var listItemHtml;
-                        var bmcACCost;
-                        var bmcAC = {};
-                        bmcAC.type = "A/C Cool Cabs";
-
-                        if(distance <= 1.5) {
-                            bmcACCost = 26;
-                        } else {
-                            bmcACCost = 26 + (distance - 1.5)*17.50;
-                            bmcACCost = bmcACCost.toFixed(2);
-                        }
-                        bmcAC.logo='<img src="images/bookmycab_logo.jpg"></img>';
-                        bmcAC.cost = bmcACCost;
-                        bmcAC.contact = 'tel:02261234567';
-                        cabCosts.push(bmcAC);
-                        
-                        var bmcCost;
-                        var bmcNonAc = {};
-                        bmcNonAc.type = "Kali Peeli";
-                        if(distance <= 1.5) {
-                            bmcCost = 21;
-                        } else {
-                            bmcCost = 21 + (distance - 1.5)*14;
-                            bmcCost = bmcCost.toFixed(2);
-                        }
-                        bmcNonAc.logo='<img src="images/bookmycab_logo.jpg"></img>';
-                        bmcNonAc.contact = 'tel:02261234567';
-                        bmcNonAc.cost = bmcCost;
-                        cabCosts.push(bmcNonAc);
-
-                    } else { //It is a night time pick up. 12am - 5am
-
-                        var listItemHtml;
-                        var bmcACCost;
-                        var bmcAC = {};
-                        bmcAC.type = "A/C Cool Cabs"
-                        if(distance <= 1.5) {
-                            bmcACCost = 26 + (0.25*23);
-                        } else {
-                            bmcACCost = (26 + (distance - 1.5)*17.50)*1.25;
-                            bmcACCost = bmcACCost.toFixed(2);
-                        }
-                        bmcAC.logo='<img src="images/bookmycab_logo.jpg"></img>';
-                        bmcAC.cost = bmcACCost;
-                        bmcAC.contact = 'tel:02261234567';
-                        cabCosts.push(bmcAC);
-                        
-                        var bmcCost;
-                        var bmcNonAc = {};
-                        bmcNonAc.type = "Kali Peeli";
-                        if(distance <= 1.5) {
-                            bmcCost = 21 + (0.25*21);
-                            bmcCost = bmcCost.toFixed(2);
-                        } else {
-                            bmcCost = (21 + (distance - 1.5)*14)*1.25;
-                            bmcCost = bmcCost.toFixed(2);
-                        }
-                        bmcNonAc.logo='<img src="images/bookmycab_logo.jpg"></img>';
-                        bmcNonAc.cost = bmcCost;
-                        bmcNonAc.contact = 'tel:02261234567';
-                        cabCosts.push(bmcNonAc);
-                    }
-                     
-            }
-
-            function calculateFaresForTaxiForSure(distance, duration, timeOfPickup) {
-                //Taxi For Sure
-                    //Between 5am and 12 am
-                    //For Hatchback
-                    if(timeOfPickup === "day") {
-
-                        var listItemHtml;
-                        var tfsHatchBackCost;
-                        var tfsHatchBack = {};
-                        tfsHatchBack.type = "Hatchback";
-                        if(distance <= 6) {
-                            tfsHatchBackCost = 150;
-                        } else{
-                            tfsHatchBackCost = 150+ (distance - 6)*15;
-                            tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
-                        }
-                        tfsHatchBack.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsHatchBack.contact = 'tel:02260601010';
-                        tfsHatchBack.cost = tfsHatchBackCost;
-                        cabCosts.push(tfsHatchBack);
-                        //For Sedan
-                        var tfsSedanCost;
-                        var tfsSedan = {};
-
-                        tfsSedan.type = "Sedan";
-
-                        if(distance <= 6) {
-                            tfsSedanCost = 150;
-                        } else {
-                            tfsSedanCost = 150 + (distance - 6)*18;
-                            tfsSedanCost = tfsSedanCost.toFixed(2);
-                        }
-                        tfsSedan.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsSedanCost.contact = 'tel:02260601010';
-                        tfsSedan.cost = tfsSedanCost;
-                        cabCosts.push(tfsSedan);
-
-                        //For SUV
-                        var tfsSuvCost;
-                        var tfsSuv = {};
-
-                        tfsSuv.type = "SUV";
-
-                        if(distance <= 6) {
-                            tfsSuvCost = 200;
-                        } else {
-                            tfsSuvCost = 200 + (distance - 6)*21;
-                            tfsSuvCost = tfsSuvCost.toFixed(2);
-                        }
-                        tfsSuv.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsSuv.contact = 'tel:02260601010';
-                        tfsSuv.cost = tfsSuvCost;
-                        cabCosts.push(tfsSuv);
-
-
-                    } else { //Night time pick up between 12am - 5am
-
-                        var listItemHtml;
-                        var tfsHatchBackCost;
-                        var tfsHatchBack = {};
-
-                        tfsHatchBack.type = " Hatchback";
-
-                        if(distance <= 6) {
-                            tfsHatchBackCost = 185;
-                        } else{
-                            tfsHatchBackCost = 185+ (distance - 6)*18;
-                            tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
-                        }
-                        tfsHatchBack.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsHatchBack.contact = 'tel:02260601010';
-                        tfsHatchBack.cost = tfsHatchBackCost;
-                        cabCosts.push(tfsHatchBack);
-
-                        //For Sedan
-                        var tfsSedanCost;
-                        var tfsSedan = {};
-                        tfsSedan.type = "Sedan";
-
-                        if(distance <= 6) {
-                            tfsSedanCost = 185;
-                        } else {
-                            tfsSedanCost = 185 + (distance - 6)*22;
-                            tfsSedanCost = tfsSedanCost.toFixed(2);
-                        }
-                        tfsSedan.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsSedan.contact = 'tel:02260601010';
-                        tfsSedan.cost = tfsSedanCost;
-                        cabCosts.push(tfsSedan);
-
-                        //For SUV
-                        var tfsSuvCost;
-                        tfsSuv = {};
-                        tfsSuv.type = "SUV";
-
-                        if(distance <= 6) {
-                            tfsSuvCost = 250;
-                        } else {
-                            tfsSuvCost = 250 + (distance - 6)*26;
-                            tfsSuvCost = tfsSuvCost.toFixed(2);
-                        }
-                        tfsSuv.logo = '<img src="images/taxiforsure_logo.png"></img>';
-                        tfsSuv.contact = 'tel:02260601010';
-                        tfsSuv.cost = tfsSuvCost;
-                        cabCosts.push(tfsSuv);
-
-                    }
-            }
-
             
             function displayTaxiFares(distance, duration) {
                 $('#rideWiseList').empty();
                 distance = parseFloat(distance).toFixed(2);
                 duration = parseFloat(duration).toFixed(2);
                 
-                calculateFaresForBookMyCab(distance, duration, timeOfPickup);
-                calculateFaresForTaxiForSure(distance, duration, timeOfPickup);
                 cabCosts.push(mumbaiCabs.getMeruCabFare(distance, timeOfPickup));
                 cabCosts.push(mumbaiCabs.getEasyCabsFare(distance, timeOfPickup));
                 cabCosts.push(mumbaiCabs.getOlaSedanFare(distance));
                 cabCosts.push(mumbaiCabs.getOlaMiniFare(distance));
                 cabCosts.push(mumbaiCabs.getOlaPrimeFare(distance));
                 cabCosts.push(mumbaiCabs.getTabCabFare(distance, timeOfPickup));
+				
+				cabCosts.push(mumbaiCabs.getTaxiForSureHatchBackFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getTaxiForSureSedanFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getBookMyCabACFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getBookMyCabNonACFare(distance, duration, timeOfPickup));
+				
                 
                 var listItemHtml;
                 var sortedCosts = _.sortBy(cabCosts,'cost');
@@ -276,7 +99,6 @@
 				
                 calcRoute();
             }
-            
 
             function calcRoute() {
               console.log("Calculating Route..");  
