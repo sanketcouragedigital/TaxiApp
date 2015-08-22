@@ -3,9 +3,7 @@
         var directionsDisplay;
         var directionsService = new google.maps.DirectionsService();
         var map;
-     
-            
-            var origin;
+        var origin;
             if (typeof window.origin === "undefined") {
                origin = sessionStorage.getItem("origin");
             } else {
@@ -70,6 +68,8 @@
 				cabCosts.push(mumbaiCabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup));
 				cabCosts.push(mumbaiCabs.getBookMyCabACFare(distance, duration, timeOfPickup));
 				cabCosts.push(mumbaiCabs.getBookMyCabNonACFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getUberXFare(distance, duration, timeOfPickup));
+				cabCosts.push(mumbaiCabs.getUberBlackFare(distance, duration, timeOfPickup));
 				
                 
                 var listItemHtml;

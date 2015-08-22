@@ -1,7 +1,5 @@
-var mumbaiCabs = (function(){
-	
-	//declare private variables and methods
-	
+var mumbaiCabs = (function()
+{
 	function calculateFareForEasyCabs(distance, timeOfPickup) {
 		if(timeOfPickup === "day") {
 
@@ -35,12 +33,11 @@ var mumbaiCabs = (function(){
             easyCab.contact = 'tel:02243434343';    
                         
         }
-        return easyCab;
-                     
+        return easyCab;             
 	}
 
-	function calculateFareForOlaSedan(distance) {
-        //For OLA Sedan:
+	function calculateFareForOlaSedan(distance) 
+	{
         var olaSedanCost;
         var olaSedan = {};
         olaSedanCost = distance * 21;
@@ -57,8 +54,8 @@ var mumbaiCabs = (function(){
         return olaSedan;
     }
 
-    function calculateFareForOlaMini(distance) {
-    	//For OLA Mini
+    function calculateFareForOlaMini(distance) 
+	{
         var olaMiniCost;
         var olaMini = {};
         olaMini.logo='<img src="images/ola.jpg"></img>';
@@ -75,8 +72,8 @@ var mumbaiCabs = (function(){
     }
             
     
-    function calculateFareOlaPrime(distance) {
-    	//For OLA Prime
+    function calculateFareOlaPrime(distance) 
+	{
         var olaPrimeCost;
         var olaPrime = {};
 
@@ -177,25 +174,28 @@ var mumbaiCabs = (function(){
 			tfsHatchBack.contact = 'tel:02260601010';
 			tfsHatchBack.cost = tfsHatchBackCost;
 		}
-		else//Night time pick up between 12am - 5am
+		else
 		{
-							var listItemHtml;
-							var tfsHatchBackCost;
-							var tfsHatchBack = {};
+			var listItemHtml;
+			var tfsHatchBackCost;
+			var tfsHatchBack = {};
 
-							tfsHatchBack.type = " Hatchback";
+			tfsHatchBack.type = " Hatchback";
 
-							if(distance <= 6) {
-								tfsHatchBackCost = 185;
-							} else{
-								tfsHatchBackCost = 185+ (distance - 6)*18;
-								tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
-							}
-							tfsHatchBack.logo = '<img src="images/taxiforsure_logo.png"></img>';
-							tfsHatchBack.contact = 'tel:02260601010';
-							tfsHatchBack.cost = tfsHatchBackCost;
+			if(distance <= 6) 
+			{
+				tfsHatchBackCost = 185;
+			} 
+			else
+			{
+				tfsHatchBackCost = 185+ (distance - 6)*18;
+				tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
+			}
+			tfsHatchBack.logo = '<img src="images/taxiforsure_logo.png"></img>';
+			tfsHatchBack.contact = 'tel:02260601010';
+			tfsHatchBack.cost = tfsHatchBackCost;
 		}
-					return tfsHatchBack;
+		return tfsHatchBack;
 	}
 	function calculateFaresForTaxiForSureSedan(distance, duration, timeOfPickup)
 	{
@@ -218,7 +218,7 @@ var mumbaiCabs = (function(){
 			tfsSedanCost.contact = 'tel:02260601010';
 			tfsSedan.cost = tfsSedanCost;
 		}
-		else//Night time pick up between 12am - 5am
+		else
 		{
 			var tfsSedanCost;
 			var tfsSedan = {};
@@ -257,7 +257,7 @@ var mumbaiCabs = (function(){
 			 tfsSuv.contact = 'tel:02260601010';
 			  tfsSuv.cost = tfsSuvCost;
 			}
-		else//Night time pick up between 12am - 5am
+		else
 		{
 			var tfsSuvCost;
 			tfsSuv = {};
@@ -298,7 +298,7 @@ var mumbaiCabs = (function(){
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:02261234567';
 			}
-			else//for night
+			else
 			{
 				var bmcACCost;
 				var bmcAC = {};
@@ -338,7 +338,7 @@ var mumbaiCabs = (function(){
 				bmcNonAc.contact = 'tel:02261234567';
 				bmcNonAc.cost = bmcCost;                        
 			} 
-			else //It is a night time pick up. 12am - 5am
+			else 
 			{ 
 				var bmcCost;
 				var bmcNonAc = {};
@@ -358,7 +358,55 @@ var mumbaiCabs = (function(){
 				bmcNonAc.contact = 'tel:02261234567';
 			}
 			return bmcNonAc;
-	}       
+	}   
+	function calculateFaresForUberX(distance, duration, timeOfPickup) 
+	{			 
+		if(timeOfPickup === "day") 
+			{
+				var uberCost;
+				var uberX = {};
+				uberX.type = "Uber X";
+				if(distance <= 1.5) 
+				{
+					uberCost = 21;
+					//min charges 150
+					//per mimute 1rs
+				}
+				else 
+				{
+					uberCost = 21 + (distance - 1.5)*10;
+					uberCost = uberCost.toFixed(2);
+				}
+				uberX.logo='<img src="images/bookmycab_logo.jpg"></img>';
+				uberX.contact = 'Not Available';
+				uberX.cost = uberCost;                        
+			} 
+			return uberX;
+	}    
+		function calculateFaresForUberBlack(distance, duration, timeOfPickup) 
+	{			 
+		if(timeOfPickup === "day") 
+			{
+				var uberCost;
+				var uberBlack = {};
+				uberBlack.type = "Uber Black";
+				if(distance <= 1.5) 
+				{
+					uberCost = 21;
+					//min charges 100
+					//per mimute 2rs
+				}
+				else 
+				{
+					uberCost = 21 + (distance - 1.5)*17;
+					uberCost = uberCost.toFixed(2);
+				}
+				uberBlack.logo='<img src="images/bookmycab_logo.jpg"></img>';
+				uberBlack.contact = 'Not Available';
+				uberBlack.cost = uberCost;                        
+			} 			
+			return uberBlack;
+	} 
 	//declare public variables and methods
 	return {
 
@@ -372,7 +420,9 @@ var mumbaiCabs = (function(){
 		getTaxiForSureSedanFare     : calculateFaresForTaxiForSureSedan,
 		getTaxiForSureSUVFare       : calculateFaresForTaxiForSureSUV,
 		getBookMyCabACFare          : calculateFaresForBookMyCabAC,
-		getBookMyCabNonACFare       : calculateFaresForBookMyCabNonAC
+		getBookMyCabNonACFare       : calculateFaresForBookMyCabNonAC,
+		getUberXFare : calculateFaresForUberX,
+		getUberBlackFare : calculateFaresForUberBlack
 		
 		
 	}
