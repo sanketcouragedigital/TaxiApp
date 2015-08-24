@@ -1,0 +1,23 @@
+.imgCaption {
+	text-align: center;
+	font-size: 14px !important;
+	font-weight: bold;
+	margin-top: 10px;
+}
+.ui-block-a {
+	text-align: center;
+	width: 100% !important;
+}
+.ui-grid-a {
+	margin-top: 20%;
+	margin-bottom: 20%;
+}
+.ui-block-a img {
+	height: auto;
+	width: 30%;
+	background-color: #3498db;
+	padding: 20px;
+	-moz-box-shadow:	3px 3px 5px 2px #848484;
+  	-webkit-box-shadow: 3px 3px 5px 2px #848484;
+  	box-shadow: 3px 3px 5px 2px #848484;
+}
