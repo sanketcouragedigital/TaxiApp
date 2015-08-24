@@ -28,9 +28,15 @@
 				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
 			</div><!-- /header -->
-			<div data-role="content" >		
+			<div data-role="content" >	
 				<div id="cartypeddl" data-role="fieldcontain">
 					<form id="selfdriveform" method="get">
+					
+						<label for="selectCity">Select City:</label>
+						<select name="selectCity" id="selectCity" data-ajax="false" data-corners="false" data-theme="f">
+							<option selected="selected"> Select City </option>
+						</select>
+				
 						<label for="typeOfCar">Select Type Of Car:</label>
 						<select name="typeOfCar" id="typeOfCar" data-ajax="false" data-corners="false" data-theme="f">  
 							<option selected="selected"> Type of Car </option>
