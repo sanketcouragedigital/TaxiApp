@@ -98,14 +98,15 @@ $(function (){
 
 //-----------to laod car in dropdown list as per type of car-------------------------------------------------------------------------
 	
-	$("#typeOfCar").on("change",function(){
-		var selectedTypeOfCar=$('option:selected',this).index();		
+	$("#typeOfCar, #selectCity").on("change",function(){
+		var selectedTypeOfCar=$('option:selected','#typeOfCar').index();
+		var selectedCity=$('option:selected','#selectCity').val();
 		var select = document.getElementById("selectCar");
 		var length = select.options.length;
 		for(i=length-1;i>=0;i--){
 			select.remove(i);
-		}		
-	$.get("http://localhost/ZiftAPI/api/ziftapi.php?selectedTypeOfCar="+selectedTypeOfCar+"&method=loadCars&format=json")
+		}
+	$.get("http://localhost/ZiftAPI/api/ziftapi.php?selectedTypeOfCar="+selectedTypeOfCar+"&selectedCity="+selectedCity+"&method=loadCars&format=json")
 		.done(function(response){		
 			var select = document.getElementById("selectCar");	
 			$.each(response.loadCarsList,function(index,loadCar){
