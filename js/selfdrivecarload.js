@@ -72,12 +72,31 @@ function userChoice(choice)
 			});					
 		}
 			sessionStorage.setItem("userChoice",choice);
-	}	
+	}
+//-----------to laod city in dropdown list as per type of car-------------------------------------------------------------------------
+	
+	
 $(function (){
 	$("#pickupDropoffDatePicker").hide();
 	$("#pickupDropoffTimePicker").hide();
 	
-//-----------to laod car car in dropdown list as per type of car-------------------------------------------------------------------------
+	$.get("/ZiftAPI/api/ziftapi.php?method=loadCity&format=json")
+		.done(function (response){
+			var select=document.getElementById("selectCity");
+			$.each(response.loadCityList,function (index,loadCity){
+				var loadCityObj=loadCity;
+				var city=loadCity.city
+				var option=document.createElement('option');
+				option.text=option.value=city;
+				select.add(option);
+			});
+		})
+		.fail(function (){   
+            // $("#dlg-laod-error").popup("open"); 
+         });
+		
+
+//-----------to laod car in dropdown list as per type of car-------------------------------------------------------------------------
 	
 	$("#typeOfCar").on("change",function(){
 		var selectedTypeOfCar=$('option:selected',this).index();		
