@@ -1,0 +1,13 @@
+
+#btnshowCars {
+	position: fixed !important;
+	bottom: 0 !important;
+	right:2% !important;
+	left:2% !important;	
+}
+. ui-btn{
+	padding-bottom:6px ! important;
+	padding-top:6px ! important;
+	padding-left:4px ! important;
+	padding-right:4px ! important;
+}
