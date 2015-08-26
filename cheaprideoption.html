@@ -24,37 +24,31 @@
 		<h1>Ride Options</h1>
 		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 		<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
-	</div><!-- /header -->
-
+	</div>
 	<div data-role="content" style=" padding-top:10px; padding-right:20px;padding-left:20px; ">		 
-			<h3>Cheapest Ride</h3>
-				
-						<form method="" action="" id="travelDetailForm">
-					
-				      		<label for="source">Going from:</label>
-				      		<input type="text" name="source" id="source" placeholder = "Eg : Worli, Mumbai" onFocus="geolocate()"  data-corners="false" data-role="none" />
+		<h3>Cheapest Ride</h3>				
+		<form method="" action="" id="travelDetailForm">					
+			<label for="source">Going from:</label>
+			<input type="text" name="source" id="source" placeholder = "Eg : Worli, Mumbai" style="outline:none !important"onFocus="geolocate()"  data-corners="false" data-role="none" />
 				      
-							<input type="hidden"id="usingCurrentLocation" value="no" />	
-				      		<input type="button" value="Use my current location" id="useCurrentLocation" data-icon="flat-location" data-corners="false" data-theme="f" />
+			<input type="hidden"id="usingCurrentLocation" value="no" />	
+			<input type="button" value="Use my current location" id="useCurrentLocation" data-icon="flat-location" data-corners="false" data-theme="f" />
 					  
-				      		<label for="dest">Going to:</label>
-				      		<input type="text" name="dest" id="dest" placeholder = "Eg : Chakala, Andheri" onFocus="geolocate()"  data-corners="false" data-role="none" />							
+			<label for="dest">Going to:</label>
+			<input type="text" name="dest" id="dest" placeholder = "Eg : Chakala, Andheri"style="outline:none !important" onFocus="geolocate()"  data-corners="false" data-role="none" />							
 					  
-				      		<fieldset id="pickupTime" data-role="controlgroup" data-type="horizontal"  data-corners="false">
-  								<legend>Choose Pickup Time Between:</legend>
-								<input type="radio" name="radio-choice" id="daytime" value="day" checked="checked" data-theme="a">
-								<label for="daytime"> 5am - 12am</label>
+			<fieldset id="pickupTime" data-role="controlgroup" data-type="horizontal"  data-corners="false">
+				<legend>Choose Pickup Time Between:</legend>
+				<input type="radio" name="radio-choice" id="daytime" value="day" checked="checked" data-theme="a">
+				<label for="daytime"> 5am - 12am</label>
 							  
-								<input type="radio" name="radio-choice" id="nighttime" value="night" data-theme="a">
-								<label for="nighttime">12am - 5am</label>
-							</fieldset>
-					
-						</form>
-							<div  id="calbtn">
-								<input type="button" value="Calculate" id="calculateOptions" data-theme="f" data-corners="false"/>					
-							</div>
-							
-	</div><!-- /content -->			
-
+				<input type="radio" name="radio-choice" id="nighttime" value="night" data-theme="a">
+				<label for="nighttime">12am - 5am</label>
+			</fieldset>					
+		</form>
+		<div  id="calbtn">
+			<input type="button" value="Calculate" id="calculateOptions" data-theme="f" data-corners="false"/>					
+		</div>							
+	</div>	
 </body>
 </html>

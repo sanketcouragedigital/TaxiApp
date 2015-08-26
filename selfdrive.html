@@ -17,9 +17,6 @@
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/smoothness/jquery-ui.css" />
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>	 
-	<script>
-
-	</script>
 </head>
 <body>
 	<div data-role="page" id="selfdrive">
@@ -27,16 +24,14 @@
 				<h1>Self Drive</h1>
 				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
-			</div><!-- /header -->
+			</div>
 			<div data-role="content" >	
 				<div id="cartypeddl" data-role="fieldcontain" data-ajax="false">
 					<form id="selfdriveform" method="get">
-					
 						<label for="selectCity">Select City:</label>
 						<select name="selectCity" id="selectCity" data-ajax="false" data-corners="false" data-theme="f">
 							<option selected="selected"> Select City </option>
 						</select>
-				
 						<label for="typeOfCar">Select Type Of Car:</label>
 						<select name="typeOfCar" id="typeOfCar" data-ajax="false" data-corners="false" data-theme="f">  
 							<option selected="selected"> Type of Car </option>
@@ -62,10 +57,10 @@
 				<div id="pickupDropoffDatePicker">											
 					<p>Pickup Date :</p> <input type="text" id="pickupDate">
 					<p>Dropoff Date :</p> <input type="text" id="dropoffDate">
-				</div><!--pickupDropoffDatePicker-->
+				</div>
 				
 				<div id="pickupDropoffTimePicker">	
-						<label for="expected Hours:-">Expected Hours:-:</label>						
+						<label for="expected Hours">Expected Hours:-</label>						
 						<select name="expectedHours" id="expectedHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
 							<option selected="selected">Hours</option>
 							<script>
@@ -79,7 +74,7 @@
 							</script>
 						</select>
 						<p>Pickup Date:-</P><input type="text" id="hourlyPickupDate">					
-				</div><!--pickupDropoffTimePicker-->
+				</div>
 				
 				<div>
 					<label for="km">Expected Kms :</label>
@@ -88,7 +83,7 @@
 				<div  id="calculateAmt">
 					<input type="button" value="Calculate" id="calculateAmount" data-theme="f" data-corners="false"/>					
 				</div>		
-			</div><!--content-->
+			</div>
 	 <div data-role="popup" id="dlg-laod-error" data-dismissible="false" style="max-width:400px;">
         <div role="main" class="ui-content">
           <h3>Error</h3>
@@ -96,6 +91,6 @@
           <div class="mc-text-center"><a href="seldrive.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
           </div>
     </div>
-	</div><!--page-->		
+	</div>	
 </body>
 </html>

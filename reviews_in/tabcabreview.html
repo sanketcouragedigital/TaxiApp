@@ -15,35 +15,32 @@
   <link rel="stylesheet" href="css/fonteffect.css" />
 </head> 
 <body> 
-
-<div data-role="page">
-  <div data-role="header"  data-theme="f">
-		<h1>Tab Cab</h1>
-		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
-		<a href="../index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
-   </div><!-- /header -->
-  <div data-role="content">
-    <div class="center-wrapper">
-		  <img src="../images/tabcab_logo.jpg" style="height:100px;width:150px;"></img> <br/>     
-		  <ul data-role="listview" id="reviewList" style="margin:10px auto"></ul>
-    </div>
-    <!-- Something goes wrong in showing reviews, this pop up appears. -->
-    <div data-role="popup" id="dlg-review-error" data-dismissible="false" style="max-width:400px;">
-        <div role="main" class="ui-content">
-          <h3>Error</h3>
-          <p>Oops, Reviews are not available at this moment. Please try again after some time. May be our system is down temporarily.</p>
-          <div class="mc-text-center"><a href="../index.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
-          </div>
-    </div>
-	<div data-role="popup" id="dlg-list-error" data-dismissible="false" style="max-width:400px;">
-        <div role="main" class="ui-content">
-          <h3>Message</h3>
-          <p>Oops,Soory... Reviews are not available...</p>
-          <div class="mc-text-center"><a href="../reviews.html" data-theme="f" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
-          </div>
-    </div>
-  </div><!-- /content -->
-</div><!-- /page -->
-
+	<div data-role="page">
+		<div data-role="header"  data-theme="f">
+			<h1>Tab Cab</h1>
+			<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+			<a href="../index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
+		</div>
+		<div data-role="content">
+			<div class="center-wrapper">
+				  <img src="../images/tabcab_logo.jpg" style="height:100px;width:150px;"></img> <br/>     
+				  <ul data-role="listview" id="reviewList" style="margin:10px auto"></ul>
+			</div>
+			<div data-role="popup" id="dlg-review-error" data-dismissible="false" style="max-width:400px;">
+				<div role="main" class="ui-content">
+					<h3>Error</h3>
+					<p>Oops, Reviews are not available at this moment. Please try again after some time. May be our system is down temporarily.</p>
+					<div class="mc-text-center"><a href="../index.html" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+				</div>
+			</div>
+			<div data-role="popup" id="dlg-list-error" data-dismissible="false" style="max-width:400px;">
+				<div role="main" class="ui-content">
+					<h3>Message</h3>
+					<p>Oops,Soory... Reviews are not available...</p>
+					<div class="mc-text-center"><a href="../reviews.html" data-theme="f" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+				</div>
+			</div>
+		</div>
+	</div>
 </body>
 </html>
