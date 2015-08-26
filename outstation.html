@@ -17,98 +17,69 @@
 		 <link rel="stylesheet" href="css/fonteffect.css" />
 		 <script src="js/outstation.js"></script>
 		 <link rel="stylesheet" href="css/outstationeffect.css" />
-		<script>
-				
-		</script>
-		
 	</head> 
 <body> 
-<div data-role="page">
-	<div data-role="header"  data-theme="f">
-		<h1>Out Station</h1>
-		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
-		<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
-	</div>
-	<div data-role="content">		 
-					<form method="" action="">
-							<fieldset id="tripType" data-role="controlgroup" data-type="horizontal" data-mini="true" data-corners="false">  
-								<a data-role="button" data-theme="f">One Way</a>
-								<a data-role="button" data-theme="a">Round Trip</a>
-								<a data-role="button" data-theme="a">Multi City</a>			
-							</fieldset>
-							<fieldset id="ctyToCity">
-								<label for="city">City:</label>
-								<select name="selectCity" id="selectCity" data-ajax="false" data-corners="false" data-theme="f">
-									<option selected="selected"> Select City </option>
-								</select>
-								<label for="cityTo">City To:</label>
-								<select name="selectCityTo" id="selectCityTo" data-ajax="false" data-corners="false" data-theme="f">
-									<option selected="selected"> Select City </option>
-								</select>
-							</fieldset>
-							<fieldset id="startDateTime" data-role="controlgroup" data-type="horizontal" data-corners="false">		
-									<p>Start Date :</p> <input type="text" id="startDate">
-									<label for="startTimeHours">Start Time Hrs:</label>	
-									<select name="startTimeHours" id="startTimeHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
-										<option selected="selected">Hrs</option>
-										<script>
-											function selectOne() {
-												  var select = document.getElementById('startTimeHours');
-												  for (var i=0; i<23; i++) {
-													 select.options[select.options.length] = new Option(i+1, i);
-												  } 
-												}
-											selectOne();
-										</script>
-									</select>
-									<label for="startTimeMins">Start Time Mins:</label>	
-									<select name="startTimeMins" id="startTimeMins" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
-										<option selected="selected">Mins</option>
-										<script>
-											function selectOne() {
-												  var select = document.getElementById('startTimeMins');
-												  for (var i=0; i<=60; i++) {
-													 select.options[select.options.length] = new Option(i+5, i);
-												  } 
-												}
-											selectOne();
-										</script>
-									</select>
-							</fieldset>
-							<fieldset id="endDateTime" data-role="controlgroup" data-type="horizontal" data-corners="false">		
-									<p>End Date :</p> <input type="text" id="endDate">
-									<label for="endTimeHours">End Time Hrs:</label>	
-									<select name="endTimeHours" id="endTimeHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
-										<option selected="selected">Hrs</option>
-										<script>
-											function selectOne() {
-												  var select = document.getElementById('endTimeHours');
-												  for (var i=0; i<23; i++) {
-													 select.options[select.options.length] = new Option(i+1, i);
-												  } 
-												}
-											selectOne();
-										</script>
-									</select>
-									<label for="endTimeMins">End Time Mins:</label>	
-									<select name="endTimeMins" id="endTimeMins" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
-										<option selected="selected">Mins</option>
-										<script>
-											function selectOne() {
-												  var select = document.getElementById('endTimeMins');
-												  for (var i=0; i<=60; i++) {
-													 select.options[select.options.length] = new Option(i+5, i);
-												  } 
-												}
-											selectOne();
-										</script>
-									</select>
-							</fieldset>
-					</form>
-					<div  id="btnshowCars">
-						<input type="button" value="Show Cars" data-theme="f" data-corners="false"/>					
-					</div>
-							
+	<div data-role="page">
+		<div data-role="header"  data-theme="f">
+			<h1>Out Station</h1>
+			<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+			<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
+		</div>
+		<div data-role="content">	
+			<form method="" action="">
+				<!--<fieldset id="tripType" data-role="controlgroup" data-type="horizontal" data-mini="true" data-corners="false">  
+					<a id="oneWay" data-role="button" data-theme="f">One Way</a>
+					<a id="roundTrip" data-role="button" data-theme="a">Round Trip</a>
+					<a id="multiCity" data-role="button" data-theme="a">Multi City</a>			
+				</fieldset>-->
+				<fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+					<input type="radio" name="radio-choice" id="oneWay"checked="checked" onclick="userChoice('oneWay')" data-theme="a">
+					<label for="oneWay">One Way</label>
+					<input type="radio" name="radio-choice" id="roundTrip" onclick="userChoice('roundTrip')" data-theme="a">
+					<label for="roundTrip">Round Trip</label>
+					<input type="radio" name="radio-choice" id="multiCity" onclick="userChoice('multiCity')" data-theme="a">
+					<label for="multiCity">Multi City</label>
+				</fieldset>
+				<a data-role="button" id="add_btn" data-theme="f" data-corners="false" data-inline="true" >Add Multiple Cities</a>
+				<fieldset id="ctyToCity" data-role="controlgroup" data-type="horizontal" data-corners="false">
+					<label for="city">City:</label>
+					<select name="selectCity" id="selectCity" data-ajax="false" data-corners="false" data-theme="f">
+						<option selected="selected">Select City</option>
+					</select>
+					<label for="cityTo">City To:</label>
+					<select name="selectCityTo" id="selectCityTo" data-ajax="false" data-corners="false" data-theme="f">
+						<option selected="selected">Select City</option>
+					</select>
+				</fieldset>
+				<fieldset id="startDateTime" data-role="controlgroup" data-type="horizontal" data-corners="false">		
+					<p>Start Date :</p> 
+					<input type="text" id="startDate">
+					<label for="startTimeHours">Start Time Hrs:</label>	
+					<select name="startTimeHours" id="startTimeHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
+						<option selected="selected">Hrs</option>										
+					</select>
+					<label for="startTimeMins">Start Time Mins:</label>	
+					<select name="startTimeMins" id="startTimeMins" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
+						<option selected="selected">Mins</option>
+					</select>
+				</fieldset>
+				<fieldset id="endDateTime" data-role="controlgroup" data-type="horizontal" data-corners="false">		
+					<p>End Date :</p> 
+					<input type="text" id="endDate">
+					<label for="endTimeHours">End Time Hrs:</label>	
+					<select name="endTimeHours" id="endTimeHours" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
+						<option selected="selected">Hrs</option>
+					</select>
+					<label for="endTimeMins">End Time Mins:</label>	
+					<select name="endTimeMins" id="endTimeMins" data-ajax="false" data-mini="true" data-corners="false" data-theme="f">
+						<option selected="selected">Mins</option>										
+					</select>
+				</fieldset>
+			</form>
+			<div  id="btnshowCars">
+				<input type="button" value="Show Cars" data-theme="f" data-corners="false"/>					
+			</div>				
+		</div>
 	</div>		
 </body>
 </html>
