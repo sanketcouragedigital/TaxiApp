@@ -1,5 +1,5 @@
-	<!DOCTYPE html> 
-	<html> 
+<!DOCTYPE html> 
+<html> 
 	<head> 
 		<title>Ride Options</title> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
@@ -8,47 +8,69 @@
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
-		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-		 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-		 
-		 <script src="js/searchpagebuttonshandler.js"></script>
-		 <script src="js/autoComplete.js"></script>
-		 <link rel="stylesheet" href="css/structure.min.css" /> 
-		 <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-		 <link rel="stylesheet" href="css/cheaprideoptionstyle.css" />
-		 <link rel="stylesheet" href="css/fonteffect.css" />
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
+		<script type="text/javascript" src="cordova.js"></script>
+		<script src="js/searchpagebuttonshandler.js"></script>
+		<script src="js/autoComplete.js"></script>
+		<link rel="stylesheet" href="css/structure.min.css" /> 
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+		<link rel="stylesheet" href="css/cheaprideoptionstyle.css" />
+		<link rel="stylesheet" href="css/fonteffect.css" />
 	</head> 
-<body onload="initialize()"> 
-<div data-role="page">
-	<div data-role="header"  data-theme="f">
-		<h1>Ride Options</h1>
-		<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
-		<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
-	</div>
-	<div data-role="content" style=" padding-top:10px; padding-right:20px;padding-left:20px; ">		 
-		<h3>Cheapest Ride</h3>				
-		<form method="" action="" id="travelDetailForm">					
-			<label for="source">Going from:</label>
-			<input type="text" name="source" id="source" placeholder = "Eg : Worli, Mumbai" style="outline:none !important"onFocus="geolocate()"  data-corners="false" data-role="none" />
-				      
-			<input type="hidden"id="usingCurrentLocation" value="no" />	
-			<input type="button" value="Use my current location" id="useCurrentLocation" data-icon="flat-location" data-corners="false" data-theme="f" />
-					  
-			<label for="dest">Going to:</label>
-			<input type="text" name="dest" id="dest" placeholder = "Eg : Chakala, Andheri"style="outline:none !important" onFocus="geolocate()"  data-corners="false" data-role="none" />							
-					  
-			<fieldset id="pickupTime" data-role="controlgroup" data-type="horizontal"  data-corners="false">
-				<legend>Choose Pickup Time Between:</legend>
-				<input type="radio" name="radio-choice" id="daytime" value="day" checked="checked" data-theme="a">
-				<label for="daytime"> 5am - 12am</label>
-							  
-				<input type="radio" name="radio-choice" id="nighttime" value="night" data-theme="a">
-				<label for="nighttime">12am - 5am</label>
-			</fieldset>					
-		</form>
-		<div  id="calbtn">
-			<input type="button" value="Calculate" id="calculateOptions" data-theme="f" data-corners="false"/>					
-		</div>							
-	</div>	
-</body>
+	<body onload="initialize()"> 
+		<div data-role="page">
+			<div data-role="header"  data-theme="f">
+				<h1>Ride Options</h1>
+				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
+				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
+			</div>
+
+			<div data-role="content" style=" padding-top:10px; padding-right:20px;padding-left:20px; ">		 
+				<h3>Cheapest Ride</h3>
+					
+				<form method="" action="" id="travelDetailForm">
+
+					<label for="source">Going from:</label>
+					<input type="text" name="source" id="source" style="outline:none !important" placeholder = "Eg : Worli, Mumbai" onFocus="geolocate()"  data-corners="false" data-role="none" />
+
+					<input type="hidden"id="usingCurrentLocation" value="no" />
+					<input type="button" value="Use my current location" id="useCurrentLocation" data-icon="flat-location" data-corners="false" data-theme="f" />
+
+					<label for="dest">Going to:</label>
+					<input type="text" name="dest" id="dest" style="outline:none !important" placeholder = "Eg : Chakala, Andheri" onFocus="geolocate()"  data-corners="false" data-role="none" />
+
+					<fieldset id="pickupTime" data-role="controlgroup" data-type="horizontal"  data-corners="false">
+						<legend>
+							Choose Pickup Time Between:
+						</legend>
+						<input type="radio" name="radio-choice" id="daytime" value="day" checked="checked" data-theme="a">
+						<label for="daytime"> 5am - 12am</label>
+
+						<input type="radio" name="radio-choice" id="nighttime" value="night" data-theme="a">
+						<label for="nighttime">12am - 5am</label>
+					</fieldset>
+
+				</form>
+				<div  id="calbtn">
+					<input type="button" value="Calculate" id="calculateOptions" data-theme="f" data-corners="false"/>
+				</div>
+
+				<div data-role="popup" id="dlg-location-error" data-dismissible="false" style="max-width:400px;">
+	        		<div role="main" class="ui-content">
+	          			<h3>Sorry something went wrong!</h3>
+	          			<p>May be your GPS is off! Please turn it on.</p>
+	          			<div class="mc-text-center"><a href="#" id="locationError" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+	          		</div>
+	    		</div>
+
+	    		<div data-role="popup" id="dlg-location-highAccuracy-error" data-dismissible="false" style="max-width:400px;">
+	        		<div role="main" class="ui-content">
+	          			<h3>Sorry something went wrong!</h3>
+	          			<p>Please set your location on High Accuracy Mode.</p>
+	          			<div class="mc-text-center"><a href="#" id="locationHighAccuracyError" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+	          		</div>
+	    		</div>
+			</div>		
+		</div>
+	</body>
 </html>
