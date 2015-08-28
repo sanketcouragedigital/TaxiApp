@@ -87,29 +87,11 @@ $(function(){
             // $("#dlg-laod-error").popup("open"); 
          });
 		 
-	var handler_func = function () 
-   {
-		var i = (typeof this.rel != 'undefined') && (this.rel - 0) == this.rel ? this.rel : 0;
-		var select = document.createElement('select');
-		select.id = 'selectCity'+i;
-		select.name = 'selectCity'+i;
-		this.rel = i+1;
-		this.parentNode.appendChild(select);
-		
-		var select = document.createElement('select');
-		select.id = 'selectCityTo'+i;
-		select.name = 'selectCityTo'+i;
-		this.rel = i+1;
-		this.parentNode.appendChild(select);
-		return false;
-		'<br/>'
-	}
-
-	var add_btn = document.getElementById('add_btn');
-	if(add_btn.attachEvent)
-		  add_btn.attachEvent('onClick', handler_func);
-	else if(add_btn.addEventListener) //Firefox & company
-		  add_btn.addEventListener('click', handler_func, false);
-		 
-	
+	 document.getElementById( 'add_btn' ).addEventListener( 'click', function ( event ) {
+        
+        event.preventDefault();
+        var ctyToCity = document.getElementById( 'ctyToCity' ).cloneNode( true );
+        document.getElementById( 'outstationForm' ).appendChild( ctyToCity );
+        
+    }, false );
 });			

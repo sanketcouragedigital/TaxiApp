@@ -377,7 +377,7 @@ var mumbaiCabs = (function()
 					uberCost = 21 + (distance - 1.5)*10;
 					uberCost = uberCost.toFixed(2);
 				}
-				uberX.logo='<img src="images/bookmycab_logo.jpg"></img>';
+				uberX.logo='<img src="images/uber.png"></img>';
 				uberX.contact = 'Not Available';
 				uberX.cost = uberCost;                        
 			} 
@@ -401,7 +401,7 @@ var mumbaiCabs = (function()
 					uberCost = 21 + (distance - 1.5)*17;
 					uberCost = uberCost.toFixed(2);
 				}
-				uberBlack.logo='<img src="images/bookmycab_logo.jpg"></img>';
+				uberBlack.logo='<img src="images/uber.png"></img>';
 				uberBlack.contact = 'Not Available';
 				uberBlack.cost = uberCost;                        
 			} 			
