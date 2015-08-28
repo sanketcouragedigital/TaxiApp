@@ -24,6 +24,9 @@
 		max-height: 9em !important;
 		max-width: 9em !important;
 	}
+	.listAnchor{
+		text-decoration:none !important;;
+	}
 	html .ui-page-theme-c .ui-btn, html .ui-bar-c .ui-btn, html .ui-body-c .ui-btn, html body .ui-group-theme-c .ui-btn, html body .ui-btn.ui-btn-c, html .ui-page-theme-c .ui-btn:visited, html .ui-bar-c .ui-btn:visited, html .ui-body-c .ui-btn:visited, html body .ui-group-theme-c .ui-btn:visited, html body .ui-btn.ui-btn-c:visited 
 	{
 		background: transparent !important;

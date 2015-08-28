@@ -67,7 +67,7 @@ $ (function()
 					totalAmount = amount + extracharges;
 				}
 				//making list of hourly searched cars.
-				var carsList='<li class="carList"><a href="selfdrivelistdetails.html" class="customlist" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="totaltime">'+totaltime+'</p></a></li>';
+				var carsList='<li class="list"><a href="selfdrivelistdetails.html" class="listAnchor" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="totaltime">'+totaltime+'</p></a></li>';
 				$("#listOfCars").append(carsList);
 			}
 		}
@@ -182,22 +182,21 @@ $ (function()
 				
 
 
-				var carsList='<li class="carList"><a href="selfdrivelistdetails.html" class="customlist" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="noOfDays">'+noOfDays+'</p></a></li>';
+				var carsList='<li class="list"><a href="selfdrivelistdetails.html" class="listAnchor" data-ajax="false"><h2 id="serviceProviderName">'+serviceProviderName+'<span class="ui-li-aside" id="totalAmount" style="right: 0.50em !important;">Total Rs : '+totalAmount+'</span></h2> <p><strong id="carMake">'+carMake+'</strong></p> <p>More Info...</p> <p id="deposit">'+deposit+'</p> <p id="extracharges">'+extracharges+'</p> <p id="noOfDays">'+noOfDays+'</p></a></li>';
 				$("#listOfCars").append(carsList);
 		}
 				
 	})
 				$("#listOfCars").listview('refresh');	
-				$("a.customlist").css({
+				$("a.listAnchor").css({
 					background : "#f6f6f6"
 				});
 				$("a").css({
 					color : "black"
 				});
-				$("li.carList").css("border", "#DCDCDC solid 1px");
-				$("a.customlist").css("border", "#DCDCDC 1px");
+				
 				$("p#deposit, p#extracharges, p#totaltime, p#noOfDays").css("display","none");
-				$("li.carList").on('click',function(){
+				$("li.list").on('click',function(){
 					var carListItem = $(this);
 					var serviceProviderName=carListItem.find("h2#serviceProviderName").html();
 					var value = serviceProviderName.split("<");
