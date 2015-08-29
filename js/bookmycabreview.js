@@ -1,6 +1,4 @@
- $(function () {
-    
-        
+ $(function () {            
         //show the loading icon
         $.mobile.loading( "show", {
                   text: "Loading reviews...",
@@ -12,8 +10,7 @@
             .done(function(response) {
                 $.mobile.loading( "hide" );
                 //alert(response);
-					if(typeof response.showReviewData !== 'undefined' && response.showReviewData.length > 0)
-					{
+					if(typeof response.showReviewData !== 'undefined' && response.showReviewData.length > 0){
 					 $.each(response.showReviewData, function(index, review){
 						  var reviewObj = review;
 						  var rating = reviewObj.rating;
@@ -42,8 +39,7 @@
 				}
 				else{
 					$("#dlg-list-error").popup("open");
-				}
-               
+				}               
             })
             .fail(function (){
                 $.mobile.loading( "hide" );

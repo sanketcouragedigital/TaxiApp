@@ -1,7 +1,5 @@
-function handleSocialShare()
-{
-    $('#select-choice-share option:selected').each(function()
-    {
+function handleSocialShare(){
+    $('#select-choice-share option:selected').each(function(){
         text = "Courage Digital..";
         url ="http://www.ziftapp.com";
 
@@ -20,15 +18,12 @@ function handleSocialShare()
         }
     });
 }
-function shareFacebookLike(url)
-{	
+function shareFacebookLike(url){	
     window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
 }
-function shareTwitter(url, text)
-{	
+function shareTwitter(url, text){	
     window.location = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
 }
-function shareEmail(subject, body)
-{
+function shareEmail(subject, body){
     window.location = "mailto:&subject=" + subject + "&body=" + body;
 }
