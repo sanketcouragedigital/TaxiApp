@@ -63,8 +63,8 @@
 			cabCosts.push(mumbaiCabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getBookMyCabACFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getBookMyCabNonACFare(distance, duration, timeOfPickup));
-			cabCosts.push(mumbaiCabs.getUberXFare(distance, duration, timeOfPickup));
-			cabCosts.push(mumbaiCabs.getUberBlackFare(distance, duration, timeOfPickup));
+			cabCosts.push(mumbaiCabs.getUberXFare(distance, duration));
+			cabCosts.push(mumbaiCabs.getUberBlackFare(distance, duration));
 				                
             var listItemHtml;
             var sortedCosts = _.sortBy(cabCosts,'cost');

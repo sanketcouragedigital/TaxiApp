@@ -282,8 +282,7 @@ var mumbaiCabs = (function(){
 			}
 			return bmcNonAc;
 	}   
-	function calculateFaresForUberX(distance, duration, timeOfPickup) {			 
-		if(timeOfPickup === "day"){
+	function calculateFaresForUberX(distance, duration ) {			 
 			var uberCost;
 			var uberX = {};
 			uberX.type = "Uber X";
@@ -297,12 +296,10 @@ var mumbaiCabs = (function(){
 			}
 				uberX.logo='<img src="images/uber.png"></img>';
 				uberX.contact = 'Not Available';
-				uberX.cost = uberCost;                        
-		} 
+				uberX.cost = uberCost;                        		 
 		return uberX;
 	}    
-	function calculateFaresForUberBlack(distance, duration, timeOfPickup){			 
-		if(timeOfPickup === "day"){
+	function calculateFaresForUberBlack(distance, duration ){			 
 			var uberCost;
 			var uberBlack = {};
 			uberBlack.type = "Uber Black";
@@ -317,7 +314,6 @@ var mumbaiCabs = (function(){
 				uberBlack.logo='<img src="images/uber.png"></img>';
 				uberBlack.contact = 'Not Available';
 				uberBlack.cost = uberCost;                        
-			} 			
 			return uberBlack;
 	} 
 	//declare public variables and methods
