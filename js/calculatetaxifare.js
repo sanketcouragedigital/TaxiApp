@@ -2,13 +2,42 @@
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
 	var map;
+	var geocoder = new google.maps.Geocoder();
 	var origin;
 		if (typeof window.origin === "undefined") {
 			origin = sessionStorage.getItem("origin");
+			geocoder.geocode( { 'address': origin}, function(results, status) {
+				if (status == google.maps.GeocoderStatus.OK) {
+					var start_latitude = results[0].geometry.location.lat();
+					var start_longitude = results[0].geometry.location.lng();
+					
+					sessionStorage.setItem("start_latitude",start_latitude);
+					sessionStorage.setItem("start_longitude",start_longitude);
+				} 
+			}); 
 		} else {
 			origin = window.origin;
-		}            
+			var splitOrigin = origin.split(",");
+			
+			var splitLatitude = splitOrigin[0].split("(");
+			var start_latitude = splitLatitude[1];
+			
+			var splitLongitude = splitOrigin[1].split(")");
+			var start_longitude = splitLongitude[0];
+			
+			sessionStorage.setItem("start_latitude",start_latitude);
+			sessionStorage.setItem("start_longitude",start_longitude);
+		}
 		var destination = sessionStorage.getItem("dest");
+		geocoder.geocode( { 'address': destination}, function(results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				var end_latitude = results[0].geometry.location.lat();
+				var end_longitude = results[0].geometry.location.lng();
+					
+				sessionStorage.setItem("end_latitude",end_latitude);
+				sessionStorage.setItem("end_longitude",end_longitude);
+			} 
+		}); 
 		var timeOfPickup = sessionStorage.getItem("timeOfPickup");
 		var cabCosts = [];
 		var service = new google.maps.DistanceMatrixService();            
@@ -56,20 +85,25 @@
 			cabCosts.push(mumbaiCabs.getOlaSedanFare(distance));
 			cabCosts.push(mumbaiCabs.getOlaMiniFare(distance));
 			cabCosts.push(mumbaiCabs.getOlaPrimeFare(distance));
-			cabCosts.push(mumbaiCabs.getTabCabFare(distance, timeOfPickup));
-				
+			cabCosts.push(mumbaiCabs.getTabCabFare(distance, timeOfPickup));				
 			cabCosts.push(mumbaiCabs.getTaxiForSureHatchBackFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getTaxiForSureSedanFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getBookMyCabACFare(distance, duration, timeOfPickup));
 			cabCosts.push(mumbaiCabs.getBookMyCabNonACFare(distance, duration, timeOfPickup));
-			cabCosts.push(mumbaiCabs.getUberXFare(distance, duration));
+			cabCosts.push(mumbaiCabs.getUberXFare(distance, duration));	
 			cabCosts.push(mumbaiCabs.getUberBlackFare(distance, duration));
 				                
             var listItemHtml;
             var sortedCosts = _.sortBy(cabCosts,'cost');
             $.each(sortedCosts, function(i,currCab){
-				listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor">'+currCab.logo+'<h2>'+currCab.type+'</h2> <span class="ui-li-count"> Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(0)+'</span></a></li>';
+				if(currCab.type=="Uber X" || currCab.type=="Uber Black"){
+					cabCost = 'Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.maxcost)).toFixed(0);
+				}
+				else{
+					cabCost = 'Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(0);
+				}
+				listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor">'+currCab.logo+'<h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
 				$("#rideWiseList").append(listItemHtml);
 			});
 			$('#rideWiseList').listview('refresh');

@@ -86,7 +86,7 @@ var mumbaiCabs = (function(){
                 tabCabCost = 27 + (distance - 1)*20;
                 tabCabCost = tabCabCost.toFixed(2);
             }
-            tabCab.logo = '<img src="images/tabcab_logo.jpg"></img>';
+            tabCab.logo = '<img src="images/TABcab_logo.png"></img>';
             tabCab.contact = 'tel:02242731000';
             tabCab.cost = tabCabCost;            
         } else {
@@ -96,7 +96,7 @@ var mumbaiCabs = (function(){
                 tabCabCost = 33.75 + (distance - 1)*25;
                 tabCabCost = tabCabCost.toFixed(2);
             }
-            tabCab.logo = '<img src="images/tabcab_logo.jpg"></img>';
+            tabCab.logo = '<img src="images/TABcab_logo.png"></img>';
             tabCab.contact = 'tel:02242731000';
             tabCab.cost = tabCabCost;            
         }
@@ -282,40 +282,74 @@ var mumbaiCabs = (function(){
 			}
 			return bmcNonAc;
 	}   
-	function calculateFaresForUberX(distance, duration ) {			 
-			var uberCost;
+	function calculateFaresForUberX(distance, duration ) {
+			var start_latitude = sessionStorage.getItem("start_latitude");
+			var start_longitude = sessionStorage.getItem("start_longitude");
+			var end_latitude = sessionStorage.getItem("end_latitude");
+			var end_longitude = sessionStorage.getItem("end_longitude");
 			var uberX = {};
-			uberX.type = "Uber X";
-			if(distance <= 1.5){
-				uberCost = 21;
-				//min charges 150
-				//per mimute 1rs
-			}else {
-				uberCost = 21 + (distance - 1.5)*10;
-				uberCost = uberCost.toFixed(2);
-			}
-				uberX.logo='<img src="images/uber.png"></img>';
-				uberX.contact = 'Not Available';
-				uberX.cost = uberCost;  
-				uberX.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
-		return uberX;
+			
+			var uberXRequest = $.ajax({
+				url : "https://api.uber.com/v1/estimates/price?start_latitude="+start_latitude+"&start_longitude="+start_longitude+"&end_latitude="+end_latitude+"&end_longitude="+end_longitude+"&server_token=tGQhjuUgoJyx-TL3IczOGZhH7EIXgLrwbii7FZgs",
+				method: "GET",
+				async: false
+			});
+
+			uberXRequest.done(function(response){
+				uberX.type = "Uber X";
+					var uberMinCost;
+					var uberMaxCost;
+					$.each(response.prices,function (index,loadUberPrices){
+						if(loadUberPrices.display_name=="uberX") {
+							uberMinCost = loadUberPrices.minimum;
+							uberMaxCost = loadUberPrices.high_estimate;
+						}
+					});
+					uberX.logo='<img src="images/uber.png"></img>';
+					uberX.cost = uberMinCost;
+					uberX.maxcost = uberMaxCost;
+					uberX.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
+					
+			});
+
+			uberXRequest.fail(function() {
+				alert("Failed");	
+			});
+			return uberX;	
 	}    
-	function calculateFaresForUberBlack(distance, duration ){			 
-			var uberCost;
+	function calculateFaresForUberBlack(distance, duration ){
+			var start_latitude = sessionStorage.getItem("start_latitude");
+			var start_longitude = sessionStorage.getItem("start_longitude");
+			var end_latitude = sessionStorage.getItem("end_latitude");
+			var end_longitude = sessionStorage.getItem("end_longitude");
 			var uberBlack = {};
-			uberBlack.type = "Uber Black";
-			if(distance <= 1.5){
-				uberCost = 21;
-				//min charges 100
-				//per mimute 2rs
-			}else {
-				uberCost = 21 + (distance - 1.5)*17;
-				uberCost = uberCost.toFixed(2);
-			}
-				uberBlack.logo='<img src="images/uber.png"></img>';
-				uberBlack.contact = 'Not Available';
-				uberBlack.cost = uberCost;   
-				uberBlack.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
+			
+			var uberBlackRequest = $.ajax({
+				url : "https://api.uber.com/v1/estimates/price?start_latitude="+start_latitude+"&start_longitude="+start_longitude+"&end_latitude="+end_latitude+"&end_longitude="+end_longitude+"&server_token=tGQhjuUgoJyx-TL3IczOGZhH7EIXgLrwbii7FZgs",
+				method: "GET",
+				async: false
+			});
+
+			uberBlackRequest.done(function(response){
+				uberBlack.type = "Uber Black";
+					var uberMinCost;
+					var uberMaxCost;
+					$.each(response.prices,function (index,loadUberPrices){
+						if(loadUberPrices.display_name=="UberBLACK") {
+							uberMinCost = loadUberPrices.minimum;
+							uberMaxCost = loadUberPrices.high_estimate;
+						}
+					});
+					uberBlack.logo='<img src="images/uber.png"></img>';
+					uberBlack.cost = uberMinCost;
+					uberBlack.maxcost = uberMaxCost;
+					uberBlack.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
+					
+			});
+
+			uberBlackRequest.fail(function() {
+				alert("Failed");	
+			});
 			return uberBlack;
 	} 
 	//declare public variables and methods
