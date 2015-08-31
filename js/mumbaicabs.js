@@ -5,7 +5,7 @@ var mumbaiCabs = (function(){
             var easyCab = {};
             easyCab.type = "Easy Cabs";
             if(distance <= 1.0) {
-                	easyCabCost = 27;
+                easyCabCost = 27;
 			} else {
 				easyCabCost = 27 + (distance - 1.0)*20.00;
                	easyCabCost = easyCabCost.toFixed(2);
@@ -282,8 +282,7 @@ var mumbaiCabs = (function(){
 			}
 			return bmcNonAc;
 	}   
-	function calculateFaresForUberX(distance, duration, timeOfPickup) {			 
-		if(timeOfPickup === "day"){
+	function calculateFaresForUberX(distance, duration ) {			 
 			var uberCost;
 			var uberX = {};
 			uberX.type = "Uber X";
@@ -297,12 +296,11 @@ var mumbaiCabs = (function(){
 			}
 				uberX.logo='<img src="images/uber.png"></img>';
 				uberX.contact = 'Not Available';
-				uberX.cost = uberCost;                        
-		} 
+				uberX.cost = uberCost;  
+				uberX.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
 		return uberX;
 	}    
-	function calculateFaresForUberBlack(distance, duration, timeOfPickup){			 
-		if(timeOfPickup === "day"){
+	function calculateFaresForUberBlack(distance, duration ){			 
 			var uberCost;
 			var uberBlack = {};
 			uberBlack.type = "Uber Black";
@@ -316,8 +314,8 @@ var mumbaiCabs = (function(){
 			}
 				uberBlack.logo='<img src="images/uber.png"></img>';
 				uberBlack.contact = 'Not Available';
-				uberBlack.cost = uberCost;                        
-			} 			
+				uberBlack.cost = uberCost;   
+				uberBlack.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
 			return uberBlack;
 	} 
 	//declare public variables and methods
