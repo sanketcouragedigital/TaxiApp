@@ -5,20 +5,31 @@ div.ui-content {
  html div.ui-page-theme-a div.ui-body-inherit {
  	border-color : #DCDCDC !important 
 }
-.listAnchor{
-	
+.listAnchor {	
 	border-right:none !important;
 	border-left:none !important;
-	border-color : #DCDCDC !important 
+	border-color : #DCDCDC !important;
+	height: 85px
 }
-.list{
+.list {
 	
 	padding-right:10px !important;
 	padding-left:10px !important;
 	border-color : #DCDCDC !important ;
 	
 }
-.reviewAnchor{
-	border-color : #DCDCDC !important ;
+.reviewAnchor {
+	border-color : #DCDCDC !important;
 	padding-left:16px !important;
 }
+.imagePadding {
+	padding:5px;
+	padding-top:12px;
+	height:62px;
+	width:80px
+}
+.listAnchor h2 {
+	font: 18px QuickSand !important; 
+	font-weight: bold !important
+}
+
