@@ -1,6 +1,4 @@
- $(function () {
-    
-        
+ $(function () {            
         //show the loading icon
         $.mobile.loading( "show", {
                   text: "Loading reviews...",
@@ -12,8 +10,7 @@
             .done(function(response) {
                 $.mobile.loading( "hide" );
                 //alert(response);
-					if(typeof response.showReviewData !== 'undefined' && response.showReviewData.length > 0)
-					{
+					if(typeof response.showReviewData !== 'undefined' && response.showReviewData.length > 0){
 					 $.each(response.showReviewData, function(index, review){
 						  var reviewObj = review;
 						  var rating = reviewObj.rating;
@@ -30,14 +27,19 @@
 						  
 						  var ratingInStars = buildStarsToShowRating(rating);
 						  var showReviewAndComment = ratingInStars+ "<p>"+comment+"</p><p>"+String(dateWhenRated)+"</p>";
-						  $("#reviewList").append('<li style="padding-left: 16px;">'+showReviewAndComment+'</li>');
+						  $("#reviewList").append('<li class="list" data-icon="false"><a class="reviewAnchor" >'+showReviewAndComment+'</a></li>');
 					});
 					$('#reviewList').listview('refresh');
+					$("a.reviewAnchor").css({
+						background : "#f6f6f6"
+					});
+					$("a").css({
+						color : "black"
+					});
 				}
 				else{
 					$("#dlg-list-error").popup("open");
-				}
-               
+				}               
             })
             .fail(function (){
                 $.mobile.loading( "hide" );

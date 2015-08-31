@@ -1,6 +1,24 @@
 div.ui-content {
- 	padding : 0 !important
+ 	padding : 0px !important;
+	
 }
  html div.ui-page-theme-a div.ui-body-inherit {
  	border-color : #DCDCDC !important 
+}
+.listAnchor{
+	
+	border-right:none !important;
+	border-left:none !important;
+	border-color : #DCDCDC !important 
+}
+.list{
+	
+	padding-right:10px !important;
+	padding-left:10px !important;
+	border-color : #DCDCDC !important ;
+	
+}
+.reviewAnchor{
+	border-color : #DCDCDC !important ;
+	padding-left:16px !important;
 }

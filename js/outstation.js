@@ -1,58 +1,43 @@
-function userChoice(choice)
-{
-	if(choice == 'oneWay')
-	{
+function userChoice(choice){
+	if(choice == 'oneWay'){
 		$("#endDateTime").hide();
 		$("#add_btn").hide();
-	}
-	else if(choice == 'roundTrip')
-	{
+	}else if(choice == 'roundTrip'){
 		$("#endDateTime").show();
 		$("#add_btn").hide();
-	}
-	else if(choice == 'multiCity')
-	{
+	}else if(choice == 'multiCity'){
 		$("#endDateTime").show();
 		$("#add_btn").show();
 	}
 }
-
 $(function(){
 	$("#add_btn").hide();
 	$("#endDateTime").hide();
 //to add hrs & mins in dropdown
-	function selectStartHrs() 
-	{
+	function selectStartHrs(){
 		var select = document.getElementById('startTimeHours');
-		for (var i=0; i<23; i++) 
-		{
+		for (var i=0; i<23; i++) {
 			select.options[select.options.length] = new Option(i+1, i);
 		} 
 	}
 		selectStartHrs();
-	function selectStartMins() 
-	{
+	function selectStartMins() {
 		var select = document.getElementById('startTimeMins');
-		for (var i=0; i<60; i=i+5) 
-		{
+		for (var i=0; i<60; i=i+5){
 			select.options[select.options.length] = new Option(i);
 		} 
 	}
 		selectStartMins();	
-	function selectEndHrs() 
-	{
+	function selectEndHrs() {
 		var select = document.getElementById('endTimeHours');
-		for (var i=0; i<23; i++) 
-		{
+		for (var i=0; i<23; i++) {
 			select.options[select.options.length] = new Option(i+1, i);
 		} 
 	}
 		selectEndHrs();
-	function selectEndMins() 
-	{
+	function selectEndMins() {
 		var select = document.getElementById('endTimeMins');
-		for (var i=0; i<60; i=i+5) 
-		{
+		for (var i=0; i<60; i=i+5) {
 			select.options[select.options.length] = new Option(i);
 		} 
 	}
@@ -86,12 +71,9 @@ $(function(){
 		.fail(function (){   
             // $("#dlg-laod-error").popup("open"); 
          });
-		 
-	 document.getElementById( 'add_btn' ).addEventListener( 'click', function ( event ) {
-        
-        event.preventDefault();
-        var ctyToCity = document.getElementById( 'ctyToCity' ).cloneNode( true );
-        document.getElementById( 'outstationForm' ).appendChild( ctyToCity );
-        
-    }, false );
+		document.getElementById( 'add_btn' ).addEventListener( 'click', function ( event ) {
+			event.preventDefault();
+			var ctyToCity = document.getElementById( 'ctyToCity' ).cloneNode( true );
+			document.getElementById( 'outstationForm' ).appendChild( ctyToCity );
+		}, false );
 });			

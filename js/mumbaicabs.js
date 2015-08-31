@@ -1,43 +1,35 @@
-var mumbaiCabs = (function()
-{
+var mumbaiCabs = (function(){
 	function calculateFareForEasyCabs(distance, timeOfPickup) {
 		if(timeOfPickup === "day") {
-
             var easyCabCost;
             var easyCab = {};
             easyCab.type = "Easy Cabs";
-
             if(distance <= 1.0) {
                 	easyCabCost = 27;
-                } else {
-                	easyCabCost = 27 + (distance - 1.0)*20.00;
-                	easyCabCost = easyCabCost.toFixed(2);
-                }
-                easyCab.logo='<img src="images/easycabs_logo.png"></img>';
-                easyCab.cost = easyCabCost;        
-                easyCab.contact = 'tel:02243434343';
+			} else {
+				easyCabCost = 27 + (distance - 1.0)*20.00;
+               	easyCabCost = easyCabCost.toFixed(2);
+			}
+			easyCab.logo='<img src="images/easycabs_logo.png"></img>';
+			easyCab.cost = easyCabCost;        
+			easyCab.contact = 'tel:02243434343';
         } else { //It is a night time pick up. 12am - 5am
-
-            var easyCabCost;
+			var easyCabCost;
             var easyCab = {};
             easyCab.type = "Easy Cabs";
-
             if(distance <= 1.0) {
-                	easyCabCost = 33.75;
+				easyCabCost = 33.75;
             } else {
-                	easyCabCost = 33.75 + (distance - 1.0)*25.00;
-                	easyCabCost = easyCabCost.toFixed(2);
+               	easyCabCost = 33.75 + (distance - 1.0)*25.00;
+				easyCabCost = easyCabCost.toFixed(2);
             }
             easyCab.logo='<img src="images/easycabs_logo.png"></img>';
             easyCab.cost = easyCabCost;        
-            easyCab.contact = 'tel:02243434343';    
-                        
+            easyCab.contact = 'tel:02243434343';    							
         }
-        return easyCab;             
+        return easyCab;
 	}
-
-	function calculateFareForOlaSedan(distance) 
-	{
+	function calculateFareForOlaSedan(distance) {
         var olaSedanCost;
         var olaSedan = {};
         olaSedanCost = distance * 21;
@@ -53,9 +45,7 @@ var mumbaiCabs = (function()
         olaSedan.cost = olaSedanCost;
         return olaSedan;
     }
-
-    function calculateFareForOlaMini(distance) 
-	{
+    function calculateFareForOlaMini(distance) {
         var olaMiniCost;
         var olaMini = {};
         olaMini.logo='<img src="images/ola.jpg"></img>';
@@ -70,13 +60,9 @@ var mumbaiCabs = (function()
         olaMini.cost = olaMiniCost;
         return olaMini;
     }
-            
-    
-    function calculateFareOlaPrime(distance) 
-	{
+    function calculateFareOlaPrime(distance) {
         var olaPrimeCost;
         var olaPrime = {};
-
         olaPrime.type = "Prime";
         if(distance <= 5) {
         	olaPrimeCost = 200;
@@ -89,13 +75,10 @@ var mumbaiCabs = (function()
         olaPrime.cost = olaPrimeCost;
         return olaPrime;    
     }
-
     function calculateFareForTabCab(distance, timeOfPickup) {
-    	var tabCabCost;
-        
+    	var tabCabCost;   
         var tabCab = {};
         tabCab.type = "TAB Cab";
-
         if(timeOfPickup === "day") {
             if(distance <= 1) {
                 tabCabCost = 27;
@@ -105,11 +88,9 @@ var mumbaiCabs = (function()
             }
             tabCab.logo = '<img src="images/tabcab_logo.jpg"></img>';
             tabCab.contact = 'tel:02242731000';
-            tabCab.cost = tabCabCost;
-            
-
+            tabCab.cost = tabCabCost;            
         } else {
-            if(distance <= 1) {
+			if(distance <= 1) {
                 tabCabCost = 33.75;
             } else {
                 tabCabCost = 33.75 + (distance - 1)*25;
@@ -117,14 +98,11 @@ var mumbaiCabs = (function()
             }
             tabCab.logo = '<img src="images/tabcab_logo.jpg"></img>';
             tabCab.contact = 'tel:02242731000';
-            tabCab.cost = tabCabCost;
-            
+            tabCab.cost = tabCabCost;            
         }
         return tabCab;
     }
-
-    function calculateFareForMeru(distance,timeOfPickup) {
-            
+    function calculateFareForMeru(distance,timeOfPickup) {       
         var meruCost;
         var meru = {};
         meru.type = "Meru";
@@ -151,43 +129,30 @@ var mumbaiCabs = (function()
             
         }
         return meru;
-
     }
-	function calculateFaresForTaxiForSureHatchBack(distance, duration, timeOfPickup)
-	{
-		if(timeOfPickup === "day") 
-		{
+	function calculateFaresForTaxiForSureHatchBack(distance, duration, timeOfPickup){
+		if(timeOfPickup === "day") {
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
 			tfsHatchBack.type = "Hatchback";
-			if(distance <= 6)
-			{
+			if(distance <= 6){
 				tfsHatchBackCost = 150;
-			} 
-			else
-			{
+			} else{
 				tfsHatchBackCost = 150+ (distance - 6)*15;
 				tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
 			}
 			tfsHatchBack.logo = '<img src="images/taxiforsure_logo.png"></img>';
 			tfsHatchBack.contact = 'tel:02260601010';
 			tfsHatchBack.cost = tfsHatchBackCost;
-		}
-		else
-		{
+		}else{
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
-
 			tfsHatchBack.type = " Hatchback";
-
-			if(distance <= 6) 
-			{
+			if(distance <= 6) {
 				tfsHatchBackCost = 185;
-			} 
-			else
-			{
+			} else{
 				tfsHatchBackCost = 185+ (distance - 6)*18;
 				tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
 			}
@@ -197,39 +162,27 @@ var mumbaiCabs = (function()
 		}
 		return tfsHatchBack;
 	}
-	function calculateFaresForTaxiForSureSedan(distance, duration, timeOfPickup)
-	{
-		if(timeOfPickup === "day")
-		{
+	function calculateFaresForTaxiForSureSedan(distance, duration, timeOfPickup){
+		if(timeOfPickup === "day"){
 			var tfsSedanCost;
 			var tfsSedan = {};
-
 			tfsSedan.type = "Sedan";
-			if(distance <= 6) 
-			{
+			if(distance <= 6) {
 				tfsSedanCost = 150;
-			}
-			else 
-			{
+			}else {
 				tfsSedanCost = 150 + (distance - 6)*18;
 				tfsSedanCost = tfsSedanCost.toFixed(2);
 			}
 			tfsSedan.logo = '<img src="images/taxiforsure_logo.png"></img>';
 			tfsSedanCost.contact = 'tel:02260601010';
 			tfsSedan.cost = tfsSedanCost;
-		}
-		else
-		{
+		}else{
 			var tfsSedanCost;
 			var tfsSedan = {};
 			tfsSedan.type = "Sedan";
-
-			if(distance <= 6)
-			{
+			if(distance <= 6){
 				tfsSedanCost = 185;
-			} 
-			else 
-			{
+			} else {
 				tfsSedanCost = 185 + (distance - 6)*22;
 				tfsSedanCost = tfsSedanCost.toFixed(2);
 			}
@@ -239,36 +192,26 @@ var mumbaiCabs = (function()
 		} 
 		return tfsSedan;
 	}		
-	function calculateFaresForTaxiForSureSUV(distance, duration, timeOfPickup)
-	{             
-		if(timeOfPickup === "day")
-		{
+	function calculateFaresForTaxiForSureSUV(distance, duration, timeOfPickup){             
+		if(timeOfPickup === "day"){
 			var tfsSuvCost;
 			var tfsSuv = {};
-
 			tfsSuv.type = "SUV";
-
 			if(distance <= 6) {
-			tfsSuvCost = 200;
+				tfsSuvCost = 200;
 			} else {
-			 tfsSuvCost = 200 + (distance - 6)*21;
-			 }
-			 tfsSuv.logo = '<img src="images/taxiforsure_logo.png"></img>';
-			 tfsSuv.contact = 'tel:02260601010';
-			  tfsSuv.cost = tfsSuvCost;
+				tfsSuvCost = 200 + (distance - 6)*21;
 			}
-		else
-		{
+			tfsSuv.logo = '<img src="images/taxiforsure_logo.png"></img>';
+			tfsSuv.contact = 'tel:02260601010';
+			tfsSuv.cost = tfsSuvCost;
+		}else{
 			var tfsSuvCost;
 			tfsSuv = {};
 			tfsSuv.type = "SUV";
-
-			if(distance <= 6) 
-			{
+			if(distance <= 6) {
 				tfsSuvCost = 250;
-			} 
-			else 
-			{
+			} else {
 				tfsSuvCost = 250 + (distance - 6)*26;
 				tfsSuvCost = tfsSuvCost.toFixed(2);
 			}
@@ -278,37 +221,27 @@ var mumbaiCabs = (function()
 		}
 			return tfsSuv;
 	}
-	function calculateFaresForBookMyCabAC(distance, duration, timeOfPickup) 
-	{          
-		 if(timeOfPickup === "day") 
-			{
-				var bmcACCost;
-				var bmcAC = {};
-				bmcAC.type = "A/C Cool Cabs";
-				if(distance <= 1.5) 
-				{
-					bmcACCost = 26;
-				} 
-				else 
-				{
-					bmcACCost = 26 + (distance - 1.5)*17.50;
-					bmcACCost = bmcACCost.toFixed(2);
-				}
+	function calculateFaresForBookMyCabAC(distance, duration, timeOfPickup) {          
+		if(timeOfPickup === "day") {
+			var bmcACCost;
+			var bmcAC = {};
+			bmcAC.type = "A/C Cool Cabs";
+			if(distance <= 1.5){
+				bmcACCost = 26;
+			}else {
+				bmcACCost = 26 + (distance - 1.5)*17.50;
+				bmcACCost = bmcACCost.toFixed(2);
+			}
 				bmcAC.logo='<img src="images/bookmycab_logo.jpg"></img>';
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:02261234567';
-			}
-			else
-			{
+			}else{
 				var bmcACCost;
 				var bmcAC = {};
 				bmcAC.type = "A/C Cool Cabs"
-				if(distance <= 1.5) 
-				{
+				if(distance <= 1.5){
 					bmcACCost = 26 + (0.25*23);
-				}
-				else 
-				{
+				}else {
 					bmcACCost = (26 + (distance - 1.5)*17.50)*1.25;
 					bmcACCost = bmcACCost.toFixed(2);
 				}
@@ -318,38 +251,28 @@ var mumbaiCabs = (function()
 			}
 			return bmcAC;
 	}
-	function calculateFaresForBookMyCabNonAC(distance, duration, timeOfPickup) 
-	{			 
-		if(timeOfPickup === "day") 
-			{
-				var bmcCost;
-				var bmcNonAc = {};
-				bmcNonAc.type = "Kali Peeli";
-				if(distance <= 1.5) 
-				{
-					bmcCost = 21;
-				}
-				else 
-				{
-					bmcCost = 21 + (distance - 1.5)*14;
-					bmcCost = bmcCost.toFixed(2);
-				}
+	function calculateFaresForBookMyCabNonAC(distance, duration, timeOfPickup){			 
+		if(timeOfPickup === "day"){
+			var bmcCost;
+			var bmcNonAc = {};
+			bmcNonAc.type = "Kali Peeli";
+			if(distance <= 1.5){
+				bmcCost = 21;
+			}else {
+				bmcCost = 21 + (distance - 1.5)*14;
+				bmcCost = bmcCost.toFixed(2);
+			}
 				bmcNonAc.logo='<img src="images/bookmycab_logo.jpg"></img>';
 				bmcNonAc.contact = 'tel:02261234567';
 				bmcNonAc.cost = bmcCost;                        
-			} 
-			else 
-			{ 
+			} else { 
 				var bmcCost;
 				var bmcNonAc = {};
 				bmcNonAc.type = "Kali Peeli";
-				if(distance <= 1.5) 
-				{
+				if(distance <= 1.5) {
 					bmcCost = 21 + (0.25*21);
 					bmcCost = bmcCost.toFixed(2);
-				}
-				else 
-				{
+				}else {
 					bmcCost = (21 + (distance - 1.5)*14)*1.25;
 					bmcCost = bmcCost.toFixed(2);
 				}
@@ -359,48 +282,38 @@ var mumbaiCabs = (function()
 			}
 			return bmcNonAc;
 	}   
-	function calculateFaresForUberX(distance, duration, timeOfPickup) 
-	{			 
-		if(timeOfPickup === "day") 
-			{
-				var uberCost;
-				var uberX = {};
-				uberX.type = "Uber X";
-				if(distance <= 1.5) 
-				{
-					uberCost = 21;
-					//min charges 150
-					//per mimute 1rs
-				}
-				else 
-				{
-					uberCost = 21 + (distance - 1.5)*10;
-					uberCost = uberCost.toFixed(2);
-				}
+	function calculateFaresForUberX(distance, duration, timeOfPickup) {			 
+		if(timeOfPickup === "day"){
+			var uberCost;
+			var uberX = {};
+			uberX.type = "Uber X";
+			if(distance <= 1.5){
+				uberCost = 21;
+				//min charges 150
+				//per mimute 1rs
+			}else {
+				uberCost = 21 + (distance - 1.5)*10;
+				uberCost = uberCost.toFixed(2);
+			}
 				uberX.logo='<img src="images/uber.png"></img>';
 				uberX.contact = 'Not Available';
 				uberX.cost = uberCost;                        
-			} 
-			return uberX;
+		} 
+		return uberX;
 	}    
-		function calculateFaresForUberBlack(distance, duration, timeOfPickup) 
-	{			 
-		if(timeOfPickup === "day") 
-			{
-				var uberCost;
-				var uberBlack = {};
-				uberBlack.type = "Uber Black";
-				if(distance <= 1.5) 
-				{
-					uberCost = 21;
-					//min charges 100
-					//per mimute 2rs
-				}
-				else 
-				{
-					uberCost = 21 + (distance - 1.5)*17;
-					uberCost = uberCost.toFixed(2);
-				}
+	function calculateFaresForUberBlack(distance, duration, timeOfPickup){			 
+		if(timeOfPickup === "day"){
+			var uberCost;
+			var uberBlack = {};
+			uberBlack.type = "Uber Black";
+			if(distance <= 1.5){
+				uberCost = 21;
+				//min charges 100
+				//per mimute 2rs
+			}else {
+				uberCost = 21 + (distance - 1.5)*17;
+				uberCost = uberCost.toFixed(2);
+			}
 				uberBlack.logo='<img src="images/uber.png"></img>';
 				uberBlack.contact = 'Not Available';
 				uberBlack.cost = uberCost;                        
@@ -423,8 +336,7 @@ var mumbaiCabs = (function()
 		getBookMyCabNonACFare       : calculateFaresForBookMyCabNonAC,
 		getUberXFare : calculateFaresForUberX,
 		getUberBlackFare : calculateFaresForUberBlack
-		
-		
+				
 	}
 
 })()
