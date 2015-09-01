@@ -27,11 +27,6 @@
 		</div>
 		<div data-role="content">	
 			<form method="" action="" id="outstationForm">
-				<!--<fieldset id="tripType" data-role="controlgroup" data-type="horizontal" data-mini="true" data-corners="false">  
-					<a id="oneWay" data-role="button" data-theme="f">One Way</a>
-					<a id="roundTrip" data-role="button" data-theme="a">Round Trip</a>
-					<a id="multiCity" data-role="button" data-theme="a">Multi City</a>			
-				</fieldset>-->
 				<fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
 					<input type="radio" name="radio-choice" id="oneWay"checked="checked" onclick="userChoice('oneWay')" data-theme="a">
 					<label for="oneWay">One Way</label>
@@ -40,17 +35,20 @@
 					<input type="radio" name="radio-choice" id="multiCity" onclick="userChoice('multiCity')" data-theme="a">
 					<label for="multiCity">Multi City</label>
 				</fieldset>
-				<a data-role="button" id="add_btn" data-theme="f" data-corners="false" data-inline="true" >Add Multiple Cities</a>
-				<fieldset id="ctyToCity" data-role="controlgroup" data-type="horizontal" data-corners="false">
-					<label for="city">City:</label>
-					<select name="selectCity" id="selectCity" data-ajax="false" data-corners="false" data-theme="f">
-						<option selected="selected">Select City</option>
-					</select>
-					<label for="cityTo">City To:</label>
-					<select name="selectCityTo" id="selectCityTo" data-ajax="false" data-corners="false" data-theme="f">
-						<option selected="selected">Select City</option>
-					</select>
-				</fieldset>
+				<a data-role="button" id="btnAddMultipleCities" data-theme="f" data-corners="false" data-inline="true" >Add Multiple Cities</a>
+				<a data-role="button" id="btnRemoveMultipleCities" data-theme="f" data-corners="false" data-inline="true" >Remove Multiple Cities</a>
+				<div id="ddlCities">
+					<fieldset id="ctyToCity"  data-role="controlgroup" data-type="horizontal" data-corners="false">				
+						<label for="city">City:</label>
+						<select name="selectCity" id="selectCity"class="selectedSource" data-theme="f" data-ajax="false" data-corners="false">
+							<option selected="selected">Source</option>
+						</select>
+						<label for="cityTo">City To:</label>
+						<select name="selectCityTo" id="selectCityTo"class="selectedDestination" data-theme="f" data-ajax="false" data-corners="false">
+							<option selected="selected">Destination</option>
+						</select>				
+					</fieldset>
+				</div>
 				<fieldset id="startDateTime" data-role="controlgroup" data-type="horizontal" data-corners="false">		
 					<p>Start Date :</p> 
 					<input type="text" id="startDate">

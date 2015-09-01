@@ -1,17 +1,21 @@
 function userChoice(choice){
 	if(choice == 'oneWay'){
 		$("#endDateTime").hide();
-		$("#add_btn").hide();
+		$("#btnAddMultipleCities").hide();
+		$("#btnRemoveMultipleCities").hide();
 	}else if(choice == 'roundTrip'){
 		$("#endDateTime").show();
-		$("#add_btn").hide();
+		$("#btnAddMultipleCities").hide();
+		$("#btnRemoveMultipleCities").hide();
 	}else if(choice == 'multiCity'){
 		$("#endDateTime").show();
-		$("#add_btn").show();
+		$("#btnAddMultipleCities").show();
+		$("#btnRemoveMultipleCities").hide();
 	}
 }
 $(function(){
-	$("#add_btn").hide();
+	$("#btnAddMultipleCities").hide();
+	$("#btnRemoveMultipleCities").hide();
 	$("#endDateTime").hide();
 //to add hrs & mins in dropdown
 	function selectStartHrs(){
@@ -51,6 +55,7 @@ $(function(){
 // to load Cities in dropdown
 	$.get("/ZiftAPI/api/ziftapi.php?method=outStationLoadCity&format=json")
 		.done(function (response){
+			sessionStorage.setItem("response",JSON.stringify(response.loadCityList));
 			var select=document.getElementById("selectCity");
 			$.each(response.loadCityList,function (index,outStationLoadCity){
 				var loadCityObj=outStationLoadCity;
@@ -71,9 +76,43 @@ $(function(){
 		.fail(function (){   
             // $("#dlg-laod-error").popup("open"); 
          });
-		document.getElementById( 'add_btn' ).addEventListener( 'click', function ( event ) {
-			event.preventDefault();
-			var ctyToCity = document.getElementById( 'ctyToCity' ).cloneNode( true );
-			document.getElementById( 'outstationForm' ).appendChild( ctyToCity );
-		}, false );
+//to add dropdown list 
+		$("#btnAddMultipleCities").click(function(){
+			$("#btnRemoveMultipleCities").show();
+			generateSourceList();
+			generateDestinationList();
+		});
+
+		function generateSourceList() {
+			var responseOfCities = sessionStorage.getItem("response");
+			var responseCityobj = $.parseJSON(responseOfCities);
+			var generatedSource = $('<select/>');			
+			$.each(responseCityobj,function (index,outStationLoadCity){
+				$('<option />', {value: outStationLoadCity.city_name, text: outStationLoadCity.city_name}).appendTo(generatedSource);
+			});		
+			generatedSource.appendTo("#ddlCities");
+			$("#ddlCities").find("select").addClass("userSelectedSources");
+			return;
+		}
+		function generateDestinationList() {
+			var responseOfCities = sessionStorage.getItem("response");
+			var responseCityobj = $.parseJSON(responseOfCities);
+			var generatedDestination = $('<select />');
+			
+			$.each(responseCityobj,function (index,outStationLoadCity){
+				$('<option />', {value: outStationLoadCity.city_name, text: outStationLoadCity.city_name}).appendTo(generatedDestination);
+			});
+			generatedDestination.appendTo("#ddlCities");
+			$("#ddlCities").find("select").addClass("userSelectedDestinations");
+			return;
+		}
+//to remove Added dropdown list
+		$('#btnRemoveMultipleCities').click(function(){
+			$('.userSelectedSources').each( function() {
+				$(this).remove();
+			});
+			$('.userSelectedDestinations').each( function() {
+				$(this).remove();
+			});
+		});
 });			
