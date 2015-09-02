@@ -301,7 +301,7 @@ var mumbaiCabs = (function(){
 					var uberMaxCost;
 					$.each(response.prices,function (index,loadUberPrices){
 						if(loadUberPrices.display_name=="uberX") {
-							uberMinCost = loadUberPrices.minimum;
+							uberMinCost = loadUberPrices.low_estimate;
 							uberMaxCost = loadUberPrices.high_estimate;
 						}
 					});
@@ -336,7 +336,7 @@ var mumbaiCabs = (function(){
 					var uberMaxCost;
 					$.each(response.prices,function (index,loadUberPrices){
 						if(loadUberPrices.display_name=="UberBLACK") {
-							uberMinCost = loadUberPrices.minimum;
+							uberMinCost = loadUberPrices.low_estimate;
 							uberMaxCost = loadUberPrices.high_estimate;
 						}
 					});

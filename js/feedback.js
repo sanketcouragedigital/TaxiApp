@@ -7,47 +7,50 @@
 		$('#feedbackForm').validate({
 			   rules: {
 					    mobileno : {
-						customMobile : true,						
+							customMobile : true,						
 						},
 						email : {
-						email : true,
-						required:true
+							email : true,
+							required:true
 						},
 						feedback: {
-							required:true;
+							required:true
 						}
 					},
-			  messages: {
+				messages: {
 							email : {
-							required : "Please enter Email Id...",
-							email:"Please enter valid email id..."
+								required : "Please enter Email Id...",
+								email:"Please enter valid email id..."
+							},
+							feedback: {
+								required : "Please enter a feedback."
 							}
 						},
 			 errorPlacement: function( error, element ) {
-			 error.insertAfter( element.parent() );
+				error.insertAfter( element.parent() );
 			}
 		});
 		$("btnsubmit").on("click",function (){
-			if($('#email').valid() && $('#feedback').valid()){
+			if($('#email').valid() & $('#feedback').valid()){
 				if($('#mobileno').valid()){
 					var data={
-							email: $("#email").val();
-							mobileno: $("#mobileno").val();
-							feedback: $("#feedback").val();
-							method: "userFeedback";
-							format:"json";
+							email: $("#email").val(),
+							mobileno: $("#mobileno").val(),
+							feedback: $("#feedback").val(),
+							method: "userFeedback",
+							format:"json"
 						};
-		$.post("localhost/www.ziftapp.com/dev/api/ziftapp.php",data)
-			.done(function (response){
-				if(response.mailFeedback==true){
-					$("#dlg-feedback-succsess").popup("open");
-				}
-				else{
-					$("#dlg-feedback-error").popup("open");
-				}
-		})	fail(function(){
-				$("#dlg-feedback-server-error").popup("open");
-		});
+					$.post("http://www.ziftapp.com/dev/api/ziftapp.php",data)
+						.done(function (response){
+							if(response.mailFeedback==true){
+								$("#dlg-feedback-succsess").popup("open");
+							}
+							else{
+								$("#dlg-feedback-error").popup("open");
+							}
+						}).fail(function(){
+							$("#dlg-feedback-server-error").popup("open");
+						});
 				}
 			}
 
