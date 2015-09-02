@@ -1,6 +1,6 @@
 function handleSocialShare(){
     $('#select-choice-share option:selected').each(function(){
-        text = "Courage Digital..";
+        text = "Zift App";
         url ="http://www.ziftapp.com";
 
         shareService = $(this).val()

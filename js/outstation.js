@@ -98,7 +98,6 @@ $(function(){
 			var responseOfCities = sessionStorage.getItem("response");
 			var responseCityobj = $.parseJSON(responseOfCities);
 			var generatedDestination = $('<select />');
-			
 			$.each(responseCityobj,function (index,outStationLoadCity){
 				$('<option />', {value: outStationLoadCity.city_name, text: outStationLoadCity.city_name}).appendTo(generatedDestination);
 			});
