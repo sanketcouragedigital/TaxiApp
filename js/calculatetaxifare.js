@@ -97,14 +97,18 @@
             var listItemHtml;
             var sortedCosts = _.sortBy(cabCosts,'cost');
             $.each(sortedCosts, function(i,currCab){
-				if(currCab.type=="Uber X" || currCab.type=="Uber Black"){
+				if(jQuery.isEmptyObject(currCab) === false) {
+					if(currCab.type=="Uber X" || currCab.type=="Uber Black"){
 					cabCost = 'Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.maxcost)).toFixed(0);
+					}
+					else {
+						cabCost = 'Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(0);
+					}
+					listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor">'+currCab.logo+'<h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
+					$("#rideWiseList").append(listItemHtml);
+				}else{
+					return true;
 				}
-				else{
-					cabCost = 'Rs '+(parseFloat(currCab.cost)).toFixed(0)+' - Rs '+(parseFloat(currCab.cost) + 50).toFixed(0);
-				}
-				listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor">'+currCab.logo+'<h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
-				$("#rideWiseList").append(listItemHtml);
 			});
 			$('#rideWiseList').listview('refresh');
 			$("a.listAnchor").css({
