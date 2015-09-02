@@ -313,7 +313,7 @@ var mumbaiCabs = (function(){
 			});
 
 			uberXRequest.fail(function() {
-				alert("Failed");	
+				//alert("Failed");	
 			});
 			return uberX;	
 	}    
@@ -348,7 +348,7 @@ var mumbaiCabs = (function(){
 			});
 
 			uberBlackRequest.fail(function() {
-				alert("Failed");	
+				//alert("Failed");	
 			});
 			return uberBlack;
 	} 
