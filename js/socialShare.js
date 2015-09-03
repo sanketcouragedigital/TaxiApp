@@ -1,3 +1,4 @@
+
 function handleSocialShare(){
     $('#select-choice-share option:selected').each(function(){
         text = "Zift App";
@@ -16,14 +17,33 @@ function handleSocialShare(){
                 break;
             default:
         }
+		$('#select-choice-share').val(0);
     });
 }
 function shareFacebookLike(url){	
+	 $.mobile.loading( "show", {
+      	text: "Loading...",
+        textVisible: true,
+        theme: "z",
+        html: ""
+     });
     window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
 }
-function shareTwitter(url, text){	
+function shareTwitter(url, text){
+	 $.mobile.loading( "show", {
+			text: "Loading...",
+			textVisible: true,
+			theme: "z",
+			html: ""
+	 });	
     window.location = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
 }
 function shareEmail(subject, body){
+	 $.mobile.loading( "show", {
+      	text: "Loading...",
+        textVisible: true,
+        theme: "z",
+        html: ""
+     });
     window.location = "mailto:&subject=" + subject + "&body=" + body;
 }
