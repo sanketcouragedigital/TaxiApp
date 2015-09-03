@@ -1,37 +1,33 @@
  $(function () {
-	 
 		$.validator.addMethod('customMobile', function(value, element) {
 			return this.optional(element) || /^([789]\d{9})$/.test(value);
 		},  "Please enter a valid 10 digit number");
 
 		$('#feedbackForm').validate({
-			   rules: {
-					    mobileno : {
-							customMobile : true,						
-						},
-						email : {
-							email : true,
-							required:true
-						},
-						feedback: {
-							required:true
-						}
-					},
-				messages: {
-							email : {
-								required : "Please enter Email Id...",
-								email:"Please enter valid email id..."
-							},
-							feedback: {
-								required : "Please enter a feedback."
-							}
-						},
-			 errorPlacement: function( error, element ) {
-				error.insertAfter( element.parent() );
+			rules: {
+				mobileno : {
+					customMobile : true,						
+				},
+				email : {
+					email : true,
+					required:true
+				},
+				feedback: {
+					required:true
+				}
+			},
+			messages: {
+				email : {
+					required : "Please enter Email Id",
+					email:"Please enter valid Email Id"
+				}
+			},
+			errorPlacement: function( error, element ) {
+			 	error.insertAfter( element.parent() );
 			}
 		});
-		$("btnsubmit").on("click",function (){
-			if($('#email').valid() & $('#feedback').valid()){
+		$("#btnsubmit").on("click",function (){
+			if($('#email').valid() && $('#feedback').valid()){
 				if($('#mobileno').valid()){
 					var data={
 							email: $("#email").val(),
@@ -40,17 +36,17 @@
 							method: "userFeedback",
 							format:"json"
 						};
-					$.post("http://www.ziftapp.com/dev/api/ziftapp.php",data)
+					$.post("http://www.ziftapp.com/dev/api/ziftapi.php",data)
 						.done(function (response){
 							if(response.mailFeedback==true){
-								$("#dlg-feedback-succsess").popup("open");
+								$("#dlg-feedback-success").popup("open");
 							}
 							else{
 								$("#dlg-feedback-error").popup("open");
 							}
-						}).fail(function(){
+					}).fail(function(){
 							$("#dlg-feedback-server-error").popup("open");
-						});
+					});
 				}
 			}
 
