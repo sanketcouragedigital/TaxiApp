@@ -1,52 +1,49 @@
 
 function handleSocialShare(){
-    $('#select-choice-share option:selected').each(function(){
-        text = "Checkout ZiftApp";
-        url ="http://www.ziftapp.com";
+	$('#select-choice-share option:selected').each(function(){
+    	text = "Checkout ZiftApp";
+        url ="https://play.google.com/store/apps/details?id=com.couragedigital.zift";
 		subject="I came accros this new app ZIFT APP.";
-		body="Hi i would like to inform you checkout this new app...This is link (add play storeslink here.)";
+		body="Hi, I here is a really cool app called ZIFT for comparing rides in this city ! For more information and to download the app please visit: https://play.google.com/store/apps/details?id=com.couragedigital.zift ";
 
         shareService = $(this).val();
-        switch (shareService) {
-            case "facebook":			
-                shareFacebookLike(url);
-                break;
-            case "twitter":				
-                shareTwitter(url, text);
-                break;
-            case "email":
-                shareEmail(url, text);
-                break;
-            default:
+        if(shareService == "facebook") {			
+        	shareFacebookLike(url);
         }
-        $.mobile.loading("hide");
+        else if(shareService == "twitter") {				
+        	shareTwitter(url, text);
+        }
+        else if(shareService == "email") {
+        	shareEmail(subject, body);
+        }
 		$('#select-choice-share').val(0);
+		$.mobile.loading("hide");
     });
 }
 function shareFacebookLike(url){	
-	 $.mobile.loading( "show", {
-      	text: "Loading...",
+	$.mobile.loading( "show", {
+    	text: "Loading...",
         textVisible: true,
         theme: "z",
         html: ""
-     });
-    window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    });
+    window.location = "http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
 }
 function shareTwitter(url, text){
-	 $.mobile.loading( "show", {
-			text: "Loading...",
-			textVisible: true,
-			theme: "z",
-			html: ""
-	 });	
+	$.mobile.loading( "show", {
+		text: "Loading...",
+		textVisible: true,
+		theme: "z",
+		html: ""
+	});	
     window.location = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
 }
 function shareEmail(subject, body){
-	 $.mobile.loading( "show", {
+	$.mobile.loading( "show", {
       	text: "Loading...",
         textVisible: true,
         theme: "z",
         html: ""
-     });
-    window.location = "mailsubject:&subject=" + subject + "&body=" + body;
+    });
+    window.location.href = "mailto:?subject=" + subject + "&body=" + body;
 }
