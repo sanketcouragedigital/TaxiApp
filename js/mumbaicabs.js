@@ -113,7 +113,7 @@ var mumbaiCabs = (function(){
                 meruCost = 27 + (distance - 1)*20;
                 meruCost = meruCost.toFixed(2);
             }
-            meru.logo = '<img src="images/meeru_logo.png"></img>';
+            meru.logo = '<img src="images/meru_logo.png"></img>';
             meru.contact = 'tel:02242731000';
             meru.cost = meruCost;
         } else {
@@ -123,7 +123,7 @@ var mumbaiCabs = (function(){
                 meruCost = 33.75 + (distance - 1)*25;
                 meruCost = meruCost.toFixed(2);
             }
-            meru.logo = '<img src="images/meeru_logo.png"></img>';
+            meru.logo = '<img src="images/meru_logo.png"></img>';
             meru.contact = 'tel:02242731000';
             meru.cost = meruCost;
             

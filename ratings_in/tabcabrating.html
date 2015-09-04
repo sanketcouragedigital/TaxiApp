@@ -26,15 +26,14 @@
 		</div>
 		<div data-role="content"> 
 			<div class="center-wrapper"style="padding-left:10%;padding-right:10%;padding-top:10%;">
-				<img src="../images/tabcab_logo.jpg" style="height:100px;width:210px"></img>
-				<br/>
+				<p align="center"><img src="../images/TABcab_logo.png" style="height:100px;width:210px"></img></p>
 				<div id="htmlRating" data-role="igrating" data-value="2"></div>
 				<br/>
 				<label for="textarea">Your Comments for the service:</label>
-				<textarea cols="40" rows="60" name="textarea" id="comment"></textarea>
+				<textarea cols="40" rows="60" name="textarea" id="comment" data-corners="false"></textarea>
 				<br/>
 				<input type="hidden" value="tabcabs" id="serviceName" />
-				<input type="button" value="Submit" id="saveRatings" data-theme="f"/>
+				<a id="saveRatings" value="Submit" data-role="button" data-theme="f" data-corners="false">Submit</a>
 			</div>
 			<div data-role="popup" id="dlg-save-error" data-dismissible="false" style="max-width:400px;">
 				<div role="main" class="ui-content">

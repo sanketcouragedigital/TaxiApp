@@ -1,4 +1,10 @@
  $(function() {
+	 $.mobile.loading( "show", {
+      	text: "Loading...",
+        textVisible: true,
+        theme: "f",
+        html: ""
+     });
 	var directionsDisplay;
 	var directionsService = new google.maps.DirectionsService();
 	var map;
@@ -96,6 +102,7 @@
 				                
             var listItemHtml;
             var sortedCosts = _.sortBy(cabCosts,'cost');
+			$.mobile.loading( "hide" );
             $.each(sortedCosts, function(i,currCab){
 				if(jQuery.isEmptyObject(currCab) === false) {
 					if(currCab.type=="Uber X" || currCab.type=="Uber Black"){

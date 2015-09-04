@@ -6,7 +6,7 @@
 		theme: "z",
 		html: ""
 	});
-	$.get("http://www.ziftapp.com/dev/api/ziftapi.php?serviceName=tabcab&method=showReview&format=json")
+	$.get("http://www.ziftapp.com/dev/api/ziftapi.php?serviceName=tabcabs&method=showReview&format=json")
 		.done(function(response) {
 			$.mobile.loading( "hide" );
 			//alert(response);

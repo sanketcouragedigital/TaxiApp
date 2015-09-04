@@ -3,6 +3,8 @@ function handleSocialShare(){
     $('#select-choice-share option:selected').each(function(){
         text = "Checkout ZiftApp";
         url ="http://www.ziftapp.com";
+		subject="I came accros this new app ZIFT APP.";
+		body="Hi i would like to inform you checkout this new app...This is link (add play storeslink here.)";
 
         shareService = $(this).val()
         switch (shareService) {
@@ -28,6 +30,7 @@ function shareFacebookLike(url){
         html: ""
      });
     window.location="http://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+	$.mobile.loading( "hide" );
 }
 function shareTwitter(url, text){
 	 $.mobile.loading( "show", {
@@ -37,6 +40,7 @@ function shareTwitter(url, text){
 			html: ""
 	 });	
     window.location = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(text) + "&url=" + encodeURIComponent(url);
+	$.mobile.loading( "hide" );
 }
 function shareEmail(subject, body){
 	 $.mobile.loading( "show", {
@@ -45,5 +49,6 @@ function shareEmail(subject, body){
         theme: "f",
         html: ""
      });
-    window.location = "mailto:&subject=" + subject + "&body=" + body;
+    window.location = "mailsubject:&subject=" + subject + "&body=" + body;
+	$.mobile.loading( "hide" );
 }
