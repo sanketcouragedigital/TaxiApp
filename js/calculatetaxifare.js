@@ -2,7 +2,7 @@
 	 $.mobile.loading( "show", {
       	text: "Loading...",
         textVisible: true,
-        theme: "f",
+        theme: "z",
         html: ""
      });
 	var directionsDisplay;
@@ -102,7 +102,7 @@
 				                
             var listItemHtml;
             var sortedCosts = _.sortBy(cabCosts,'cost');
-			$.mobile.loading( "hide" );
+			$.mobile.loading("hide");
             $.each(sortedCosts, function(i,currCab){
 				if(jQuery.isEmptyObject(currCab) === false) {
 					if(currCab.type=="Uber X" || currCab.type=="Uber Black"){
