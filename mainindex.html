@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+  <title>Home</title> 
+	<meta name="viewport" content="width=device-width; initial-scale=1; minimum-scale=1, user-scalable=no"/>  
+
+	  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	  <script src="js/jquery-1.11.2.min.js"></script>
+	  <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	  <script src="js/socialshare.js"></script>
+	  <script src="js/index2.js"></script>
+	  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+	  <link rel="stylesheet" href="css/structure.min.css" />
+	  <link rel="stylesheet" href="css/indexstyle.css" />
+	  <link rel="stylesheet" href="css/fonteffect.css" />
+		
+</head> 
+<body> 
+<div data-role="page" id="demo-page"  data-ajax="false" >
+
+  <div data-role="header" data-theme="f">
+   <a href="#left-panel" data-theme="f" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc" ></a>
+    <h1>ZIFT</h1>
+  </div>
+  <div data-role="content" class="ui-content" id="contentpage" data-theme="f" > 
+	<div>
+		<ul data-role="listview" id="ulList" style="padding-right:10px;padding-left:10px;" data-theme="c">
+			<li class="indexList" data-icon="false">
+				<a href="cheaprideoption.html" class="listAnchor" id="compareRideAnchor" data-ajax="false">
+					<img src="images\rup1.png"/>
+					<h2>Compare Local Rides</h2>
+					<p> Search the cheapest of available rides within city.</p>
+				</a>	
+			</li>
+			<li class="indexList"  data-icon="false">
+				<a href="taxicontacts.html"  class="listAnchor" data-ajax="false">
+					<img src="images\taxi1.png"/>
+					<h2>All Available Local Rides</h2>
+					<p>Select a ride among all available rides within city.</p>
+				</a>						
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="partyharddrivers.html" class="listAnchor" data-ajax="false">
+					<img src="images\phd1.png"/>	
+					<h2>Party Hard Services</h2>
+					<p>List of all services that offer party hard drivers within city.</p>
+				</a>					
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="deals.html" class="listAnchor" data-ajax="false">
+					<img src="images\deals1.png" />
+					<h2>Deals</h2>
+					<p>View all deals for available rides within city.</p>
+				</a>								
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="rateandreviews.html" class="listAnchor" data-ajax="false">
+					<img src="images\rateIt1.png"/>	
+					<h2>Rate and Review</h2>
+					<p>Share your riding experience of a service recently used.</p>
+				</a>						
+			</li>
+<!-- for 2nd version -->
+			<!--<li class="indexList" data-icon="false">
+				<a href="selfdrive.html" class="listAnchor" data-ajax="false">
+					<img src="images\selfdrive.png" />
+					<h2>Compare Self Drive</h2>
+				</a>								
+			</li>
+			<li class="indexList" data-icon="false">
+				<a href="outstation.html" class="listAnchor" data-ajax="false">
+					<img src="images\outstation.png" />
+						<h2>Out Station</h2>	
+				</a>								
+			</li>-->
+		</ul>
+	</div>		
+  </div>
+   <div data-role="panel" id="left-panel">
+
+			<ul data-role="listview" data-theme="c">
+				<li class="abt">
+					<a href="aboutus.html" id="panelListAboutUs" data-corners="false" data-ajax="false" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-info" style="line-height:45px !important; padding-left:15px !important; padding-right:5px !important;"  >About us</a>					
+				</li>				
+				<li class="abt">					
+					<a href="feedback.html" id="panelListFeedback" data-ajax="false" data-corners="false" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-comment" style="line-height:45px !important; padding-left:15px !important; padding-right:15px;">Feedback</a>								
+				</li>				
+				<li class="abt">	
+					<a href="#" id="panelListShareIt" data-ajax="false" data-corners="false" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-right ui-icon-forward" style="line-height:45px !important; padding-left:15px !important; padding-right:15px !important;">Share It</a>		
+				</li>
+			</ul>
+    </div>
+    <div data-role="popup" id="dlg-shareit" data-dismissible="false" style="width:250px;">
+        	<ul data-role="listview" data-corners="false" data-inset="true">
+          	<li class="list" data-corners="false"><a href="#" id="facebook" data-ajax="false" data-corners="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b listDialog" style="padding-left: 50px !important"><img src="images/facebook.png" height="30px" width="30px" /><h2>Facebook</h2></a></li>
+          	<li class="list" data-corners="false"><a href="#" id="twitter" data-ajax="false" data-corners="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b listDialog" style="padding-left: 50px !important"><img src="images/twitter.png" height="30px" width="30px" /><h2>Twitter</h2></a></li>
+          	<li class="list" data-corners="false"><a href="#" id="email" data-ajax="false" data-corners="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b listDialog" style="padding-left: 50px !important"><img src="images/email.png" height="30px" width="30px" /><h2>Email</h2></a></li>
+       		</ul>
+    </div>
+</div>
+</body>
+</html>
