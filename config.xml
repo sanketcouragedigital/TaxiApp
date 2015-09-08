@@ -68,6 +68,7 @@
     <gap:plugin name="com.phonegap.plugins.barcodescanner" />
     <!--<gap:plugin name="cordova.plugins.diagnostic" source="plugins.cordova.io" /> -->
     <gap:plugin name="cordova.plugins.diagnostic" source="npm" />
+    <gap:plugin name="cordova-plugin-network-information" source="npm" />
     
 
 

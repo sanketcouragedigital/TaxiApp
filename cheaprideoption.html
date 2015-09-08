@@ -17,13 +17,26 @@
 		<link rel="stylesheet" href="css/cheaprideoptionstyle.css" />
 		<link rel="stylesheet" href="css/fonteffect.css" />
 		<link rel="stylesheet" href="css/dialogtheme.css" />
+		<script>
+			$(document).on('pagebeforeshow', '#CheapestRide', function() {
+				$(document).on('click', '#calculateOptions', function() {
+					var status = navigator.onLine ? 'online' : 'offline';
+					if (status == "online") {
+						alert("online= ur net is off..plz turn on");
+					} else {
+						alert("offline= ur net is on..enjoy app");
+					}
+
+				});
+			});
+		</script>
 	</head> 
 	<body onload="initialize()"> 
-		<div data-role="page">
+		<div data-role="page" id="CheapestRide">
 			<div data-role="header"  data-theme="f">
 				<h1>Compare Local Rides</h1>
 				<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
-				<a href="index.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
+				<a href="mainindex.html" class="ui-btn-right" data-icon="home"  data-ajax="false" data-iconpos="notext" data-direction="reverse">Home</a> 
 			</div>
 
 			<div data-role="content" style=" padding-top:10px; padding-right:20px;padding-left:20px; ">		 
