@@ -1,19 +1,42 @@
 <!DOCTYPE html> 
 <html> 
 <head> 
-  <title>Home</title> 
+  	<title>Home</title> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no"/>  
 
-	  <link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
-	  <script src="js/jquery-1.11.2.min.js"></script>
-	  <script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	  <script src="cordova.js"></script>
-	  <script src="js/indexCity.js"></script>
-	  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
-	  <link rel="stylesheet" href="css/structure.min.css" />
-	  <link rel="stylesheet" href="css/fonteffect.css" />
-	  <script>
-	  </script>
+	<link rel="stylesheet" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="js/jquery-1.11.2.min.js"></script>
+	<script src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="js/indexCity.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
+	<link rel="stylesheet" href="css/structure.min.css" />
+	<link rel="stylesheet" href="css/fonteffect.css" />
+	<script type="text/javascript">
+	  	document.addEventListener("deviceready", onDeviceReady, false);
+
+	    function onDeviceReady() {
+	        checkConnection();
+	    }
+	
+	    function checkConnection() {
+	    	var networkState = navigator.connection.type;
+	
+	    	var states = {};
+	        states[Connection.UNKNOWN]  = 'Unknown connection';
+	        states[Connection.ETHERNET] = 'Ethernet connection';
+	        states[Connection.WIFI]     = 'WiFi connection';
+	        states[Connection.CELL_2G]  = 'Cell 2G connection';
+	        states[Connection.CELL_3G]  = 'Cell 3G connection';
+	        states[Connection.CELL_4G]  = 'Cell 4G connection';
+	        states[Connection.CELL]     = 'Cell generic connection';
+	        states[Connection.NONE]     = 'No network connection';
+			
+			if(states[networkState] === "No network connection") {
+	        	$("#dlg-connection-error").popup("open");
+	        }
+		}
+	</script>
 		
 </head> 
 <body> 
@@ -28,6 +51,15 @@
 				<option value="Mumbai">Mumbai</option>
 			</select>
 		</fieldset>
+		<div data-role="popup" id="dlg-connection-error" data-dismissible="false" style="max-width:400px;">
+	    	<div role="main" class="ui-content">
+	    		<h3>Connection Error</h3>
+	    		<p>Please make sure your network connection is on!</p>
+	    		<div class="mc-text-center"><a href="#" id="wifienable" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Enable Wifi</a></div>
+	    		<div class="mc-text-center"><a href="#" id="dataenable" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Enable Data</a></div>
+	    		<div class="mc-text-center"><a href="#" id="cancel" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">Cancel</a></div>
+	    	</div>
+	    </div>
 	</div>
 </body>
 </html>
