@@ -58,7 +58,7 @@ $(function() {
 				//setTimeout(checkState, 500);
 		}
 	}
-	$( "#locationError, #locationHighAccuracyError" ).click(function(){
+	$("#locationError, #locationHighAccuracyError" ).click(function(){
 		cordova.plugins.diagnostic.switchToLocationSettings();
 	});
 });
