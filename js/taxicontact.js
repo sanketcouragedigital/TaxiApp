@@ -1,3 +1,5 @@
+
+$("uber").hide();
 $(function() {
 	 $.mobile.loading( "show", {
       	text: "Loading Contacts...",
@@ -19,6 +21,7 @@ $(function() {
 				var listItemHtml;
 				listItemHtml = '<li data-icon="phone" class="list"><a href="'+Contact+'" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/taxiservices_images/'+imageName+'"/><h2>'+Owner+'</h2></a></li>';
 				$("#taxicontactList").append(listItemHtml);
+				$("uber").show();
             })			
             $.mobile.loading( "hide" );
 			$('#taxicontactList').listview('refresh');
