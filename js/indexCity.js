@@ -1,7 +1,7 @@
 $(function() {
 	$("#selectCity").on("change",function(){
 		var selectedCity=$("#selectCity").val();
-		sessionStorage.setItem("city",selectedCity);
+		sessionStorage.setItem("City",selectedCity);
 		if(selectedCity=="Mumbai"){
 			window.location="mainindex.html";
 		}

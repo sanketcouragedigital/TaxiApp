@@ -1,4 +1,4 @@
- $(function () {
+ $(function () {  
 	//show the loading icon
 	$.mobile.loading( "show", {
 		text: "Loading reviews...",
@@ -7,12 +7,12 @@
 		html: ""
 	});
 	var env = environment.getEnv();
-	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?serviceName=olacabs&method=showReview&format=json")
+	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?serviceName=celcabs&method=showReview&format=json")
 		.done(function(response) {
 			$.mobile.loading( "hide" );
-                //alert(response);
+			//alert(response);
 			if(typeof response.showReviewData !== 'undefined' && response.showReviewData.length > 0){
-				$.each(response.showReviewData, function(index, review){
+				$.each(response.showReviewData, function(index, review){	
 						var reviewObj = review;
 						var rating = reviewObj.rating;
 						var comment = reviewObj.comment;				  
@@ -28,10 +28,10 @@
 						var date = value[2];
 						var year = value[3];
 						var fullTime = value[4];
-						var dateWhenRated = date+" "+month+" "+year+" "+" "+fullTime;  	  
+						var dateWhenRated = date+" "+month+" "+year+" "+" "+fullTime;
 						var ratingInStars = buildStarsToShowRating(rating);
 						var showReviewAndComment = ratingInStars+ "<p>"+comment+"</p><p>"+String(dateWhenRated)+"</p>";
-					$("#reviewList").append('<li class="list" data-icon="false"><a class="reviewAnchor" >'+showReviewAndComment+'</li>');
+						$("#reviewList").append('<li class="list" data-icon="false"><a class="reviewAnchor" >'+showReviewAndComment+'</li>');
 				});
 				$('#reviewList').listview('refresh');
 				$("a.reviewAnchor").css({
@@ -42,7 +42,7 @@
 				});
 			}else{
 				$("#dlg-list-error").popup("open");
-			}            
+			}           
 		})
 		.fail(function (){
 			$.mobile.loading( "hide" );
@@ -52,6 +52,7 @@
 			$.mobile.loading( "hide" );
 		});
 });
+
 function buildStarsToShowRating(rating) {
   var startHtml="";
   for(var i=1; i<=rating; i++) {

@@ -36,7 +36,8 @@
 							method: "userFeedback",
 							format:"json"
 						};
-					$.post("http://www.ziftapp.com/dev/api/ziftapi.php",data)
+					var env = environment.getEnv();
+					$.post("http://www.ziftapp.com/"+env+"/api/ziftapi.php",data)
 						.done(function (response){
 							if(response.mailFeedback==true){
 								$("#dlg-feedback-success").popup("open");

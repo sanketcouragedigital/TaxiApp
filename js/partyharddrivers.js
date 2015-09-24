@@ -5,7 +5,9 @@ $(function() {
         theme: "z",
         html: ""
      });
-      $.get("http://www.ziftapp.com/dev/api/ziftapi.php?&method=showPHD&format=json")
+	 var env = environment.getEnv();
+	 var City = sessionStorage.getItem("City");
+      $.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?City="+City+"&method=showPHD&format=json")
       	.done(function(response) {
                 $.mobile.loading( "hide" );
 				if(typeof response.showPHDList !== 'undefined' && response.showPHDList.length > 0)

@@ -69,8 +69,8 @@ function userChoice(choice){
 $(function (){
 	$("#pickupDropoffDatePicker").hide();
 	$("#pickupDropoffTimePicker").hide();
-	
-	$.get("/ZiftAPI/api/ziftapi.php?method=loadCity&format=json")
+	var env = environment.getEnv();
+	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?method=loadCity&format=json")
 		.done(function (response){
 			var select=document.getElementById("selectCity");
 			$.each(response.loadCityList,function (index,loadCity){
@@ -93,7 +93,8 @@ $(function (){
 		for(i=length-1;i>=0;i--){
 			select.remove(i);
 		}
-	$.get("http://localhost/ZiftAPI/api/ziftapi.php?selectedTypeOfCar="+selectedTypeOfCar+"&selectedCity="+selectedCity+"&method=loadCars&format=json")
+	var env = environment.getEnv();
+	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?selectedTypeOfCar="+selectedTypeOfCar+"&selectedCity="+selectedCity+"&method=loadCars&format=json")
 		.done(function(response){		
 			var select = document.getElementById("selectCar");	
 			$.each(response.loadCarsList,function(index,loadCar){
@@ -122,7 +123,8 @@ $(function (){
 			"method"  : "selfdrivecar",
 			"format" : "json"
 			};
-		$.post("http://localhost/ZiftAPI/api/ziftapi.php",data)
+		var env = environment.getEnv();
+		$.post("http://www.ziftapp.com/"+env+"/api/ziftapi.php",data)
 			.done(function (response){
 				carDetailsArray=response.responseSelfdrivecar
 				sessionStorage.setItem("carDetails",JSON.stringify(carDetailsArray));

@@ -53,7 +53,8 @@ $(function(){
 	$endDate.datepicker();	
 	
 // to load Cities in dropdown
-	$.get("/ZiftAPI/api/ziftapi.php?method=outStationLoadCity&format=json")
+	var env = environment.getEnv();
+	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?method=outStationLoadCity&format=json")
 		.done(function (response){
 			sessionStorage.setItem("response",JSON.stringify(response.loadCityList));
 			var select=document.getElementById("selectCity");

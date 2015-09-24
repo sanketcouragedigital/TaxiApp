@@ -24,7 +24,8 @@
 			theme: "b",
 			html: ""
 		}); 
-		$.post("http://www.ziftapp.com/dev/api/ziftapi.php", data)
+		var env = environment.getEnv();
+		$.post("http://www.ziftapp.com/"+env+"/api/ziftapi.php", data)
 			.done(function( msg ) {	
 				$.mobile.loading( "hide" );
                 //alert(msg); 	

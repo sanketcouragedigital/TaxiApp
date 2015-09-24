@@ -12,7 +12,8 @@
         var userLatitude = parseFloat(position.coords.latitude).toFixed(4);
         var userLongitude = parseFloat(position.coords.longitude).toFixed(4);	
 		$.mobile.loading( "hide" );
-		var url = "http://www.ziftapp.com/dev/api/ziftapi.php?userLatitude="+userLatitude+"&userLongitude="+userLongitude+"&method=nearme&format=json";
+		var env = environment.getEnv();
+		var url = "http://www.ziftapp.com/"+env+"/api/ziftapi.php?userLatitude="+userLatitude+"&userLongitude="+userLongitude+"&method=nearme&format=json";
 		$.get(url).done(function(response){
 			if(typeof response.nearestDrivers !== 'undefined' && response.nearestDrivers.length > 0)
 			{

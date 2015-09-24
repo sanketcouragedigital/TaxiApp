@@ -5,7 +5,8 @@ $(function() {
         theme: "z",
         html: ""
      });
-      $.get("http://www.ziftapp.com/dev/api/ziftapi.php?&method=showDeals&format=json")
+	 var env = environment.getEnv();
+      $.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?&method=showDeals&format=json")
       	.done(function(response) {
                 $.mobile.loading( "hide" );
 				if(typeof response.showDealsList !== 'undefined' && response.showDealsList.length > 0)
