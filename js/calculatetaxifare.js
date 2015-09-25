@@ -98,7 +98,7 @@
 				var durationmin = parseInt(splitduration[0]);
 				duration = durationmin;
 			}
-			$.mobile.loading("hide");
+			
 			var env = environment.getEnv();
 			$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?City="+City+"&method=CheapestRideAsPerCity&format=json")
 			.done(function (response){
@@ -205,6 +205,7 @@
 						var env = environment.getEnv();
 						listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/taxiservices_images/'+imageName+'"/><h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
 						$("#rideWiseList").append(listItemHtml);
+						$.mobile.loading("hide");
 					}else{
 						return true;
 					}
