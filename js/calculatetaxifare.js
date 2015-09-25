@@ -100,7 +100,8 @@
 			}
 			
 			var env = environment.getEnv();
-			$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?City="+City+"&method=CheapestRideAsPerCity&format=json")
+			//$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?City="+City+"&method=CheapestRideAsPerCity&format=json")
+			$.get("http://localhost/ZiftAPI/api/ziftapi.php?City="+City+"&method=CheapestRideAsPerCity&format=json")
 			.done(function (response){
 				var uberX = {};
 				var uberBlack = {};
@@ -186,6 +187,7 @@
 				sortByCost();
 				calcRoute();
 			})
+			
 		}
 		function sortByCost() {
 				var listItemHtml;
@@ -203,7 +205,7 @@
 							var imageName = value[2];
 						}
 						var env = environment.getEnv();
-						listItemHtml = '<li data-icon="phone" class="list"><a href="'+currCab.contact+'" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/taxiservices_images/'+imageName+'"/><h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
+						listItemHtml = '<li data-icon="phone" class="list"><a href="#" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/taxiservices_images/'+imageName+'"/><h2>'+currCab.type+'</h2> <span class="ui-li-count">'+cabCost+'</span></a></li>';
 						$("#rideWiseList").append(listItemHtml);
 						$.mobile.loading("hide");
 					}else{
@@ -226,6 +228,19 @@
 						"width" : "80px"
 					});
 						//$("img").css("padding-top", "12px");
+					
+					$("li.list").on('click', function(){
+						var currentListItem = $(this);
+						var servicelogo = currentListItem.find("img").attr("src");
+						var Service_Type = currentListItem.find("h2").html();
+						var cost = currentListItem.find("span.ui-li-count").html();	
+						
+						sessionStorage.setItem("servicelogo", servicelogo);
+						sessionStorage.setItem("Service_Type", Service_Type);
+						sessionStorage.setItem("cost", cost);
+	
+						window.location.href = "cheaprideoptiontermscondition.html";
+					});
 		}
 		function calcRoute() {
 			console.log("Calculating Route..");  

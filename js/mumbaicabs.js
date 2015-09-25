@@ -13,6 +13,7 @@ var mumbaiCabs = (function(){
 			easyCab.logo=logo;
 			easyCab.cost = easyCabCost;        
 			easyCab.contact = 'tel:'+Contact;
+			easyCab.First_x_KM = First_x_KM;
         } else { //It is a night time pick up. 12am - 5am
 			var easyCabCost;
             var easyCab = {};
@@ -25,14 +26,16 @@ var mumbaiCabs = (function(){
             }
             easyCab.logo=logo;
             easyCab.cost = easyCabCost;        
-            easyCab.contact = 'tel:'+Contact;    							
+            easyCab.contact = 'tel:'+Contact;  
+			easyCab.First_x_KM = First_x_KM;
+			
         }
         return easyCab;
 	}
 	function calculateFareForOlaSedan(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
         var olaSedanCost;
         var olaSedan = {};
-		olaSedan.type = "Economy Sedan";
+		olaSedan.type = "Ola Economy Sedan";
         olaSedanCost = distance * Day_perKM;
 		if(distance <= First_x_KM) {
         	olaSedanCost = Day_Cost;
@@ -43,13 +46,14 @@ var mumbaiCabs = (function(){
         olaSedan.logo=logo;
         olaSedan.contact='tel:'+Contact;
         olaSedan.cost = olaSedanCost;
+		olaSedan.First_x_KM = First_x_KM;
         return olaSedan;
     }
     function calculateFareForOlaMini(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
         var olaMiniCost;
         var olaMini = {};
 		var time = duration;
-        olaMini.type = "Mini";
+        olaMini.type = "Ola Mini";
         if(distance <= First_x_KM) {
         	olaMiniCost = Day_Cost;
         } else {
@@ -59,12 +63,13 @@ var mumbaiCabs = (function(){
 		olaMini.logo=logo;
 		olaMini.contact = 'tel:'+Contact;
         olaMini.cost = olaMiniCost;
-        return olaMini;
+		olaMini.First_x_KM = First_x_KM;
+        return olaMini;		
     }
     function calculateFareOlaPrime(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
         var olaPrimeCost;
         var olaPrime = {};
-        olaPrime.type = "Prime";
+        olaPrime.type = "Ola Prime";
         if(distance <= First_x_KM) {
         	olaPrimeCost = Day_Cost;
         } else {
@@ -74,6 +79,7 @@ var mumbaiCabs = (function(){
         olaPrime.logo=logo;
         olaPrime.contact = 'tel:'+Contact;
         olaPrime.cost = olaPrimeCost;
+		olaPrime.First_x_KM = First_x_KM;
         return olaPrime;    
     }
    function calculateFareForTabCab(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
@@ -89,7 +95,8 @@ var mumbaiCabs = (function(){
             }
             tabCab.logo = logo;
             tabCab.contact = 'tel:'+Contact;
-            tabCab.cost = tabCabCost;            
+            tabCab.cost = tabCabCost;  
+			tabCab.First_x_KM = First_x_KM;			
         } else {
 			if(distance <= First_x_KM) {
                 tabCabCost = Night_Cost;
@@ -99,14 +106,15 @@ var mumbaiCabs = (function(){
             }
             tabCab.logo = logo;
             tabCab.contact = 'tel:'+Contact;
-            tabCab.cost = tabCabCost;            
+            tabCab.cost = tabCabCost; 
+			tabCab.First_x_KM = First_x_KM;
         }
         return tabCab;
     }
 	function calculateFareForTabCabGold(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
     	var tabCabGoldCost;   
         var tabCabGold = {};
-        tabCabGold.type = "TAB Cab Gold";
+        tabCabGold.type = "TabCab Gold";
         if(timeOfPickup === "day") {
             if(distance <= First_x_KM) {
                 tabCabGoldCost = Day_Cost;
@@ -116,7 +124,8 @@ var mumbaiCabs = (function(){
             }
             tabCabGold.logo = logo;
             tabCabGold.contact = 'tel:'+Contact;
-            tabCabGold.cost = tabCabGoldCost;            
+            tabCabGold.cost = tabCabGoldCost;
+			tabCabGold.First_x_KM = First_x_KM;
         } else {
 			if(distance <= First_x_KM) {
                 tabCabGoldCost = Night_Cost;
@@ -126,7 +135,8 @@ var mumbaiCabs = (function(){
             }
             tabCabGold.logo = logo;
             tabCabGold.contact = 'tel:'+Contact;
-            tabCabGold.cost = tabCabGoldCost;            
+            tabCabGold.cost = tabCabGoldCost; 
+			tabCabGold.First_x_KM = First_x_KM;
         }
         return tabCabGold;
     }
@@ -144,6 +154,7 @@ var mumbaiCabs = (function(){
             meru.logo = logo;
             meru.contact = 'tel:'+Contact;
             meru.cost = meruCost;
+			meru.First_x_KM = First_x_KM;
         } else {
             if(distance <= First_x_KM) {
                 meruCost =Night_Cost;
@@ -154,6 +165,7 @@ var mumbaiCabs = (function(){
             meru.logo = logo;
             meru.contact = 'tel:'+Contact;
             meru.cost = meruCost;
+			meru.First_x_KM = First_x_KM;
             
         }
         return meru;
@@ -163,7 +175,7 @@ var mumbaiCabs = (function(){
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
-			tfsHatchBack.type = "Hatchback";
+			tfsHatchBack.type = "Taxi For Sure Hatchback";
 			if(distance <= First_x_KM){
 				tfsHatchBackCost = Day_Cost;
 			} else{
@@ -173,11 +185,12 @@ var mumbaiCabs = (function(){
 			tfsHatchBack.logo = logo;
 			tfsHatchBack.contact = 'tel:'+Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
+			tfsHatchBack.First_x_KM = First_x_KM;
 		}else{
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
-			tfsHatchBack.type = " Hatchback";
+			tfsHatchBack.type = " Taxi For Sure Hatchback";
 			if(distance <= First_x_KM) {
 				tfsHatchBackCost = Day_Cost;
 			} else{
@@ -187,6 +200,7 @@ var mumbaiCabs = (function(){
 			tfsHatchBack.logo = logo;
 			tfsHatchBack.contact = 'tel:'+Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
+			tfsHatchBack.First_x_KM = First_x_KM;
 		}
 		return tfsHatchBack;
 	}
@@ -194,7 +208,7 @@ var mumbaiCabs = (function(){
 		if(timeOfPickup === "day"){
 			var tfsSedanCost;
 			var tfsSedan = {};
-			tfsSedan.type = "Sedan";
+			tfsSedan.type = "Taxi For Sure Sedan";
 			if(distance <= First_x_KM) {
 				tfsSedanCost = Day_Cost;
 			}else {
@@ -204,10 +218,11 @@ var mumbaiCabs = (function(){
 			tfsSedan.logo = logo;
 			tfsSedanCost.contact = 'tel:'+Contact;
 			tfsSedan.cost = tfsSedanCost;
+			tfsSedan.First_x_KM = First_x_KM;
 		}else{
 			var tfsSedanCost;
 			var tfsSedan = {};
-			tfsSedan.type = "Sedan";
+			tfsSedan.type = "Taxi For Sure Sedan";
 			if(distance <= First_x_KM){
 				tfsSedanCost = Day_Cost;
 			} else {
@@ -217,6 +232,7 @@ var mumbaiCabs = (function(){
 			 tfsSedan.logo = logo;
 			 tfsSedan.contact = 'tel:'+Contact;
 			 tfsSedan.cost = tfsSedanCost;
+			 tfsSedan.First_x_KM = First_x_KM;
 		} 
 		return tfsSedan;
 	}	
@@ -224,7 +240,7 @@ var mumbaiCabs = (function(){
 		if(timeOfPickup === "day"){
 			var tfsEecoCost;
 			var tfsEeco = {};
-			tfsEeco.type = "Eeco";
+			tfsEeco.type = "Taxi For Sure Eeco";
 			if(distance <= First_x_KM) {
 				tfsEecoCost = Day_Cost;
 			}else {
@@ -234,10 +250,11 @@ var mumbaiCabs = (function(){
 			tfsEeco.logo = logo;
 			tfsEecoCost.contact = 'tel:'+Contact;
 			tfsEeco.cost = tfsEecoCost;
+			tfsEeco.First_x_KM = First_x_KM;
 		}else{
 			var tfsEecoCost;
 			var tfsEeco = {};
-			tfsEeco.type = "Sedan";
+			tfsEeco.type = "Taxi For Sure Eeco";
 			if(distance <= First_x_KM){
 				tfsEecoCost = Day_Cost;
 			} else {
@@ -247,6 +264,7 @@ var mumbaiCabs = (function(){
 			 tfsEeco.logo = logo;
 			 tfsEeco.contact = 'tel:'+Contact;
 			 tfsEeco.cost = tfsEecoCost;
+			 tfsEeco.First_x_KM = First_x_KM;
 		} 
 		return tfsEeco;
 	}
@@ -254,7 +272,7 @@ var mumbaiCabs = (function(){
 		if(timeOfPickup === "day"){
 			var tfsSuvCost;
 			var tfsSuv = {};
-			tfsSuv.type = "SUV";
+			tfsSuv.type = "Taxi For Sure SUV";
 			if(distance <= First_x_KM) {
 				tfsSuvCost = Day_Cost;
 			} else {
@@ -264,10 +282,11 @@ var mumbaiCabs = (function(){
 			tfsSuv.logo = logo;
 			tfsSuv.contact = 'tel:'+Contact;
 			tfsSuv.cost = tfsSuvCost;
+			tfsSuv.First_x_KM = First_x_KM;
 		}else{
 			var tfsSuvCost;
 			tfsSuv = {};
-			tfsSuv.type = "SUV";
+			tfsSuv.type = "Taxi For Sure SUV";
 			if(distance <= First_x_KM) {
 				tfsSuvCost = Day_Cost;
 			} else {
@@ -277,6 +296,7 @@ var mumbaiCabs = (function(){
 			tfsSuv.logo = logo;
 			tfsSuv.contact = 'tel:'+Contact;
 			tfsSuv.cost = tfsSuvCost;
+			tfsSuv.First_x_KM = First_x_KM;
 		}
 			return tfsSuv;
 	}
@@ -284,7 +304,7 @@ var mumbaiCabs = (function(){
 		if(timeOfPickup === "day") {
 			var bmcACCost;
 			var bmcAC = {};
-			bmcAC.type = "A/C Cool Cabs";
+			bmcAC.type = "BookMyCab A/C Cool Cab";
 			if(distance <= First_x_KM){
 				bmcACCost = Day_Cost;
 			}else {
@@ -294,10 +314,11 @@ var mumbaiCabs = (function(){
 				bmcAC.logo=logo;
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:'+Contact;
+				bmcAC.First_x_KM = First_x_KM;
 			}else if(timeOfPickup === "night") {
 				var bmcACCost;
 				var bmcAC = {};
-				bmcAC.type = "A/C Cool Cabs"
+				bmcAC.type = "BookMyCab A/C Cool Cab"
 				if(distance <= First_x_KM){
 					bmcACCost = Day_Cost;
 				}else {
@@ -307,6 +328,7 @@ var mumbaiCabs = (function(){
 				bmcAC.logo=logo;
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:'+Contact;
+				bmcAC.First_x_KM = First_x_KM;
 			}
 			return bmcAC;
 	}
@@ -314,7 +336,7 @@ var mumbaiCabs = (function(){
 		if(timeOfPickup === "day"){
 			var bmcCost;
 			var bmcNonAc = {};
-			bmcNonAc.type = "Kali Peeli";
+			bmcNonAc.type = "BookMyCab Kali Peeli";
 			if(distance <= First_x_KM){
 				bmcCost = Day_Cost;
 			}else {
@@ -323,11 +345,12 @@ var mumbaiCabs = (function(){
 			}
 				bmcNonAc.logo=logo;
 				bmcNonAc.contact = 'tel:'+Contact;
-				bmcNonAc.cost = bmcCost;                        
+				bmcNonAc.cost = bmcCost;  
+				bmcNonAc.First_x_KM = First_x_KM;				
 			} else if(timeOfPickup === "night") { 
 				var bmcCost;
 				var bmcNonAc = {};
-				bmcNonAc.type = "Kali Peeli";
+				bmcNonAc.type = "BookMyCab Kali Peeli";
 				if(distance <= First_x_KM) {
 					bmcCost = Day_Cost;
 				}else {
@@ -338,6 +361,7 @@ var mumbaiCabs = (function(){
 				bmcNonAc.logo=logo;
 				bmcNonAc.cost = bmcCost;
 				bmcNonAc.contact = 'tel:'+Contact;
+				bmcNonAc.First_x_KM = First_x_KM;
 			}
 			return bmcNonAc;
 	}   
@@ -354,7 +378,8 @@ var mumbaiCabs = (function(){
 			}
 				priyadarshini.logo=logo;
 				priyadarshini.contact = 'tel:'+Contact;
-				priyadarshini.cost = priyadarshiniCost;                        
+				priyadarshini.cost = priyadarshiniCost;  
+				priyadarshini.First_x_KM = First_x_KM;
 			} else if(timeOfPickup === "night") { 
 				var priyadarshiniCost;
 				var priyadarshini = {};
@@ -368,13 +393,14 @@ var mumbaiCabs = (function(){
 				priyadarshini.logo=logo;
 				priyadarshini.cost = priyadarshiniCost;
 				priyadarshini.contact = 'tel:'+Contact;
+				priyadarshini.First_x_KM = First_x_KM;
 			}
 			return priyadarshini;
 	}   
 	function calculateFarecelcabsEconomy(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
         var celcabsEconomyCost;
         var celcabsEconomy = {};
-        celcabsEconomy.type = "Economy Indica AC";
+        celcabsEconomy.type = "Cel Cabs Economy";
         if(distance <= First_x_KM) {
         	celcabsEconomyCost = Day_Cost;
         } else {
@@ -384,12 +410,13 @@ var mumbaiCabs = (function(){
         celcabsEconomy.logo=logo;
         celcabsEconomy.contact = 'tel:'+Contact;
         celcabsEconomy.cost = celcabsEconomyCost;
+		celcabsEconomy.First_x_KM = First_x_KM;
         return celcabsEconomy;    
     }
 	function calculateFarecelcabsComfort(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
         var celcabsComfortCost;
         var celcabsComfort = {};
-        celcabsComfort.type = "Comfort Indigo,Logan";
+        celcabsComfort.type = "Cel Cabs Comfort";
         if(distance <= First_x_KM) {
         	celcabsComfortCost = Day_Cost;
         } else {
@@ -399,6 +426,7 @@ var mumbaiCabs = (function(){
         celcabsComfort.logo=logo;
         celcabsComfort.contact = 'tel:'+Contact;
         celcabsComfort.cost = celcabsComfortCost;
+		celcabsComfort.First_x_KM = First_x_KM;
         return celcabsComfort;    
     }
 	function calculateFaresForUberX(distance, duration ) {
