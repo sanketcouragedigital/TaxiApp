@@ -1,8 +1,11 @@
 var mumbaiCabs = (function(){
-	function calculateFareForEasyCabs(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
+	function calculateFareForEasyCabs(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
 		if(timeOfPickup === "day") {
             var easyCabCost;
             var easyCab = {};
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
             easyCab.type = "Easy Cabs";
             if(distance <= First_x_KM) {
                 easyCabCost = Day_Cost;
@@ -14,7 +17,18 @@ var mumbaiCabs = (function(){
 			easyCab.cost = easyCabCost;        
 			easyCab.contact = 'tel:'+Contact;
 			easyCab.First_x_KM = First_x_KM;
-        } else { //It is a night time pick up. 12am - 5am
+			easyCab.per_minute_rate = per_minute_rate;
+			easyCab.app_link = app_link;
+			easyCab.Terms_n_Conditions = Terms_n_Conditions;
+			easyCab.distance = distance;
+			easyCab.duration = duration;
+			easyCab.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
+			
+        }else { 
+		
 			var easyCabCost;
             var easyCab = {};
             easyCab.type = "Easy Cabs";
@@ -28,13 +42,28 @@ var mumbaiCabs = (function(){
             easyCab.cost = easyCabCost;        
             easyCab.contact = 'tel:'+Contact;  
 			easyCab.First_x_KM = First_x_KM;
+			easyCab.per_minute_rate = per_minute_rate;
+			easyCab.app_link = app_link;
+			easyCab.Terms_n_Conditions = Terms_n_Conditions;
+			easyCab.distance = distance;
+			easyCab.duration = duration;
+			easyCab.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
 			
         }
+		easyCab.CostOfDayOrNight = CostOfDayOrNight;
+		easyCab.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		easyCab.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return easyCab;
 	}
-	function calculateFareForOlaSedan(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
+	function calculateFareForOlaSedan(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
         var olaSedanCost;
         var olaSedan = {};
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
 		olaSedan.type = "Ola Economy Sedan";
         olaSedanCost = distance * Day_perKM;
 		if(distance <= First_x_KM) {
@@ -47,11 +76,28 @@ var mumbaiCabs = (function(){
         olaSedan.contact='tel:'+Contact;
         olaSedan.cost = olaSedanCost;
 		olaSedan.First_x_KM = First_x_KM;
+		olaSedan.per_minute_rate = per_minute_rate;
+		olaSedan.app_link = app_link;
+		olaSedan.Terms_n_Conditions = Terms_n_Conditions;
+		olaSedan.per_minute_rate = per_minute_rate;
+		olaSedan.distance = distance;
+		olaSedan.duration = duration;
+		olaSedan.Fleet = Fleet;
+		CostOfDayOrNight = Day_Cost;
+		CostPerKMOfDayOrNight = Day_perKM;
+		WaitingChargesForDayOrNight = Waiting_Charges_Day;
+	
+		olaSedan.CostOfDayOrNight = CostOfDayOrNight;
+		olaSedan.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		olaSedan.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return olaSedan;
     }
-    function calculateFareForOlaMini(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
+    function calculateFareForOlaMini(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
         var olaMiniCost;
         var olaMini = {};
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
 		var time = duration;
         olaMini.type = "Ola Mini";
         if(distance <= First_x_KM) {
@@ -64,11 +110,28 @@ var mumbaiCabs = (function(){
 		olaMini.contact = 'tel:'+Contact;
         olaMini.cost = olaMiniCost;
 		olaMini.First_x_KM = First_x_KM;
+		olaMini.per_minute_rate = per_minute_rate;
+		olaMini.app_link = app_link;
+		olaMini.Terms_n_Conditions = Terms_n_Conditions;
+		olaMini.per_minute_rate = per_minute_rate;
+		olaMini.distance = distance;
+		olaMini.duration = duration;
+		olaMini.Fleet = Fleet;
+		CostOfDayOrNight = Day_Cost;
+		CostPerKMOfDayOrNight = Day_perKM;
+		WaitingChargesForDayOrNight = Waiting_Charges_Day;
+		
+		olaMini.CostOfDayOrNight = CostOfDayOrNight;
+		olaMini.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		olaMini.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return olaMini;		
     }
-    function calculateFareOlaPrime(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate) {
+    function calculateFareOlaPrime(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
         var olaPrimeCost;
         var olaPrime = {};
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
         olaPrime.type = "Ola Prime";
         if(distance <= First_x_KM) {
         	olaPrimeCost = Day_Cost;
@@ -80,11 +143,28 @@ var mumbaiCabs = (function(){
         olaPrime.contact = 'tel:'+Contact;
         olaPrime.cost = olaPrimeCost;
 		olaPrime.First_x_KM = First_x_KM;
+		olaPrime.per_minute_rate = per_minute_rate;
+		olaPrime.app_link = app_link;
+		olaPrime.Terms_n_Conditions = Terms_n_Conditions;
+		olaPrime.per_minute_rate = per_minute_rate;
+		olaPrime.distance = distance;
+		olaPrime.duration = duration;
+		olaPrime.Fleet = Fleet;
+		CostOfDayOrNight = Day_Cost;
+		CostPerKMOfDayOrNight = Day_perKM;
+		WaitingChargesForDayOrNight = Waiting_Charges_Day;
+			
+		olaPrime.CostOfDayOrNight = CostOfDayOrNight;
+		olaPrime.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		olaPrime.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return olaPrime;    
     }
-   function calculateFareForTabCab(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
+   function calculateFareForTabCab(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
     	var tabCabCost;   
         var tabCab = {};
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
         tabCab.type = "TAB Cab";
         if(timeOfPickup === "day") {
             if(distance <= First_x_KM) {
@@ -96,7 +176,16 @@ var mumbaiCabs = (function(){
             tabCab.logo = logo;
             tabCab.contact = 'tel:'+Contact;
             tabCab.cost = tabCabCost;  
-			tabCab.First_x_KM = First_x_KM;			
+			tabCab.First_x_KM = First_x_KM;	
+			tabCab.app_link = app_link;
+			tabCab.Terms_n_Conditions = Terms_n_Conditions;	
+			tabCab.per_minute_rate = per_minute_rate;
+			tabCab.distance = distance;
+			tabCab.duration = duration;
+			tabCab.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
         } else {
 			if(distance <= First_x_KM) {
                 tabCabCost = Night_Cost;
@@ -107,14 +196,29 @@ var mumbaiCabs = (function(){
             tabCab.logo = logo;
             tabCab.contact = 'tel:'+Contact;
             tabCab.cost = tabCabCost; 
-			tabCab.First_x_KM = First_x_KM;
+			tabCab.First_x_KM = First_x_KM;	
+			tabCab.app_link = app_link;
+			tabCab.Terms_n_Conditions = Terms_n_Conditions;	
+			tabCab.per_minute_rate = per_minute_rate;
+			tabCab.distance = distance;
+			tabCab.duration = duration;			
+			tabCab.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
         }
+		tabCab.CostOfDayOrNight = CostOfDayOrNight;
+		tabCab.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tabCab.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return tabCab;
     }
-	function calculateFareForTabCabGold(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
+	function calculateFareForTabCabGold(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
     	var tabCabGoldCost;   
         var tabCabGold = {};
-        tabCabGold.type = "TabCab Gold";
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
+        tabCabGold.type = "TAB Cab Gold";
         if(timeOfPickup === "day") {
             if(distance <= First_x_KM) {
                 tabCabGoldCost = Day_Cost;
@@ -126,6 +230,15 @@ var mumbaiCabs = (function(){
             tabCabGold.contact = 'tel:'+Contact;
             tabCabGold.cost = tabCabGoldCost;
 			tabCabGold.First_x_KM = First_x_KM;
+			tabCabGold.app_link = app_link;
+			tabCabGold.Terms_n_Conditions = Terms_n_Conditions;		
+			tabCabGold.per_minute_rate = per_minute_rate;
+			tabCabGold.distance = distance;
+			tabCabGold.duration = duration;
+			tabCabGold.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
         } else {
 			if(distance <= First_x_KM) {
                 tabCabGoldCost = Night_Cost;
@@ -137,12 +250,27 @@ var mumbaiCabs = (function(){
             tabCabGold.contact = 'tel:'+Contact;
             tabCabGold.cost = tabCabGoldCost; 
 			tabCabGold.First_x_KM = First_x_KM;
+			tabCabGold.app_link = app_link;
+			tabCabGold.Terms_n_Conditions = Terms_n_Conditions;	
+			tabCabGold.per_minute_rate = per_minute_rate;
+			tabCabGold.distance = distance;
+			tabCabGold.duration = duration;
+			tabCabGold.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
         }
+		tabCabGold.CostOfDayOrNight = CostOfDayOrNight;
+		tabCabGold.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tabCabGold.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return tabCabGold;
     }
-    function calculateFareForMeru(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {       
+    function calculateFareForMeru(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {       
         var meruCost;
         var meru = {};
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
         meru.type = "Meru";
         if(timeOfPickup === "day") {
             if(distance <= First_x_KM) {
@@ -155,6 +283,15 @@ var mumbaiCabs = (function(){
             meru.contact = 'tel:'+Contact;
             meru.cost = meruCost;
 			meru.First_x_KM = First_x_KM;
+			meru.app_link = app_link;
+			meru.Terms_n_Conditions = Terms_n_Conditions;
+			meru.per_minute_rate = per_minute_rate;
+			meru.distance = distance;
+			meru.duration = duration;
+			meru.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
         } else {
             if(distance <= First_x_KM) {
                 meruCost =Night_Cost;
@@ -166,16 +303,31 @@ var mumbaiCabs = (function(){
             meru.contact = 'tel:'+Contact;
             meru.cost = meruCost;
 			meru.First_x_KM = First_x_KM;
+			meru.app_link = app_link;
+			meru.Terms_n_Conditions = Terms_n_Conditions;
+			meru.per_minute_rate = per_minute_rate;
+			meru.distance = distance;
+			meru.duration = duration;
+			meru.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
             
         }
+		meru.CostOfDayOrNight = CostOfDayOrNight;
+		meru.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		meru.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
         return meru;
     }
-	function calculateFaresForTaxiForSureHatchBack(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate){
+	function calculateFaresForTaxiForSureHatchBack(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){
 		if(timeOfPickup === "day") {
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
-			tfsHatchBack.type = "Taxi For Sure Hatchback";
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
+			tfsHatchBack.type = "TaxiForSure Hatchback";
 			if(distance <= First_x_KM){
 				tfsHatchBackCost = Day_Cost;
 			} else{
@@ -186,11 +338,20 @@ var mumbaiCabs = (function(){
 			tfsHatchBack.contact = 'tel:'+Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
 			tfsHatchBack.First_x_KM = First_x_KM;
+			tfsHatchBack.app_link = app_link;
+			tfsHatchBack.Terms_n_Conditions = Terms_n_Conditions;
+			tfsHatchBack.per_minute_rate = per_minute_rate;
+			tfsHatchBack.distance = distance;
+			tfsHatchBack.duration = duration;
+			tfsHatchBack.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
 		}else{
 			var listItemHtml;
 			var tfsHatchBackCost;
 			var tfsHatchBack = {};
-			tfsHatchBack.type = " Taxi For Sure Hatchback";
+			tfsHatchBack.type = "TaxiForSure Hatchback";
 			if(distance <= First_x_KM) {
 				tfsHatchBackCost = Day_Cost;
 			} else{
@@ -201,14 +362,29 @@ var mumbaiCabs = (function(){
 			tfsHatchBack.contact = 'tel:'+Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
 			tfsHatchBack.First_x_KM = First_x_KM;
+			tfsHatchBack.app_link = app_link;
+			tfsHatchBack.Terms_n_Conditions = Terms_n_Conditions;
+			tfsHatchBack.per_minute_rate = per_minute_rate;
+			tfsHatchBack.distance = distance;
+			tfsHatchBack.duration = duration;
+			tfsHatchBack.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
 		}
+		tfsHatchBack.CostOfDayOrNight = CostOfDayOrNight;
+		tfsHatchBack.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tfsHatchBack.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
 		return tfsHatchBack;
 	}
-	function calculateFaresForTaxiForSureSedan(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate){
+	function calculateFaresForTaxiForSureSedan(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){
 		if(timeOfPickup === "day"){
 			var tfsSedanCost;
 			var tfsSedan = {};
-			tfsSedan.type = "Taxi For Sure Sedan";
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
+			tfsSedan.type = "TaxiForSure Sedan";
 			if(distance <= First_x_KM) {
 				tfsSedanCost = Day_Cost;
 			}else {
@@ -219,28 +395,52 @@ var mumbaiCabs = (function(){
 			tfsSedanCost.contact = 'tel:'+Contact;
 			tfsSedan.cost = tfsSedanCost;
 			tfsSedan.First_x_KM = First_x_KM;
+			tfsSedan.app_link = app_link;
+			tfsSedan.Terms_n_Conditions = Terms_n_Conditions;
+			tfsSedan.per_minute_rate = per_minute_rate;
+			tfsSedan.distance = distance;
+			tfsSedan.duration = duration;
+			tfsSedan.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
 		}else{
 			var tfsSedanCost;
 			var tfsSedan = {};
-			tfsSedan.type = "Taxi For Sure Sedan";
+			tfsSedan.type = "TaxiForSure Sedan";
 			if(distance <= First_x_KM){
 				tfsSedanCost = Day_Cost;
 			} else {
 				tfsSedanCost = (((distance - First_x_KM) * Day_perKM) + Day_Cost) +(duration * per_minute_rate);
 				//tfsSedanCost = tfsSedanCost.toFixed(2);
 			}
-			 tfsSedan.logo = logo;
-			 tfsSedan.contact = 'tel:'+Contact;
-			 tfsSedan.cost = tfsSedanCost;
-			 tfsSedan.First_x_KM = First_x_KM;
+			tfsSedan.logo = logo;
+			tfsSedan.contact = 'tel:'+Contact;
+			tfsSedan.cost = tfsSedanCost;
+			tfsSedan.First_x_KM = First_x_KM;
+			tfsSedan.app_link = app_link;
+			tfsSedan.Terms_n_Conditions = Terms_n_Conditions;
+			tfsSedan.per_minute_rate = per_minute_rate;
+			tfsSedan.distance = distance;
+			tfsSedan.duration = duration;
+			tfsSedan.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
 		} 
+		tfsSedan.CostOfDayOrNight = CostOfDayOrNight;
+		tfsSedan.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tfsSedan.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
 		return tfsSedan;
 	}	
-	function calculateFaresForTaxiForSureEeco(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate){
+	function calculateFaresForTaxiForSureEeco(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){
 		if(timeOfPickup === "day"){
 			var tfsEecoCost;
 			var tfsEeco = {};
-			tfsEeco.type = "Taxi For Sure Eeco";
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
+			tfsEeco.type = "TaxiForSure Eeco";
 			if(distance <= First_x_KM) {
 				tfsEecoCost = Day_Cost;
 			}else {
@@ -251,28 +451,52 @@ var mumbaiCabs = (function(){
 			tfsEecoCost.contact = 'tel:'+Contact;
 			tfsEeco.cost = tfsEecoCost;
 			tfsEeco.First_x_KM = First_x_KM;
+			tfsEeco.app_link = app_link;
+			tfsEeco.Terms_n_Conditions = Terms_n_Conditions;
+			tfsEeco.per_minute_rate = per_minute_rate;
+			tfsEeco.distance = distance;
+			tfsEeco.duration = duration;
+			tfsEeco.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
 		}else{
 			var tfsEecoCost;
 			var tfsEeco = {};
-			tfsEeco.type = "Taxi For Sure Eeco";
+			tfsEeco.type = "TaxiForSure Eeco";
 			if(distance <= First_x_KM){
 				tfsEecoCost = Day_Cost;
 			} else {
 				tfsEecoCost = (((distance - First_x_KM) * Day_perKM) + Day_Cost) + (duration * per_minute_rate);
 				//tfsEecoCost = tfsEecoCost.toFixed(2);
 			}
-			 tfsEeco.logo = logo;
-			 tfsEeco.contact = 'tel:'+Contact;
-			 tfsEeco.cost = tfsEecoCost;
-			 tfsEeco.First_x_KM = First_x_KM;
-		} 
+			tfsEeco.logo = logo;
+			tfsEeco.contact = 'tel:'+Contact;
+			tfsEeco.cost = tfsEecoCost;
+			tfsEeco.First_x_KM = First_x_KM;
+			tfsEeco.app_link = app_link;
+			tfsEeco.Terms_n_Conditions = Terms_n_Conditions;
+			tfsEeco.per_minute_rate = per_minute_rate;
+			tfsEeco.distance = distance;
+			tfsEeco.duration = duration;
+			tfsEeco.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
+		}
+		tfsEeco.CostOfDayOrNight = CostOfDayOrNight;
+		tfsEeco.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tfsEeco.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
 		return tfsEeco;
 	}
-	function calculateFaresForTaxiForSureSUV(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM,per_minute_rate){             
+	function calculateFaresForTaxiForSureSUV(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){             
 		if(timeOfPickup === "day"){
 			var tfsSuvCost;
 			var tfsSuv = {};
-			tfsSuv.type = "Taxi For Sure SUV";
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
+			tfsSuv.type = "TaxiForSure SUV";
 			if(distance <= First_x_KM) {
 				tfsSuvCost = Day_Cost;
 			} else {
@@ -283,10 +507,19 @@ var mumbaiCabs = (function(){
 			tfsSuv.contact = 'tel:'+Contact;
 			tfsSuv.cost = tfsSuvCost;
 			tfsSuv.First_x_KM = First_x_KM;
+			tfsSuv.app_link = app_link;
+			tfsSuv.Terms_n_Conditions = Terms_n_Conditions;
+			tfsSuv.per_minute_rate = per_minute_rate;
+			tfsSuv.distance = distance;
+			tfsSuv.duration = duration;
+			tfsSuv.Fleet = Fleet;
+			CostOfDayOrNight = Day_Cost;
+			CostPerKMOfDayOrNight = Day_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Day;
 		}else{
 			var tfsSuvCost;
 			tfsSuv = {};
-			tfsSuv.type = "Taxi For Sure SUV";
+			tfsSuv.type = "TaxiForSure SUV";
 			if(distance <= First_x_KM) {
 				tfsSuvCost = Day_Cost;
 			} else {
@@ -297,14 +530,29 @@ var mumbaiCabs = (function(){
 			tfsSuv.contact = 'tel:'+Contact;
 			tfsSuv.cost = tfsSuvCost;
 			tfsSuv.First_x_KM = First_x_KM;
+			tfsSuv.app_link = app_link;
+			tfsSuv.Terms_n_Conditions = Terms_n_Conditions;
+			tfsSuv.per_minute_rate = per_minute_rate;
+			tfsSuv.distance = distance;
+			tfsSuv.duration = duration;
+			tfsSuv.Fleet = Fleet;
+			CostOfDayOrNight = Night_Cost;
+			CostPerKMOfDayOrNight = Night_perKM;
+			WaitingChargesForDayOrNight = Waiting_Charges_Night;
 		}
-			return tfsSuv;
+		tfsSuv.CostOfDayOrNight = CostOfDayOrNight;
+		tfsSuv.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		tfsSuv.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
+		return tfsSuv;
 	}
-	function calculateFaresForBookMyCabAC(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {                 
+	function calculateFaresForBookMyCabAC(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {                 
 		if(timeOfPickup === "day") {
 			var bmcACCost;
 			var bmcAC = {};
-			bmcAC.type = "BookMyCab A/C Cool Cab";
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
+			bmcAC.type = "BookMyCab A/C Cool Cabs";
 			if(distance <= First_x_KM){
 				bmcACCost = Day_Cost;
 			}else {
@@ -315,10 +563,19 @@ var mumbaiCabs = (function(){
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:'+Contact;
 				bmcAC.First_x_KM = First_x_KM;
+				bmcAC.app_link = app_link;
+				bmcAC.Terms_n_Conditions = Terms_n_Conditions;				
+				bmcAC.per_minute_rate = per_minute_rate;
+				bmcAC.distance = distance;
+				bmcAC.duration = duration;
+				bmcAC.Fleet = Fleet;
+				CostOfDayOrNight = Day_Cost;
+				CostPerKMOfDayOrNight = Day_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Day;
 			}else if(timeOfPickup === "night") {
 				var bmcACCost;
 				var bmcAC = {};
-				bmcAC.type = "BookMyCab A/C Cool Cab"
+				bmcAC.type = "BookMyCab A/C Cool Cabs"
 				if(distance <= First_x_KM){
 					bmcACCost = Day_Cost;
 				}else {
@@ -329,13 +586,28 @@ var mumbaiCabs = (function(){
 				bmcAC.cost = bmcACCost;
 				bmcAC.contact = 'tel:'+Contact;
 				bmcAC.First_x_KM = First_x_KM;
+				bmcAC.app_link = app_link;
+				bmcAC.Terms_n_Conditions = Terms_n_Conditions;
+				bmcAC.per_minute_rate = per_minute_rate;
+				bmcAC.distance = distance;
+				bmcAC.duration = duration;
+				bmcAC.Fleet = Fleet;
+				CostOfDayOrNight = Night_Cost;
+				CostPerKMOfDayOrNight = Night_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Night;
 			}
+			bmcAC.CostOfDayOrNight = CostOfDayOrNight;
+			bmcAC.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+			bmcAC.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
 			return bmcAC;
 	}
-	function calculateFaresForBookMyCabNonAC(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM){			 
+	function calculateFaresForBookMyCabNonAC(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){			 
 		if(timeOfPickup === "day"){
 			var bmcCost;
 			var bmcNonAc = {};
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
 			bmcNonAc.type = "BookMyCab Kali Peeli";
 			if(distance <= First_x_KM){
 				bmcCost = Day_Cost;
@@ -346,7 +618,16 @@ var mumbaiCabs = (function(){
 				bmcNonAc.logo=logo;
 				bmcNonAc.contact = 'tel:'+Contact;
 				bmcNonAc.cost = bmcCost;  
-				bmcNonAc.First_x_KM = First_x_KM;				
+				bmcNonAc.First_x_KM = First_x_KM;
+				bmcNonAc.app_link = app_link;
+				bmcNonAc.Terms_n_Conditions = Terms_n_Conditions;
+				bmcNonAc.per_minute_rate = per_minute_rate;
+				bmcNonAc.distance = distance;
+				bmcNonAc.duration = duration;
+				CostOfDayOrNight = Day_Cost;
+				CostPerKMOfDayOrNight = Day_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Day;
+				bmcNonAc.Fleet = Fleet;
 			} else if(timeOfPickup === "night") { 
 				var bmcCost;
 				var bmcNonAc = {};
@@ -362,13 +643,28 @@ var mumbaiCabs = (function(){
 				bmcNonAc.cost = bmcCost;
 				bmcNonAc.contact = 'tel:'+Contact;
 				bmcNonAc.First_x_KM = First_x_KM;
+				bmcNonAc.app_link = app_link;
+				bmcNonAc.Terms_n_Conditions = Terms_n_Conditions;
+				bmcNonAc.per_minute_rate = per_minute_rate;	
+				bmcNonAc.distance = distance;
+				bmcNonAc.duration = duration;
+				CostOfDayOrNight = Night_Cost;
+				CostPerKMOfDayOrNight = Night_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Night;
+				bmcNonAc.Fleet = Fleet;
 			}
+			bmcNonAc.CostOfDayOrNight = CostOfDayOrNight;
+			bmcNonAc.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+			bmcNonAc.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
 			return bmcNonAc;
 	}   
-	function calculateFaresForPriyadarshini(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM){			 
+	function calculateFaresForPriyadarshini(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet){			 
 		if(timeOfPickup === "day"){
 			var priyadarshiniCost;
 			var priyadarshini = {};
+			var CostOfDayOrNight;
+			var CostPerKMOfDayOrNight;
+			var WaitingChargesForDayOrNight;
 			priyadarshini.type = "Priyadarshini";
 			if(distance <= First_x_KM){
 				priyadarshiniCost = Day_Cost;
@@ -379,8 +675,17 @@ var mumbaiCabs = (function(){
 				priyadarshini.logo=logo;
 				priyadarshini.contact = 'tel:'+Contact;
 				priyadarshini.cost = priyadarshiniCost;  
-				priyadarshini.First_x_KM = First_x_KM;
-			} else if(timeOfPickup === "night") { 
+				priyadarshini.First_x_KM = First_x_KM;				
+				priyadarshini.app_link = app_link;
+				priyadarshini.Terms_n_Conditions = Terms_n_Conditions;				
+				priyadarshini.per_minute_rate = per_minute_rate;
+				priyadarshini.distance = distance;
+				priyadarshini.duration = duration;
+				CostOfDayOrNight = Day_Cost;
+				CostPerKMOfDayOrNight = Day_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Day;
+				priyadarshini.Fleet = Fleet;
+			} else  { 
 				var priyadarshiniCost;
 				var priyadarshini = {};
 				priyadarshini.type = "Priyadarshini";
@@ -394,13 +699,29 @@ var mumbaiCabs = (function(){
 				priyadarshini.cost = priyadarshiniCost;
 				priyadarshini.contact = 'tel:'+Contact;
 				priyadarshini.First_x_KM = First_x_KM;
+				priyadarshini.app_link = app_link;
+				priyadarshini.Terms_n_Conditions = Terms_n_Conditions;
+				priyadarshini.per_minute_rate = per_minute_rate;
+				priyadarshini.distance = distance;
+				priyadarshini.duration = duration;
+				CostOfDayOrNight = Night_Cost;
+				CostPerKMOfDayOrNight = Night_perKM;
+				WaitingChargesForDayOrNight = Waiting_Charges_Night;
+				priyadarshini.Fleet = Fleet;
 			}
+			priyadarshini.CostOfDayOrNight = CostOfDayOrNight;
+			priyadarshini.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+			priyadarshini.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
+			
 			return priyadarshini;
 	}   
-	function calculateFarecelcabsEconomy(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
+	function calculateFarecelcabsEconomy(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
         var celcabsEconomyCost;
         var celcabsEconomy = {};
-        celcabsEconomy.type = "Cel Cabs Economy";
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
+        celcabsEconomy.type = "CelCabs Economy Indica AC";
         if(distance <= First_x_KM) {
         	celcabsEconomyCost = Day_Cost;
         } else {
@@ -411,12 +732,27 @@ var mumbaiCabs = (function(){
         celcabsEconomy.contact = 'tel:'+Contact;
         celcabsEconomy.cost = celcabsEconomyCost;
 		celcabsEconomy.First_x_KM = First_x_KM;
+		celcabsEconomy.app_link = app_link;
+		celcabsEconomy.Terms_n_Conditions = Terms_n_Conditions;
+		celcabsEconomy.per_minute_rate = per_minute_rate;
+		celcabsEconomy.distance = distance;
+		celcabsEconomy.duration = duration;	
+		CostOfDayOrNight = Day_Cost;
+		CostPerKMOfDayOrNight = Day_perKM;
+		WaitingChargesForDayOrNight = Waiting_Charges_Day;
+		celcabsEconomy.CostOfDayOrNight = CostOfDayOrNight;
+		celcabsEconomy.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		celcabsEconomy.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
+		celcabsEconomy.Fleet = Fleet;
         return celcabsEconomy;    
     }
-	function calculateFarecelcabsComfort(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM) {
+	function calculateFarecelcabsComfort(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet) {
         var celcabsComfortCost;
         var celcabsComfort = {};
-        celcabsComfort.type = "Cel Cabs Comfort";
+		var CostOfDayOrNight;
+		var CostPerKMOfDayOrNight;
+		var WaitingChargesForDayOrNight;
+        celcabsComfort.type = "CelCabs Comfort Indigo,Logan";
         if(distance <= First_x_KM) {
         	celcabsComfortCost = Day_Cost;
         } else {
@@ -427,6 +763,18 @@ var mumbaiCabs = (function(){
         celcabsComfort.contact = 'tel:'+Contact;
         celcabsComfort.cost = celcabsComfortCost;
 		celcabsComfort.First_x_KM = First_x_KM;
+		celcabsComfort.app_link = app_link;
+		celcabsComfort.Terms_n_Conditions = Terms_n_Conditions;
+		celcabsComfort.per_minute_rate = per_minute_rate;
+		celcabsComfort.distance = distance;
+		celcabsComfort.duration = duration;
+		CostOfDayOrNight = Day_Cost;
+		CostPerKMOfDayOrNight = Day_perKM;
+		WaitingChargesForDayOrNight = Waiting_Charges_Day;
+		celcabsComfort.CostOfDayOrNight = CostOfDayOrNight;
+		celcabsComfort.CostPerKMOfDayOrNight = CostPerKMOfDayOrNight;
+		celcabsComfort.WaitingChargesForDayOrNight = WaitingChargesForDayOrNight;
+		celcabsComfort.Fleet = Fleet;
         return celcabsComfort;    
     }
 	function calculateFaresForUberX(distance, duration ) {
@@ -453,7 +801,10 @@ var mumbaiCabs = (function(){
 					//uberX.logo='<img src="images/uber.png"></img>';
 					uberX.cost = uberMinCost;
 					uberX.maxcost = uberMaxCost;
-					uberX.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';					
+					uberX.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';	
+					uberX.distance = distance;
+					uberX.duration = duration;
+					uberX.Terms_n_Conditions = "Uber is not a transportation provider. No need to tip. Applicable tolls, airport charges and surcharges may be added to your fare. Commercial vehicles might attract additional state government taxes, which would be over & above the toll. Cleaning or Repair Fee might be applicable in case of damage to the vehicle. At times of intense demand, our rates change over time to keep vehicles available.";
 			});
 			uberXRequest.fail(function() {
 				//alert("Failed");	
@@ -487,6 +838,9 @@ var mumbaiCabs = (function(){
 					uberBlack.cost = uberMinCost;
 					uberBlack.maxcost = uberMaxCost;
 					uberBlack.contact = 'https://play.google.com/store/apps/details?id=com.ubercab';
+					uberBlack.distance = distance;
+					uberBlack.duration = duration;
+					uberBlack.Terms_n_Conditions = "Uber is not a transportation provider. No need to tip. Applicable tolls, airport charges and surcharges may be added to your fare. Commercial vehicles might attract additional state government taxes, which would be over & above the toll. Cleaning or Repair Fee might be applicable in case of damage to the vehicle. At times of intense demand, our rates change over time to keep vehicles available. ";
 					
 			});
 

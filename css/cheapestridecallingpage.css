@@ -1,0 +1,25 @@
+.ui-table-cell-label{
+			padding-left:0 !important;
+		}
+		#openInAppbtn {
+			position: fixed;
+			line-height:40px !important;
+			bottom: 7%;
+			right:2%;
+			left:2%;	
+		}
+		#callbtn {
+			position: fixed;
+			line-height:40px !important;
+			bottom:0;
+			right:2%;
+			left:2%;	
+		}
+		#uberopenInAppbtn{
+			position: fixed;
+			line-height:40px !important;
+			bottom:0;
+			right:2%;
+			left:2%;	
+		}
+		

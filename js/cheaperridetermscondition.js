@@ -1,36 +1,79 @@
 $(function() {
-	var servicelogo = sessionStorage.getItem("servicelogo");
-	var Service_Type = sessionStorage.getItem("Service_Type");
-	var cost = sessionStorage.getItem("cost");
-	var City = sessionStorage.getItem("City");
-	
-	
+	var logo = sessionStorage.getItem("logo");
+	var serviceType = sessionStorage.getItem("serviceType");
+	var totalCost = sessionStorage.getItem("totalCost");
+	var contact = sessionStorage.getItem("contact");
+	var distance = sessionStorage.getItem("distance");
+	var duration = sessionStorage.getItem("duration");
+	var WaitingChargesForDayOrNight = sessionStorage.getItem("WaitingChargesForDayOrNight");
+	var appLink = sessionStorage.getItem("appLink");
+	var termsNCondition = sessionStorage.getItem("termsNCondition");
+	var Fleet = sessionStorage.getItem("Fleet");
+	if(duration>=60)
+	{
+		var durationhrs = duration / 60;
+		var splithours = durationhrs.toString().split(".");
+		var durationmin  = duration % 60;
+		var duration =  splithours[0] +" " +"Hours" +" "+ durationmin;
+	}
+	else{
+		var duration = duration;
+	}
+	if(serviceType=="Uber X" || serviceType=="Uber Black"){
+		$("#logo").append('<img height="100px" width="100px" src="'+logo+'"/>');
+		$("#serviceType").append('<h2 style="font: 26px QuickSand !important; font-weight: bold !important">'+serviceType+'</h2>');
+		$("#distance").append('<span style="padding: 5px">'+distance+' Km</span>');
+		$("#duration").append('<span style="padding: 5px">'+duration+' Mins</span>');
+		$("#totalCost").append('<span style="padding: 5px">'+totalCost+'</span>');
+		$("#termsNCondition").append('<span style="padding: 5px">'+termsNCondition+'</span>');
+		$("#waitingCharges").hide();
+		$("#availableFleet").hide();
+	}else {
+		
+		$("#logo").append('<img height="100px" width="100px" src="'+logo+'"/>');
+		$("#serviceType").append('<h2 style="font: 26px QuickSand !important; font-weight: bold !important">'+serviceType+'</h2>');
+		$("#distance").append('<span style="padding: 5px">'+distance+' Km</span>');
+		$("#duration").append('<span style="padding: 5px">'+duration+' Mins</span>');
+		$("#totalCost").append('<span style="padding: 5px">'+totalCost+'</span>');
+		$("#WaitingChargesForDayOrNight").append('<span style="padding: 5px">'+WaitingChargesForDayOrNight+' Rs/Min</span>');
+		$("#termsNCondition").append('<span style="padding: 5px">'+termsNCondition+'</span>');
+		$("#Fleet").append('<span style="padding: 5px">'+Fleet+'</span>');
+	}
+	var btnopeninapp = document.createElement("A");
+	btnopeninapp.appendChild(document.createTextNode("Open in App"));
+	btnopeninapp.setAttribute("onClick",'href="'+appLink+'"');
+	btnopeninapp.setAttribute("data-role","button");
+	btnopeninapp.setAttribute("data-inline","false");
+	btnopeninapp.setAttribute("data-corners","false");
+	btnopeninapp.setAttribute("data-theme","f");
+	btnopeninapp.setAttribute("id","openInAppbtn");
 
-	$("#servicelogo").append('<img height="100px" width="100px" src="'+servicelogo+'"/>');
-	$("#Service_Type").append('<h2 style="font: 26px QuickSand !important; font-weight: bold !important">'+Service_Type+'</h2>');
-	$("#cost").append('<span style="padding: 5px">'+cost+'</span>');
-	var env = environment.getEnv();
-	//$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?City="+City+"&Service_Type="+Service_Type+"&method=showTermsNCondition&format=json")
-	$.get("http://localhost/ZiftAPI/api/ziftapi.php?City="+City+"&Service_Type="+Service_Type+"&method=showTermsNCondition&format=json")
-			.done(function (response){
-				$.each(response.showTaxiTermsNCondition, function(index,termsNConditions){			
-					var City = termsNConditions.City;
-					var Service_Type = termsNConditions.Service_Type;
-					var Contact = termsNConditions.Contact;
-					var Day_Cost = termsNConditions.Day_Cost;
-					var Night_Cost = termsNConditions.Night_Cost;
-					var Day_perKM = termsNConditions.Day_perKM;
-					var Night_perKM = termsNConditions.Night_perKM;
-					var Minimum_Rates = termsNConditions.Minimum_Rates;
-					var First_x_KM = termsNConditions.First_x_KM;
-					var per_minute_rate = termsNConditions.per_minute_rate;
-					var Waiting_Charges_Day = termsNConditions.Waiting_Charges_Day;
-					var Waiting_Charges_Night = termsNConditions.Waiting_Charges_Night;
-					var Terms_n_Conditions = termsNConditions.Terms_n_Conditions;
-					
-				});
-			})
-			
+	var btncall = document.createElement("A");
+	btncall.appendChild(document.createTextNode("Call"));
+	btncall.setAttribute("onClick",'href=" tel:'+contact+'"');
+	btncall.setAttribute("data-role","button");
+	btncall.setAttribute("data-inline","false");
+	btncall.setAttribute("data-corners","false");
+	btncall.setAttribute("data-theme","f");
+	btncall.setAttribute("id","callbtn");
 	
+	if(serviceType =="Uber X" || serviceType =="Uber Black" ){ 
+		var btnopeninapp = document.createElement("A");
+		btnopeninapp.appendChild(document.createTextNode("Open in App"));
+		btnopeninapp.setAttribute("onClick",'href="'+contact+'"');
+		btnopeninapp.setAttribute("data-role","button");
+		btnopeninapp.setAttribute("data-inline","false");
+		btnopeninapp.setAttribute("data-corners","false");
+		btnopeninapp.setAttribute("data-theme","f");
+		btnopeninapp.setAttribute("id","uberopenInAppbtn");
+		$('#eventforbtn').append(btnopeninapp).trigger('create');
+	}
+	else if (serviceType === "Cel Cabs Economy" || serviceType === "Cel Cabs Comfort" || serviceType === "Priyadarshini"){
+		$('#eventforbtn').append(btncall).trigger('create');	
+	}
+	else{
+		$('#eventforbtn').append(btncall).trigger('create');
+		$('#eventforbtn').append(btnopeninapp).trigger('create');	
+	}
 	
 });

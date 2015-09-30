@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
   	<link rel="stylesheet" href="css/structure.min.css" />
   	<link rel="stylesheet" href="css/fonteffect.css" />
+	<link rel="stylesheet" href="css/cheapestridecallingpage.css" />
  </head>
  <body>
 	<div data-role="page" id="demo-page">
@@ -20,22 +21,38 @@
 			<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 			<a href="mainindex.html" class="ui-btn-right" data-icon="home" data-iconpos="notext"  data-ajax="false" data-direction="reverse">Home</a> 
 		</div>
-		<div data-role="content">
+		<div data-role="content">			
+			<div id="logo" align="center"></div>
+			<div id="serviceType" align="center"></div>	
+			<div id="detailsInTable">
+				<table style="width:100%;">
+					<tr>
+						<td><b>Tatal Amount <i>(Approx)</i></b></td>
+						<td  id="totalCost"></td>							
+					</tr>
+					<tr>
+						<td><b>Distance</b></td>
+						<td  id="distance"></td>		
+					</tr>
+					<tr>
+						<td><b>Duration</b></td>
+						<td  id="duration"></td>		
+					</tr>
+					<tr id="waitingCharges">
+						<td><b>Waiting Charges </b></td>
+						<td  id="WaitingChargesForDayOrNight"></td>		
+					</tr>
+					<tr id="availableFleet">
+						<td><b>Fleets </b></td>
+						<td  id="Fleet"></td>		
+					</tr>
+				</table>
+			</div id="tnc">
 			<div>
-				<div id="servicelogo" align="center"></div>
-				<div id="Service_Type" align="center"></div>
-				<div id="cost"></div>
-				<div id="contact"></div>
-				
-				<div id="First_x_KM"></div>
-				<div id="per_minute_rate"></div>
-				
-				
-				<div id="eventforbtn">
-					<button id="btnopeninapp" data-theme="f" data-corners="false">Open In App</button>
-					<button id="btncall"data-theme="f" data-corners="false">Call</button>
-				</div>
-				
+				<p><b>Terms And Conditions :-</b> </p>
+				<div id="termsNCondition"></div>
+			</div>
+			<div id="eventforbtn">					
 			</div>
 		</div>
 	</div>

@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "com.couragedigital.zift"
-        versionCode = "4"
+        versionCode = "149"
         version   = "1.0.4">
 
     <name>ZIFT</name>
@@ -13,7 +13,7 @@
         Description
     </description>
 
-    <author href="http://couragedigital.com" email="tanveersure@couragedigital.com">
+    <author href="www.ziftapp.com" email="info@ziftapp.com">
         Courage Digital Team
     </author>
 
@@ -25,7 +25,7 @@
     <preference name="permissions"                value="none"/>
 
     <!-- Customize your app and platform with the preference element. -->
-    <preference name="phonegap-version"           value="3.6.3" />          <!-- all: current version of PhoneGap -->
+    <preference name="phonegap-version"           value="cli-5.2.0" />          <!-- all: current version of PhoneGap -->
     <preference name="orientation"                value="default" />        <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
@@ -37,9 +37,12 @@
     <preference name="exit-on-suspend"            value="false" />          <!-- ios: if set to true, app will terminate when home button is pressed -->
     <preference name="show-splash-screen-spinner" value="true" />           <!-- ios: if set to false, the spinner won't appear on the splash screen during app loading -->
     <preference name="auto-hide-splash-screen"    value="true" />           <!-- ios: if set to false, the splash screen must be hidden using a JavaScript API -->
+    <preference name="deployment-target"          value="7.0" />            <!-- This sets the IPHONEOS_DEPLOYMENT_TARGET in the build, which tranlsates to the MinimumOSVersion in the ipa Propertly List. -->
     <preference name="disable-cursor"             value="false" />          <!-- blackberry: prevents a mouse-icon/cursor from being displayed on the app -->
     <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
+    <preference name="android-targetSdkVersion"   value="11" />             <!-- Corresponds to the usesSdk attributes in the AndroidManifest.xml file -- an integer designating the API Level that the application targets. If not set, the default value equals that given to minSdkVersion. -->
+
 
     <!-- Plugins -->
 
