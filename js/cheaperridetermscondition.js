@@ -46,6 +46,8 @@ $(function() {
 	btnopeninapp.setAttribute("data-inline","false");
 	btnopeninapp.setAttribute("data-corners","false");
 	btnopeninapp.setAttribute("data-theme","f");
+	btnopeninapp.setAttribute("data-icon","action");
+	btnopeninapp.setAttribute("data-iconpos","right");
 	btnopeninapp.setAttribute("id","openInAppbtn");
 
 	var btncall = document.createElement("A");
@@ -55,18 +57,22 @@ $(function() {
 	btncall.setAttribute("data-inline","false");
 	btncall.setAttribute("data-corners","false");
 	btncall.setAttribute("data-theme","f");
+	btncall.setAttribute("data-icon","phone");
+	btncall.setAttribute("data-iconpos","right");
 	btncall.setAttribute("id","callbtn");
 	
 	if(serviceType =="Uber X" || serviceType =="Uber Black" ){ 
-		var btnopeninapp = document.createElement("A");
-		btnopeninapp.appendChild(document.createTextNode("Open in App"));
-		btnopeninapp.setAttribute("onClick",'href="'+contact+'"');
-		btnopeninapp.setAttribute("data-role","button");
-		btnopeninapp.setAttribute("data-inline","false");
-		btnopeninapp.setAttribute("data-corners","false");
-		btnopeninapp.setAttribute("data-theme","f");
-		btnopeninapp.setAttribute("id","uberopenInAppbtn");
-		$('#eventforbtn').append(btnopeninapp).trigger('create');
+		var uberbtnopeninapp = document.createElement("A");
+		uberbtnopeninapp.appendChild(document.createTextNode("Open in App"));
+		uberbtnopeninapp.setAttribute("onClick",'href="'+contact+'"');
+		uberbtnopeninapp.setAttribute("data-role","button");
+		uberbtnopeninapp.setAttribute("data-inline","false");
+		uberbtnopeninapp.setAttribute("data-corners","false");
+		uberbtnopeninapp.setAttribute("data-theme","f");
+		uberbtnopeninapp.setAttribute("data-icon","action");
+		uberbtnopeninapp.setAttribute("data-iconpos","right");
+		uberbtnopeninapp.setAttribute("id","uberopenInAppbtn");
+		$('#eventforbtn').append(uberbtnopeninapp).trigger('create');
 	}
 	else if (serviceType === "Cel Cabs Economy" || serviceType === "Cel Cabs Comfort" || serviceType === "Priyadarshini"){
 		$('#eventforbtn').append(btncall).trigger('create');	
