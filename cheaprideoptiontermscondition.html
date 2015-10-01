@@ -21,10 +21,11 @@
 			<a data-icon="back" data-iconpos="notext" data-rel="back" title="Go back">Back</a>
 			<a href="mainindex.html" class="ui-btn-right" data-icon="home" data-iconpos="notext"  data-ajax="false" data-direction="reverse">Home</a> 
 		</div>
-		<div data-role="content">			
+		<div data-role="content" id="cntnt">			
 			<div id="logo" align="center"></div>
 			<div id="serviceType" align="center"></div>	
 			<div id="detailsInTable">
+				
 				<table style="width:100%;">
 					<tr>
 						<td><b>Tatal Amount <i>(Approx)</i></b></td>
@@ -44,17 +45,18 @@
 					</tr>
 					<tr id="availableFleet">
 						<td><b>Fleets </b></td>
-						<td  id="Fleet"></td>		
+						<td id="Fleet"></td>		
 					</tr>
 				</table>
-			</div id="tnc">
-			<div>
-				<p><b>Terms And Conditions :-</b> </p>
-				<div id="termsNCondition"></div>
+			</div>
+			<div id="tnc" data-role="collapsible" data-collapsed="true" data-theme="f" data-corners="false" data-iconpos="right" >
+				<h2>Terms And Conditions</h2>	
+				<p id="termsNCondition" ></p>
 			</div>
 			<div id="eventforbtn">					
 			</div>
 		</div>
 	</div>
+	
 </body>
 </html>

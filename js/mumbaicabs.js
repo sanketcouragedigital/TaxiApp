@@ -721,7 +721,7 @@ var mumbaiCabs = (function(){
 		var CostOfDayOrNight;
 		var CostPerKMOfDayOrNight;
 		var WaitingChargesForDayOrNight;
-        celcabsEconomy.type = "CelCabs Economy Indica AC";
+        celcabsEconomy.type = "CelCabs Economy";
         if(distance <= First_x_KM) {
         	celcabsEconomyCost = Day_Cost;
         } else {
@@ -752,7 +752,7 @@ var mumbaiCabs = (function(){
 		var CostOfDayOrNight;
 		var CostPerKMOfDayOrNight;
 		var WaitingChargesForDayOrNight;
-        celcabsComfort.type = "CelCabs Comfort Indigo,Logan";
+        celcabsComfort.type = "CelCabs Comfort";
         if(distance <= First_x_KM) {
         	celcabsComfortCost = Day_Cost;
         } else {

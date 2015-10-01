@@ -39,6 +39,7 @@ $(function() {
 		$("#termsNCondition").append('<span style="padding: 5px">'+termsNCondition+'</span>');
 		$("#Fleet").append('<span style="padding: 5px">'+Fleet+'</span>');
 	}
+	
 	var btnopeninapp = document.createElement("A");
 	btnopeninapp.appendChild(document.createTextNode("Open in App"));
 	btnopeninapp.setAttribute("onClick",'href="'+appLink+'"');
@@ -72,14 +73,14 @@ $(function() {
 		uberbtnopeninapp.setAttribute("data-icon","action");
 		uberbtnopeninapp.setAttribute("data-iconpos","right");
 		uberbtnopeninapp.setAttribute("id","uberopenInAppbtn");
+		
 		$('#eventforbtn').append(uberbtnopeninapp).trigger('create');
 	}
-	else if (serviceType === "Cel Cabs Economy" || serviceType === "Cel Cabs Comfort" || serviceType === "Priyadarshini"){
+	else if (serviceType === "CelCabs Economy" || serviceType === "CelCabs Comfort" || serviceType === "Priyadarshini"){
 		$('#eventforbtn').append(btncall).trigger('create');	
 	}
 	else{
 		$('#eventforbtn').append(btncall).trigger('create');
 		$('#eventforbtn').append(btnopeninapp).trigger('create');	
 	}
-	
 });
