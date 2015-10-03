@@ -15,7 +15,7 @@ var mumbaiCabs = (function(){
 			}
 			easyCab.logo=logo;
 			easyCab.cost = easyCabCost;        
-			easyCab.contact = Contact;
+			easyCab.contact ='tel:'+ Contact;
 			easyCab.First_x_KM = First_x_KM;
 			easyCab.per_minute_rate = per_minute_rate;
 			easyCab.app_link = app_link;
@@ -40,7 +40,7 @@ var mumbaiCabs = (function(){
             }
             easyCab.logo=logo;
             easyCab.cost = easyCabCost;        
-            easyCab.contact =  Contact;  
+            easyCab.contact ='tel:'+ Contact;  
 			easyCab.First_x_KM = First_x_KM;
 			easyCab.per_minute_rate = per_minute_rate;
 			easyCab.app_link = app_link;
@@ -107,7 +107,7 @@ var mumbaiCabs = (function(){
         	//olaMiniCost = olaMiniCost.toFixed(2);
         }
 		olaMini.logo=logo;
-		olaMini.contact =  Contact;
+		olaMini.contact ='tel:'+ Contact;
         olaMini.cost = olaMiniCost;
 		olaMini.First_x_KM = First_x_KM;
 		olaMini.per_minute_rate = per_minute_rate;
@@ -140,7 +140,7 @@ var mumbaiCabs = (function(){
         	//olaPrimeCost = olaPrimeCost.toFixed(2);
         }
         olaPrime.logo=logo;
-        olaPrime.contact =  Contact;
+        olaPrime.contact ='tel:'+ Contact;
         olaPrime.cost = olaPrimeCost;
 		olaPrime.First_x_KM = First_x_KM;
 		olaPrime.per_minute_rate = per_minute_rate;
@@ -174,7 +174,7 @@ var mumbaiCabs = (function(){
                 //tabCabCost = tabCabCost.toFixed(2);
             }
             tabCab.logo = logo;
-            tabCab.contact =  Contact;
+            tabCab.contact ='tel:'+ Contact;
             tabCab.cost = tabCabCost;  
 			tabCab.First_x_KM = First_x_KM;	
 			tabCab.app_link = app_link;
@@ -194,7 +194,7 @@ var mumbaiCabs = (function(){
                 //tabCabCost = tabCabCost.toFixed(2);
             }
             tabCab.logo = logo;
-            tabCab.contact =  Contact;
+            tabCab.contact ='tel:'+ Contact;
             tabCab.cost = tabCabCost; 
 			tabCab.First_x_KM = First_x_KM;	
 			tabCab.app_link = app_link;
@@ -227,7 +227,7 @@ var mumbaiCabs = (function(){
                 //tabCabGoldCost = tabCabGoldCost.toFixed(2);
             }
             tabCabGold.logo = logo;
-            tabCabGold.contact =  Contact;
+            tabCabGold.contact ='tel:'+ Contact;
             tabCabGold.cost = tabCabGoldCost;
 			tabCabGold.First_x_KM = First_x_KM;
 			tabCabGold.app_link = app_link;
@@ -247,7 +247,7 @@ var mumbaiCabs = (function(){
                 //tabCabGoldCost = tabCabGoldCost.toFixed(2);
             }
             tabCabGold.logo = logo;
-            tabCabGold.contact =  Contact;
+            tabCabGold.contact ='tel:'+ Contact;
             tabCabGold.cost = tabCabGoldCost; 
 			tabCabGold.First_x_KM = First_x_KM;
 			tabCabGold.app_link = app_link;
@@ -280,7 +280,7 @@ var mumbaiCabs = (function(){
                 //meruCost = meruCost.toFixed(2);
             }
             meru.logo = logo;
-            meru.contact =  Contact;
+            meru.contact ='tel:'+ Contact;
             meru.cost = meruCost;
 			meru.First_x_KM = First_x_KM;
 			meru.app_link = app_link;
@@ -300,7 +300,7 @@ var mumbaiCabs = (function(){
                // meruCost = meruCost.toFixed(2);
             }
             meru.logo = logo;
-            meru.contact =  Contact;
+            meru.contact ='tel:'+ Contact;
             meru.cost = meruCost;
 			meru.First_x_KM = First_x_KM;
 			meru.app_link = app_link;
@@ -335,7 +335,7 @@ var mumbaiCabs = (function(){
 				//tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
 			}
 			tfsHatchBack.logo = logo;
-			tfsHatchBack.contact =  Contact;
+			tfsHatchBack.contact ='tel:'+ Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
 			tfsHatchBack.First_x_KM = First_x_KM;
 			tfsHatchBack.app_link = app_link;
@@ -359,7 +359,7 @@ var mumbaiCabs = (function(){
 				//tfsHatchBackCost = tfsHatchBackCost.toFixed(2);
 			}
 			tfsHatchBack.logo = logo;
-			tfsHatchBack.contact =  Contact;
+			tfsHatchBack.contact ='tel:'+ Contact;
 			tfsHatchBack.cost = tfsHatchBackCost;
 			tfsHatchBack.First_x_KM = First_x_KM;
 			tfsHatchBack.app_link = app_link;
@@ -392,7 +392,7 @@ var mumbaiCabs = (function(){
 				//tfsSedanCost = tfsSedanCost.toFixed(2);
 			}
 			tfsSedan.logo = logo;
-			tfsSedanCost.contact =  Contact;
+			tfsSedanCost.contact ='tel:'+ Contact;
 			tfsSedan.cost = tfsSedanCost;
 			tfsSedan.First_x_KM = First_x_KM;
 			tfsSedan.app_link = app_link;
@@ -415,7 +415,7 @@ var mumbaiCabs = (function(){
 				//tfsSedanCost = tfsSedanCost.toFixed(2);
 			}
 			tfsSedan.logo = logo;
-			tfsSedan.contact =  Contact;
+			tfsSedan.contact ='tel:'+ Contact;
 			tfsSedan.cost = tfsSedanCost;
 			tfsSedan.First_x_KM = First_x_KM;
 			tfsSedan.app_link = app_link;
@@ -448,7 +448,7 @@ var mumbaiCabs = (function(){
 				//tfsEecoCost = tfsEecoCost.toFixed(2);
 			}
 			tfsEeco.logo = logo;
-			tfsEecoCost.contact =  Contact;
+			tfsEecoCost.contact ='tel:'+ Contact;
 			tfsEeco.cost = tfsEecoCost;
 			tfsEeco.First_x_KM = First_x_KM;
 			tfsEeco.app_link = app_link;
@@ -471,7 +471,7 @@ var mumbaiCabs = (function(){
 				//tfsEecoCost = tfsEecoCost.toFixed(2);
 			}
 			tfsEeco.logo = logo;
-			tfsEeco.contact =  Contact;
+			tfsEeco.contact ='tel:'+ Contact;
 			tfsEeco.cost = tfsEecoCost;
 			tfsEeco.First_x_KM = First_x_KM;
 			tfsEeco.app_link = app_link;
@@ -504,7 +504,7 @@ var mumbaiCabs = (function(){
 				//tfsSuvCost = tfsSuvCost.toFixed(2);
 			}
 			tfsSuv.logo = logo;
-			tfsSuv.contact =  Contact;
+			tfsSuv.contact ='tel:'+ Contact;
 			tfsSuv.cost = tfsSuvCost;
 			tfsSuv.First_x_KM = First_x_KM;
 			tfsSuv.app_link = app_link;
@@ -527,7 +527,7 @@ var mumbaiCabs = (function(){
 				//tfsSuvCost = tfsSuvCost.toFixed(2);
 			}
 			tfsSuv.logo = logo;
-			tfsSuv.contact =  Contact;
+			tfsSuv.contact ='tel:'+ Contact;
 			tfsSuv.cost = tfsSuvCost;
 			tfsSuv.First_x_KM = First_x_KM;
 			tfsSuv.app_link = app_link;
@@ -561,7 +561,7 @@ var mumbaiCabs = (function(){
 			}
 				bmcAC.logo=logo;
 				bmcAC.cost = bmcACCost;
-				bmcAC.contact =  Contact;
+				bmcAC.contact ='tel:'+ Contact;
 				bmcAC.First_x_KM = First_x_KM;
 				bmcAC.app_link = app_link;
 				bmcAC.Terms_n_Conditions = Terms_n_Conditions;				
@@ -584,7 +584,7 @@ var mumbaiCabs = (function(){
 				}
 				bmcAC.logo=logo;
 				bmcAC.cost = bmcACCost;
-				bmcAC.contact =  Contact;
+				bmcAC.contact ='tel:'+ Contact;
 				bmcAC.First_x_KM = First_x_KM;
 				bmcAC.app_link = app_link;
 				bmcAC.Terms_n_Conditions = Terms_n_Conditions;
@@ -616,7 +616,7 @@ var mumbaiCabs = (function(){
 				//bmcCost = bmcCost.toFixed(2);
 			}
 				bmcNonAc.logo=logo;
-				bmcNonAc.contact =  Contact;
+				bmcNonAc.contact ='tel:'+ Contact;
 				bmcNonAc.cost = bmcCost;  
 				bmcNonAc.First_x_KM = First_x_KM;
 				bmcNonAc.app_link = app_link;
@@ -641,7 +641,7 @@ var mumbaiCabs = (function(){
 				}
 				bmcNonAc.logo=logo;
 				bmcNonAc.cost = bmcCost;
-				bmcNonAc.contact =  Contact;
+				bmcNonAc.contact ='tel:'+ Contact;
 				bmcNonAc.First_x_KM = First_x_KM;
 				bmcNonAc.app_link = app_link;
 				bmcNonAc.Terms_n_Conditions = Terms_n_Conditions;
@@ -673,7 +673,7 @@ var mumbaiCabs = (function(){
 				//priyadarshiniCost = priyadarshiniCost.toFixed(2);
 			}
 				priyadarshini.logo=logo;
-				priyadarshini.contact =  Contact;
+				priyadarshini.contact ='tel:'+ Contact;
 				priyadarshini.cost = priyadarshiniCost;  
 				priyadarshini.First_x_KM = First_x_KM;				
 				priyadarshini.app_link = app_link;
@@ -697,7 +697,7 @@ var mumbaiCabs = (function(){
 				}
 				priyadarshini.logo=logo;
 				priyadarshini.cost = priyadarshiniCost;
-				priyadarshini.contact =  Contact;
+				priyadarshini.contact ='tel:'+ Contact;
 				priyadarshini.First_x_KM = First_x_KM;
 				priyadarshini.app_link = app_link;
 				priyadarshini.Terms_n_Conditions = Terms_n_Conditions;
@@ -729,7 +729,7 @@ var mumbaiCabs = (function(){
         	//celcabsEconomyCost = celcabsEconomyCost.toFixed(2);
         }
         celcabsEconomy.logo=logo;
-        celcabsEconomy.contact =  Contact;
+        celcabsEconomy.contact ='tel:'+ Contact;
         celcabsEconomy.cost = celcabsEconomyCost;
 		celcabsEconomy.First_x_KM = First_x_KM;
 		celcabsEconomy.app_link = app_link;
@@ -760,7 +760,7 @@ var mumbaiCabs = (function(){
         	//celcabsComfortCost = celcabsComfortCost.toFixed(2);
         }
         celcabsComfort.logo=logo;
-        celcabsComfort.contact =  Contact;
+        celcabsComfort.contact ='tel:'+ Contact;
         celcabsComfort.cost = celcabsComfortCost;
 		celcabsComfort.First_x_KM = First_x_KM;
 		celcabsComfort.app_link = app_link;

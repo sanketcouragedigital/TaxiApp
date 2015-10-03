@@ -9,3 +9,7 @@
 	font-family: QuickSand !important;
 	text-shadow: none !important;
 }
+
+.error {
+    color:red;
+}

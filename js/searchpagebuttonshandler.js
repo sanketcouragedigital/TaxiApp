@@ -1,16 +1,36 @@
 $(function() {
-    $( "#calculateOptions" ).click(function(){
-		var source = $("#source").val();
-		if(source === "Current Location"){
-			sessionStorage.setItem("origin", window.origin);
-		}else{          
-			sessionStorage.setItem("origin",source);
+	$("#travelDetailForm").validate({
+		rules : {
+			source : {
+				required : true
+			},
+			dest : {
+				required : true
+			}
+		},
+		messages : {
+			source : {
+				required : "Please Enter Source."
+			},
+			dest : {
+				required : "Please Enter Destination."
+			}
 		}
-		var destination=$("#dest").val();
-        var timeOfPickup=$("input[name*=radio-choice]:checked").val();
-        sessionStorage.setItem("dest",destination);
-        sessionStorage.setItem("timeOfPickup",timeOfPickup);
-        window.location="cheapestridesearchresults.html";
+	})
+    $( "#calculateOptions" ).click(function(){
+		if($('#source').valid() && $('#dest').valid()) {
+			var source = $("#source").val();
+			if(source === "Current Location"){
+				sessionStorage.setItem("origin", window.origin);
+			}else{          
+				sessionStorage.setItem("origin",source);
+			}
+			var destination=$("#dest").val();
+			var timeOfPickup=$("input[name*=radio-choice]:checked").val();
+			sessionStorage.setItem("dest",destination);
+			sessionStorage.setItem("timeOfPickup",timeOfPickup);
+			window.location="cheapestridesearchresults.html";
+		}
     });
     //When user hits the "user current location option"
 	$("#useCurrentLocation").bind("click", function(event, ui){
