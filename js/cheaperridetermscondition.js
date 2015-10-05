@@ -53,7 +53,7 @@ $(function() {
 
 	var btncall = document.createElement("A");
 	btncall.appendChild(document.createTextNode("Call"));
-	btncall.setAttribute("onClick",'href=" tel:'+contact+'"');
+	btncall.setAttribute("onClick",'href="tel:'+contact+'"');
 	btncall.setAttribute("data-role","button");
 	btncall.setAttribute("data-inline","false");
 	btncall.setAttribute("data-corners","false");

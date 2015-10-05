@@ -13,9 +13,7 @@
 		<script src="js/searchpagebuttonshandler.js"></script>
 		<script src="js/urlenvironment.js"></script>
 		<script src="js/autoComplete.js"></script>
-		<script src="js/jquery-validation-1.13.1/lib/jquery.js"></script>
-		<script src="js/jquery-validation-1.13.1/dist/jquery.validate.js"></script>
-		
+		<script src="js/onfocus.js"></script>
 		<link rel="stylesheet" href="css/structure.min.css" /> 
 		<link rel="stylesheet" type="text/css" href="css/jquery.mobile.flatui.css" />
 		<link rel="stylesheet" href="css/cheaprideoptionstyle.css" />
@@ -49,7 +47,7 @@
 							Choose Pickup Time Between:
 						</legend>
 						<input type="radio" name="radio-choice" id="daytime" value="day" checked="checked" data-theme="a">
-						<label for="daytime"> 6am - 11.59pm</label>
+						<label for="daytime">6am - 11.59pm</label>
 
 						<input type="radio" name="radio-choice" id="nighttime" value="night" data-theme="a">
 						<label for="nighttime">12am - 6am</label>
@@ -59,7 +57,15 @@
 				<div  id="calbtn">
 					<input type="button" value="Calculate" id="calculateOptions" data-theme="f" data-corners="false"/>
 				</div>
-
+				
+				<div data-role="popup" id="dlg-validation" data-dismissible="false" style="max-width:400px;">
+	        		<div role="main" class="ui-content">
+	          			<h3><b>Opps!</b></h3>
+	          			<p>Please Enter Source & Destination!.</p>
+	          			<div class="mc-text-center"><a href="#" id="locationError" data-rel="back" data-ajax="false" class="ui-btn ui-corner-all ui-shadow ui-btn-b">OK</a></div>
+	          		</div>
+	    		</div>
+				
 				<div data-role="popup" id="dlg-location-error" data-dismissible="false" style="max-width:400px;">
 	        		<div role="main" class="ui-content">
 	          			<h3>Sorry something went wrong!</h3>

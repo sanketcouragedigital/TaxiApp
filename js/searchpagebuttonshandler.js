@@ -1,24 +1,11 @@
 $(function() {
-	$("#travelDetailForm").validate({
-		rules : {
-			source : {
-				required : true
-			},
-			dest : {
-				required : true
-			}
-		},
-		messages : {
-			source : {
-				required : "Please Enter Source."
-			},
-			dest : {
-				required : "Please Enter Destination."
-			}
-		}
-	})
     $( "#calculateOptions" ).click(function(){
-		if($('#source').valid() && $('#dest').valid()) {
+		var source = $("#source").val();
+		var destination=$("#dest").val();
+		if(source=="" || destination===""){
+			$("#dlg-validation").popup("open");
+		}
+		else{
 			var source = $("#source").val();
 			if(source === "Current Location"){
 				sessionStorage.setItem("origin", window.origin);
@@ -31,6 +18,7 @@ $(function() {
 			sessionStorage.setItem("timeOfPickup",timeOfPickup);
 			window.location="cheapestridesearchresults.html";
 		}
+		
     });
     //When user hits the "user current location option"
 	$("#useCurrentLocation").bind("click", function(event, ui){

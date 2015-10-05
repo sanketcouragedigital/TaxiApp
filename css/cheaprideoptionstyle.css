@@ -1,9 +1,7 @@
-        #calbtn {
-			position: fixed;
-			bottom: 0;
-			right:2%;
-			left:2%;	
-		}
+       #calbtn{
+		  padding-top :30% !important;
+		   
+	   }
 		input#source, input#dest
 		{
 			border: 0px solid #000000;
