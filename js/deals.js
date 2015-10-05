@@ -12,6 +12,7 @@ $(function() {
 				if(typeof response.showDealsList !== 'undefined' && response.showDealsList.length > 0)
 				{
 					var img="";
+					var env = environment.getEnv();
 					$.each(response.showDealsList, function(index, dealsList){
 						if(dealsList.image_path!=="") {
 							var image_path = dealsList.image_path; 
@@ -23,10 +24,10 @@ $(function() {
 						}
 						
 						if(dealsList.isVerify==true ){
-							img='<img height="15px" width="15px" src="http://www.ziftapp.com/dev/misc_images/verify.png" style="position:relative"></img>';
+							img='<img height="15px" width="15px" src="http://www.ziftapp.com/'+env+'/misc_images/verify.png" style="position:relative"></img>';
 						}
 						else{
-							img='<img height="15px" width="15px" src="http://www.ziftapp.com/dev/misc_images/notverify.png" style="position:relative"></img>';
+							img='<img height="15px" width="15px" src="http://www.ziftapp.com/'+env+'/misc_images/notverify.png" style="position:relative"></img>';
 						}
 						
 						var date = dealsList.validUptoDate;
@@ -37,7 +38,7 @@ $(function() {
 						var validUptoDate = dd+"/"+mm+"/"+yyyy;
 						
 						var listItemHtml = [];
-						listItemHtml[index] ='<li class="list" data-icon="false"><a href="#" class="listAnchor" data-ajax="false"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p style="padding-right: 10px"><strong id="offerShortDescription" style="font: 16px QuickSand !important; ">'+dealsList.offer+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(dealsList.isVerify))+'&nbsp;'+img+'</p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
+						listItemHtml[index] ='<li class="list" data-icon="false"><a href="#" class="listAnchor" data-ajax="false"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/deals_images/'+imageName+'"/><h2 id="offerCompanyName" style="font: 18px QuickSand !important; font-weight: bold !important">'+dealsList.companyName+'</h2><p style="padding-right: 10px"><strong id="offerShortDescription" style="font: 16px QuickSand !important; ">'+dealsList.offer+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(dealsList.isVerify))+'&nbsp;'+img+'</p><p id="offerCode">'+dealsList.offerCode+'</p><p id="offerValidUptoDate">'+validUptoDate+'</p><div id="offerTerms">'+dealsList.offerTerms+'</div></a></li>';
 						$("#dealsList").append(listItemHtml);
 							
 					});

@@ -24,14 +24,14 @@ $(function() {
 						}
 						
 						if(phdList.isVerify==true ){
-							img='<img height="15px" width="15px" src="http://www.ziftapp.com/dev/misc_images/verify.png" style="position:relative"></img>';
+							img='<img height="15px" width="15px" src="http://www.ziftapp.com/'+env+'/misc_images/verify.png" style="position:relative"></img>';
 						}
 						else{
-							img='<img height="15px" width="15px" src="http://www.ziftapp.com/dev/misc_images/notverify.png" style="position:relative"></img>';
+							img='<img height="15px" width="15px" src="http://www.ziftapp.com/'+env+'/misc_images/notverify.png" style="position:relative"></img>';
 						}
 						
 						var listItemHtml;
-						listItemHtml='<li data-icon="phone" class="list"><a href="tel:'+phdList.mobileno+'" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/dev/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(phdList.isVerify))+'&nbsp;'+img+'</p></a></li>';
+						listItemHtml='<li data-icon="phone" class="list"><a href="tel:'+phdList.mobileno+'" class="listAnchor"><img style="padding:5px; padding-top:12px" height="62px" width="80px" src="http://www.ziftapp.com/'+env+'/phd_images/'+imageName+'"/><h6 style="font: 18px QuickSand !important; font-weight: bold !important">'+phdList.serviceName+'</h6><p><strong style="font: 16px QuickSand !important">'+phdList.city+'</strong></p><p style="font: 14px QuickSand !important">'+displayTrueFalseForInt(parseInt(phdList.isVerify))+'&nbsp;'+img+'</p></a></li>';
 						$("#partyHardDriversList").append(listItemHtml);				
 					});
 					$("#partyHardDriversList").listview('refresh');
