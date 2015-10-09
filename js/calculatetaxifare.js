@@ -132,61 +132,76 @@
 					per_minute_rate = parseFloat(per_minute_rate);
 					
 					if(Service_Type == "BookMyCab A/C Cool Cab"){						
-						cabCosts.push(mumbaiCabs.getBookMyCabACFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM, Contact, logo, First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(bookmycabs.getBookMyCabACFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM, Contact, logo, First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "BookMyCab Kali Peeli"){
-						cabCosts.push(mumbaiCabs.getBookMyCabNonACFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(bookmycabs.getBookMyCabNonACFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "EasyCabs"){
-						cabCosts.push(mumbaiCabs.getEasyCabsFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));						
+						cabCosts.push(easycabs.getEasyCabsFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));						
 					}
 					else if(Service_Type == "Meru"){						
-						cabCosts.push(mumbaiCabs.getMeruCabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));					
+						cabCosts.push(merucabs.getMeruCabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));					
 					}
 					else if(Service_Type == "TabCab"){
-						cabCosts.push(mumbaiCabs.getTabCabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));			
+						cabCosts.push(tabcabs.getTabCabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));			
 					}
 					else if(Service_Type == "TabCab Gold"){
-						cabCosts.push(mumbaiCabs.getTabCabGoldFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));			
+						cabCosts.push(tabcabs.getTabCabGoldFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));			
 					}
 					else if(Service_Type == "Taxi For Sure Hatchback"){
-						cabCosts.push(mumbaiCabs.getTaxiForSureHatchBackFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(taxiforsurecabs.getTaxiForSureHatchBackFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Taxi For Sure Sedan"){
-						cabCosts.push(mumbaiCabs.getTaxiForSureSedanFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(taxiforsurecabs.getTaxiForSureSedanFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Taxi For Sure SUV"){
-						cabCosts.push(mumbaiCabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(taxiforsurecabs.getTaxiForSureSUVFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Taxi For Sure Eeco"){
-						cabCosts.push(mumbaiCabs.getTaxiForSureEecoFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(taxiforsurecabs.getTaxiForSureEecoFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+					}
+					else if(Service_Type == "Taxi For Sure Nano"){
+						cabCosts.push(taxiforsurecabs.getTaxiForSureNanoFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Ola Mini"){
-						cabCosts.push(mumbaiCabs.getOlaMiniFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(olacabs.getOlaMiniFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Ola Prime"){
-						cabCosts.push(mumbaiCabs.getOlaPrimeFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(olacabs.getOlaPrimeFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Ola Economy Sedan"){
-						cabCosts.push(mumbaiCabs.getOlaSedanFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(olacabs.getOlaSedanFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Priyadarshini"){
-						cabCosts.push(mumbaiCabs.getPriyadarshiniFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(priyadarshiniabs.getPriyadarshiniFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Cel Cabs Comfort"){
-						cabCosts.push(mumbaiCabs.getcelcabsComfort(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(celcabs.getcelcabsComfortFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 					else if(Service_Type == "Cel Cabs Economy"){
-						cabCosts.push(mumbaiCabs.getcelcabsEconomy(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+						cabCosts.push(celcabs.getcelcabsEconomyFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+					}
+					else if(Service_Type == "Cel Cabs SUV"){
+						cabCosts.push(celcabs.getcelcabsSUVFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+					}
+					else if(Service_Type == "Cel Cabs Standard"){
+						cabCosts.push(celcabs.getcelcabsStandardFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+					}
+					else if(Service_Type == "Mega Cab"){
+						cabCosts.push(megacabs.getmegacabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
+					}
+					else if(Service_Type == "Genie Cab"){
+						cabCosts.push(geniecabs.getgeniecabFare(distance, duration, timeOfPickup, Day_Cost, Day_perKM, Night_Cost, Night_perKM,Contact,logo,First_x_KM, per_minute_rate, Waiting_Charges_Day, Waiting_Charges_Night, app_link,Terms_n_Conditions,Fleet));
 					}
 				});
 				
-				uberX = mumbaiCabs.getUberXFare(distance, duration);
+				uberX = ubercabs.getUberXFare(distance, duration);
 				if(uberX.cost) {
 					cabCosts.push(uberX);
 				}
 				
-				uberBlack = mumbaiCabs.getUberBlackFare(distance, duration);
+				uberBlack = ubercabs.getUberBlackFare(distance, duration);
 				if(uberBlack.cost) {
 					cabCosts.push(uberBlack);
 				}

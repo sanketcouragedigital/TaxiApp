@@ -1,4 +1,21 @@
 $(function() {
+	
+	var env = environment.getEnv();
+	$.get("http://www.ziftapp.com/"+env+"/api/ziftapi.php?method=indexPageCity&format=json")
+		.done(function (response){
+			var select=document.getElementById("selectCity");
+			$.each(response.loadCityList,function (index,loadCity){
+				var loadCityObj=loadCity;
+				var city=loadCity.city
+				var option=document.createElement('option');
+				option.text=option.value=city;
+				select.add(option);
+			});
+		})
+	.fail(function (){   
+        // $("#dlg-laod-error").popup("open"); 
+	});
+	
 	$("#selectCity").on("change",function(){
 		var selectedCity=$("#selectCity").val();
 		sessionStorage.setItem("City",selectedCity);

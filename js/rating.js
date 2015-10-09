@@ -1,5 +1,10 @@
+ 
  $(function () {
-    
+	var logo = sessionStorage.getItem("logo");
+	var serviceType = sessionStorage.getItem("serviceType");
+	$("#logo").append('<img height="100px" width="100px" src="'+logo+'"/>');
+	$("#serviceType").append('<h2 style="font: 26px QuickSand !important; font-weight: bold !important">'+serviceType+'</h2>');
+	
 	$("#scriptRating").igRating({
 		value: 3
 	});
@@ -9,9 +14,9 @@
 		if(comment === "") {
 			comment = "N/A";
 		}
-		var serviceName = $("#serviceName").val();		
+				
 		var data = {
-			"serviceName" : serviceName,
+			"serviceName" : serviceType,
 			"ratingNumber" : ratingValue,
 			"comment" : comment,			
 			"method" : "userReview",
