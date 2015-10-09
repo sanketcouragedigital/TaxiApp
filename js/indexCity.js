@@ -6,7 +6,7 @@ $(function() {
 			var select=document.getElementById("selectCity");
 			$.each(response.loadCityList,function (index,loadCity){
 				var loadCityObj=loadCity;
-				var city=loadCity.city
+				var city=loadCity.City
 				var option=document.createElement('option');
 				option.text=option.value=city;
 				select.add(option);
